@@ -9,8 +9,8 @@ module.exports = async (client, interaction, args) => {
      let days = daysleft + 1
 
  client.embed({
-         title: `🎄・Christmas`,
-         desc: `${days} days until Christmas`,
+         title: `🎄・Karácsony`,
+         desc: `${days} nap van hátra karácsonyig`,
      type: 'editreply'
  }, interaction)
 }

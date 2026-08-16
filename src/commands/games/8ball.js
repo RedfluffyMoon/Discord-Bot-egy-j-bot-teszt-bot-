@@ -5,35 +5,35 @@ module.exports = async (client, interaction, args) => {
     const question = interaction.options.getString('question');
 
     var antwoorden = [
-        "Yes!",
-        "Unfortunately not",
-        "You are absolutely right!",
-        "No, sorry.",
-        "I agree",
-        "No idea!",
-        "I am not that smart ..",
-        "My sources say no!",
-        "It is certain",
-        "You can rely on it",
-        "Probably not",
-        "Everything points to a no",
-        "No doubt",
-        "Absolutely",
-        "I do not know"
+        "Igen!",
+        "Sajnos nem",
+        "Teljesen igazad van!",
+        "Nem, sajnálom.",
+        "Egyetértek",
+        "Fogalmam sincs!",
+        "Nem vagyok annyira okos ..",
+        "A forrásaim szerint nem!",
+        "Ez biztos",
+        "Számíthatsz rá",
+        "Valószínűleg nem",
+        "Minden egy nemre utal",
+        "Kétség sem fér hozzá",
+        "Egyértelműen",
+        "Nem tudom"
     ];
     var resultaat = Math.floor((Math.random() * antwoorden.length));
 
     client.embed({
         title: `${client.emotes.normal.ball}・8ball`,
-        desc: `See the answer on your question!`,
+        desc: `Íme a válasz a kérdésedre!`,
         fields: [
             {
-                name: `💬┆Your Question`,
+                name: `💬┆A Kérdésed`,
                 value: `\`\`\`${question}\`\`\``,
                 inline: false
             },
             {
-                name: `🤖┆Bot Answer`,
+                name: `🤖┆Bot Válasza`,
                 value: `\`\`\`${antwoorden[resultaat]}\`\`\``,
                 inline: false
             }

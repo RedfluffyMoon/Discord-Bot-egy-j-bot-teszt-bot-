@@ -6,67 +6,69 @@ module.exports = async (client, interaction, args) => {
     let options = ["rock", "paper", "scissors"];
     const result = options[Math.floor(Math.random() * options.length)];
 
+    const names = { rock: "kő", paper: "papír", scissors: "olló" };
+    const resultName = names[result];
+
     switch (option) {
         case "rock":
             if (result == "paper") return client.embed({
-                title: `${client.emotes.normal.paper}・Rock paper scissors`,
-                desc: `I have ${result}, I win!`,
+                title: `${client.emotes.normal.paper}・Kő-papír-olló`,
+                desc: `Nekem ${resultName} van, nyertem!`,
                 type: 'editreply'
             }, interaction);
 
             if (result == "scissors") return client.embed({
-                title: `${client.emotes.normal.paper}・Rock paper scissors`,
-                desc: `I have ${result}, You win!`,
+                title: `${client.emotes.normal.paper}・Kő-papír-olló`,
+                desc: `Nekem ${resultName} van, te nyertél!`,
                 type: 'editreply'
             }, interaction);
 
             if (result == "rock") return client.embed({
-                title: `${client.emotes.normal.paper}・Rock paper scissors`,
-                desc: `I have ${result}, It's a draw!`,
+                title: `${client.emotes.normal.paper}・Kő-papír-olló`,
+                desc: `Nekem ${resultName} van, döntetlen!`,
                 type: 'editreply'
             }, interaction);
             break;
 
         case "paper":
             if (result == "paper") return client.embed({
-                title: `${client.emotes.normal.paper}・Rock paper scissors`,
-                desc: `I have ${result}, It's a draw!`,
+                title: `${client.emotes.normal.paper}・Kő-papír-olló`,
+                desc: `Nekem ${resultName} van, döntetlen!`,
                 type: 'editreply'
             }, interaction);
 
             if (result == "scissors") return client.embed({
-                title: `${client.emotes.normal.paper}・Rock paper scissors`,
-                desc: `I have ${result}, I win!`,
+                title: `${client.emotes.normal.paper}・Kő-papír-olló`,
+                desc: `Nekem ${resultName} van, nyertem!`,
                 type: 'editreply'
             }, interaction);
 
             if (result == "rock") return client.embed({
-                title: `${client.emotes.normal.paper}・Rock paper scissors`,
-                desc: `I have ${result}, You win!`,
+                title: `${client.emotes.normal.paper}・Kő-papír-olló`,
+                desc: `Nekem ${resultName} van, te nyertél!`,
                 type: 'editreply'
             }, interaction);
             break;
 
         case "scissors":
             if (result == "paper") return client.embed({
-                title: `${client.emotes.normal.paper}・Rock paper scissors`,
-                desc: `I have ${result}, You win!`,
+                title: `${client.emotes.normal.paper}・Kő-papír-olló`,
+                desc: `Nekem ${resultName} van, te nyertél!`,
                 type: 'editreply'
             }, interaction);
 
             if (result == "scissors") return client.embed({
-                title: `${client.emotes.normal.paper}・Rock paper scissors`,
-                desc: `I have ${result}, It's a draw!`,
+                title: `${client.emotes.normal.paper}・Kő-papír-olló`,
+                desc: `Nekem ${resultName} van, döntetlen!`,
                 type: 'editreply'
             }, interaction);
 
             if (result == "rock") return client.embed({
-                title: `${client.emotes.normal.paper}・Rock paper scissors`,
-                desc: `I have ${result}, I win!`,
+                title: `${client.emotes.normal.paper}・Kő-papír-olló`,
+                desc: `Nekem ${resultName} van, nyertem!`,
                 type: 'editreply'
             }, interaction);
             break;
     }
 }
 
- 

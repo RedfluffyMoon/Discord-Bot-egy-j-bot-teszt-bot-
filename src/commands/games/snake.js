@@ -166,13 +166,13 @@ module.exports = async (client, interaction, args) => {
             .setStyle(Discord.ButtonStyle.Primary)
             .setCustomId(id5);
         stopy = new Discord.ButtonBuilder()
-            .setLabel("Cancel")
+            .setLabel("Mégse")
             .setStyle(Discord.ButtonStyle.Danger)
             .setCustomId(id6);
 
 
         client.embed({
-            title: `🐍・Snake`,
+            title: `🐍・Kígyó`,
             desc: gameBoardToString(),
             components: [
                 {
@@ -226,14 +226,14 @@ module.exports = async (client, interaction, args) => {
             .setCustomId(id5)
             .setDisabled(true);
         stopy = new Discord.ButtonBuilder()
-            .setLabel("Cancel")
+            .setLabel("Mégse")
             .setStyle(Discord.ButtonStyle.Danger)
             .setCustomId(id6)
             .setDisabled(true);
 
         client.embed({
-            title: `🐍・Snake`,
-            desc: `GG, you scored **${score}** points!`,
+            title: `🐍・Kígyó`,
+            desc: `GG, **${score}** pontot értél el!`,
             components: [
                 {
                     type: 1,
@@ -282,12 +282,12 @@ module.exports = async (client, interaction, args) => {
         .setStyle(Discord.ButtonStyle.Primary)
         .setCustomId(id5);
     stopy = new Discord.ButtonBuilder()
-        .setLabel("Cancel")
+        .setLabel("Mégse")
         .setStyle(Discord.ButtonStyle.Danger)
         .setCustomId(id6);
 
     client.embed({
-        title: `🐍・Snake`,
+        title: `🐍・Kígyó`,
         desc: gameBoardToString(),
         components: [
             {

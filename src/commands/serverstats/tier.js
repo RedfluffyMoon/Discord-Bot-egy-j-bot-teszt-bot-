@@ -12,7 +12,7 @@ module.exports = async (client, interaction, args) => {
 
     var channelName = await client.getTemplate(interaction.guild);
     channelName = channelName.replace(`{emoji}`, "🥇")
-    channelName = channelName.replace(`{name}`, `Tier: ${tier[interaction.guild.premiumTier] || '0'}`)
+    channelName = channelName.replace(`{name}`, `Szint: ${tier[interaction.guild.premiumTier] || '0'}`)
 
     await interaction.guild.channels.create({
         name: channelName,
@@ -37,10 +37,10 @@ module.exports = async (client, interaction, args) => {
         })
 
         client.succNormal({
-            text: `Tier count created!`,
+            text: `Szint számláló létrehozva!`,
             fields: [
                 {
-                    name: `📘┆Channel`,
+                    name: `📘┆Csatorna`,
                     value: `${channel}`
                 }
             ],

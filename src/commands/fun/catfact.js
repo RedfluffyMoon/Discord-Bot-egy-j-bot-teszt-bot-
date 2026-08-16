@@ -9,7 +9,7 @@ module.exports = async (client, interaction, args) => {
         .then((res) => res.json()).catch({})
         .then(async (json) => {
             client.embed({
-                title: `💡・Random cat fact`,
+                title: `💡・Véletlenszerű macska tény`,
                 desc: json.fact,
                 type: 'editreply',
             }, interaction);

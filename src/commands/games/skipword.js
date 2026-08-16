@@ -15,21 +15,21 @@ module.exports = async (client, interaction, args) => {
                 data.Word = word;
                 data.save();
 
-                client.succNormal({ 
-                    text: `Word skipped successfully!`,
+                client.succNormal({
+                    text: `Szó sikeresen átugorva!`,
                     type: 'ephemeral'
                 }, interaction);
 
-                return client.embed({ 
-                    title: `💬・Guess the word`, 
-                    desc: `Put the letters in the right position! \n\n🔀 ${shuffled.toLowerCase()}`,
+                return client.embed({
+                    title: `💬・Találd ki a szót`,
+                    desc: `Rakd a betűket a megfelelő helyre! \n\n🔀 ${shuffled.toLowerCase()}`,
                 }, interaction.channel)
             }
             catch { }
         }
         else {
             client.errNormal({
-                error: "You are not in the right channel!",
+                error: "Nem a megfelelő csatornában vagy!",
                 type: 'editreply'
             }, interaction)
         }
