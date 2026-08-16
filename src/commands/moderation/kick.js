@@ -9,24 +9,24 @@ module.exports = async (client, interaction, args) => {
   if (perms == false) return;
 
   const member = await interaction.guild.members.fetch(interaction.options.getUser('user').id);
-  const reason = interaction.options.getString('reason') || 'Not given';
+  const reason = interaction.options.getString('reason') || 'Nincs megadva';
 
   if (member.permissions.has(Discord.PermissionsBitField.Flags.KickMembers) || member.permissions.has(Discord.PermissionsBitField.Flags.KickMembers)) return client.errNormal({
-    error: "You can't kick a moderator",
+    error: "Moderátort nem rúghatsz ki",
     type: 'editreply'
   }, interaction);
 
   client.embed({
-    title: `🔨・Kick`,
-    desc: `You've been kicked in **${interaction.guild.name}**`,
+    title: `🔨・Kirúgás`,
+    desc: `Ki lettél rúgva innen: **${interaction.guild.name}**`,
     fields: [
       {
-        name: "👤┆Kicked by",
+        name: "👤┆Kirúgta",
         value: interaction.user.tag,
         inline: true
       },
       {
-        name: "💬┆Reason",
+        name: "💬┆Indok",
         value: reason,
         inline: true
       }
@@ -34,15 +34,15 @@ module.exports = async (client, interaction, args) => {
   }, member).then(function () {
     member.kick(reason)
     client.succNormal({
-      text: "The specified user has been successfully kicked and successfully received a notification!",
+      text: "A megadott felhasználó sikeresen ki lett rúgva, és sikeresen értesítést is kapott róla!",
       fields: [
         {
-          name: "👤┆Kicked user",
+          name: "👤┆Kirúgott felhasználó",
           value: member.user.tag,
           inline: true
         },
         {
-          name: "💬┆Reason",
+          name: "💬┆Indok",
           value: reason,
           inline: true
         }
@@ -52,7 +52,7 @@ module.exports = async (client, interaction, args) => {
   }).catch(function () {
     member.kick(reason)
     client.succNormal({
-      text: "The given user has been successfully kicked, but has not received a notification!",
+      text: "A megadott felhasználó sikeresen ki lett rúgva, de nem kapott róla értesítést!",
       type: 'editreply'
     }, interaction);
   });

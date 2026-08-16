@@ -14,7 +14,7 @@ module.exports = async (client, interaction, args) => {
         );
 
         client.embed({
-            title: `Channel Nuked by **${interaction.user.tag}**`,
+            title: `A csatornát ledarálta **${interaction.user.tag}**`,
             image: `https://i.imgur.com/Da7ScU4.gif`
         }, channel)
     })

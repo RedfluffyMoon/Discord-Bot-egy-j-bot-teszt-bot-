@@ -8,18 +8,18 @@ module.exports = async (client, interaction, args) => {
     fetch(`http://www.anagramica.com/all/${encodeURIComponent(word)}`).then((res) => res.json()).catch({})
         .then(async (json) => {
             let content = ``;
-            if (!json.all[0]) return client.errNormal({ error: "No word found!", type: 'editreply' }, interaction)
+            if (!json.all[0]) return client.errNormal({ error: "Nem található szó!", type: 'editreply' }, interaction)
 
             json.all.forEach(i => {
                 content += `${i}\n`;
             });
 
             client.embed({
-                title: `❓・Anagram`,
-                desc: `I formed a word with the given letters`,
+                title: `❓・Anagramma`,
+                desc: `Szót alkottam a megadott betűkből`,
                 fields: [
                     {
-                        name: `💬┇Word(s)`,
+                        name: `💬┇Szó(k)`,
                         value: content
                     }
                 ],

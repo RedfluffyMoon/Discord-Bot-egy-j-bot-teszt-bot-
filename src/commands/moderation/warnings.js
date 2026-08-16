@@ -10,7 +10,7 @@ module.exports = async (client, interaction, args) => {
 
     if (perms == false) {
         client.errNormal({
-            error: "You don't have the required permissions to use this command!",
+            error: "Nincs jogosultságod ennek a parancsnak a használatához!",
             type: 'editreply'
         }, interaction);
         return;
@@ -24,17 +24,17 @@ module.exports = async (client, interaction, args) => {
             var fields = [];
             data.Warnings.forEach(element => {
                 fields.push({
-                    name: "Warning **" + element.Case + "**",
-                    value: "Reason: " + element.Reason + "\nModerator <@!" + element.Moderator + ">",
+                    name: "Figyelmeztetés **" + element.Case + "**",
+                    value: "Indok: " + element.Reason + "\nModerátor <@!" + element.Moderator + ">",
                     inline: true
                 })
             });
             client.embed({
-                title: `${client.emotes.normal.error}・Warnings`,
-                desc: `The warnings of **${member.tag}**`,
+                title: `${client.emotes.normal.error}・Figyelmeztetések`,
+                desc: `**${member.tag}** figyelmeztetései`,
                 fields: [
                     {
-                        name: "Total",
+                        name: "Összesen",
                         value: `${data.Warnings.length}`,
                     },
                     ...fields
@@ -44,8 +44,8 @@ module.exports = async (client, interaction, args) => {
         }
         else {
             client.embed({
-                title: `${client.emotes.normal.error}・Warnings`,
-                desc: `User ${member.user.tag} has no warnings!`,
+                title: `${client.emotes.normal.error}・Figyelmeztetések`,
+                desc: `${member.user.tag} felhasználónak nincs figyelmeztetése!`,
                 type: 'editreply'
             }, interaction)
         }

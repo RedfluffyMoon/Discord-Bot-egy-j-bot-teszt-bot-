@@ -9,18 +9,18 @@ module.exports = async (client, interaction, args) => {
         numbers: true
     });
 
-    client.succNormal({ text: `I have generate a password and have it sent to your DM`, type: 'editreply' }, interaction);
+    client.succNormal({ text: `Generáltam egy jelszót és elküldtem privát üzenetben`, type: 'editreply' }, interaction);
 
     client.succNormal({
-        text: `Your generated password`,
+        text: `A generált jelszavad`,
         fields: [
             {
-                name: "🔑┇Password",
+                name: "🔑┇Jelszó",
                 value: `${password}`,
                 inline: true,
             },
             {
-                name: "👣┇Length",
+                name: "👣┇Hossz",
                 value: `12`,
                 inline: true,
             }

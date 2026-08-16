@@ -14,16 +14,16 @@ module.exports = async (client, interaction, args) => {
             },
         ],
         {
-            title: '💻・Random Code',
-            description: 'This is code was uploaded via Bot',
+            title: '💻・Véletlenszerű kód',
+            description: 'Ezt a kódot a Bot töltötte fel',
         },
     ).then(value => {
         client.succNormal({
-            text: `Your code has been posted!`,
+            text: `A kódod közzétéve!`,
             fields: [
                 {
                     name: `🔗┇Link`,
-                    value: `[Click here to see your code](${value.url})`,
+                    value: `[Kattints ide a kódod megtekintéséhez](${value.url})`,
                     inline: true,
                 }
             ],

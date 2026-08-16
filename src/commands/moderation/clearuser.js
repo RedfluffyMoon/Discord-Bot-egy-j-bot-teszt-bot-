@@ -16,10 +16,10 @@ module.exports = async (client, interaction, args) => {
             let userMessages = messages.filter((m) => m.author.id === member.id);
             await channel.bulkDelete(userMessages).then(() => {
                 client.succNormal({
-                    text: `I have successfully deleted the messages`,
+                    text: `Sikeresen töröltem az üzeneteket`,
                     fields: [
                         {
-                            name: "👤┆User",
+                            name: "👤┆Felhasználó",
                             value: `${member} (${member.tag})`,
                             inline: true
                         }
@@ -34,10 +34,10 @@ module.exports = async (client, interaction, args) => {
 
     interaction.channel.bulkDelete(amount + 1).then(() => {
         client.succNormal({
-            text: `I have successfully deleted the messages`,
+            text: `Sikeresen töröltem az üzeneteket`,
             fields: [
                 {
-                    name: "💬┆Amount",
+                    name: "💬┆Mennyiség",
                     value: amount,
                     inline: true
                 }
@@ -48,7 +48,7 @@ module.exports = async (client, interaction, args) => {
         }, 5000));
     }).catch(err => {
         client.errNormal({
-            error: "There was an error trying to delete messages in this channel!",
+            error: "Hiba történt az üzenetek törlése közben ebben a csatornában!",
             type: 'editreply'
         }, interaction);
     });

@@ -9,24 +9,24 @@ module.exports = async (client, interaction, args) => {
   if (perms == false) return;
 
   const member = await interaction.guild.members.fetch(interaction.options.getUser('user').id);
-  const reason = interaction.options.getString('reason') || 'Not given';
+  const reason = interaction.options.getString('reason') || 'Nincs megadva';
 
   if (member.permissions.has(Discord.PermissionsBitField.Flags.BanMembers) || member.permissions.has(Discord.PermissionsBitField.Flags.BanMembers)) return client.errNormal({
-    error: "You can't ban a moderator",
+    error: "Moderátort nem tilthatsz ki",
     type: 'editreply'
   }, interaction);
 
   client.embed({
-    title: `🔨・Ban`,
-    desc: `You've been banned in **${interaction.guild.name}**`,
+    title: `🔨・Kitiltás`,
+    desc: `Ki lettél tiltva innen: **${interaction.guild.name}**`,
     fields: [
       {
-        name: "👤┆Banned by",
+        name: "👤┆Kitiltotta",
         value: interaction.user.tag,
         inline: true
       },
       {
-        name: "💬┆Reason",
+        name: "💬┆Indok",
         value: reason,
         inline: true
       }
@@ -34,15 +34,15 @@ module.exports = async (client, interaction, args) => {
   }, member).then(function () {
     member.ban({ reason: reason })
     client.succNormal({
-      text: "The specified user has been successfully banned and successfully received a notification!",
+      text: "A megadott felhasználó sikeresen ki lett tiltva, és sikeresen értesítést is kapott róla!",
       fields: [
         {
-          name: "👤┆Banned user",
+          name: "👤┆Kitiltott felhasználó",
           value: member.user.tag,
           inline: true
         },
         {
-          name: "💬┆Reason",
+          name: "💬┆Indok",
           value: reason,
           inline: true
         }
@@ -52,7 +52,7 @@ module.exports = async (client, interaction, args) => {
   }).catch(function () {
     member.ban({ reason: reason })
     client.succNormal({
-      text: "The given user has been successfully banned, but has not received a notification!",
+      text: "A megadott felhasználó sikeresen ki lett tiltva, de nem kapott róla értesítést!",
       type: 'editreply'
     }, interaction);
   });

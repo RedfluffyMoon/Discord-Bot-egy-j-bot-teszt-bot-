@@ -11,7 +11,7 @@ module.exports = async (client, interaction, args) => {
         .then((res) => res.json()).catch({})
         .then(async (json) => {
 
-            if (!json.players) return client.errNormal({ error: "Can't find the server!", type: 'editreply' }, interaction)
+            if (!json.players) return client.errNormal({ error: "Nem található a szerver!", type: 'editreply' }, interaction)
 
             return client.embed({
                 title: `📁・${ip}`,
@@ -22,12 +22,12 @@ module.exports = async (client, interaction, args) => {
                     inline: true,
                 },
                 {
-                    name: "🏷️┇Version",
+                    name: "🏷️┇Verzió",
                     value: `${json.version}`,
                     inline: true,
                 },
                 {
-                    name: "👤┇Players online",
+                    name: "👤┇Játékosok online",
                     value: `${json.players.online}/${json.players.max}`,
                     inline: true,
                 },

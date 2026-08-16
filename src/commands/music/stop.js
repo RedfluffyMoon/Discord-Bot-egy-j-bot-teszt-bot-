@@ -5,24 +5,24 @@ module.exports = async (client, interaction, args) => {
 
     const channel = interaction.member.voice.channel;
     if (!channel) return client.errNormal({
-        error: `You're not in a voice channel!`,
+        error: `Nem vagy hangcsatornában!`,
         type: 'editreply'
     }, interaction);
 
     if (player && (channel.id !== player?.voiceChannel)) return client.errNormal({
-        error: `You're not in the same voice channel!`,
+        error: `Nem vagy ugyanabban a hangcsatornában!`,
         type: 'editreply'
     }, interaction);
 
     if (!player || !player.queue.current) return client.errNormal({
-        error: "There are no songs playing in this server",
+        error: "Nincs lejátszott zene ezen a szerveren",
         type: 'editreply'
     }, interaction);
 
     player.destroy()
 
-    client.succNormal({ 
-        text: `Stopped the music!`, 
+    client.succNormal({
+        text: `A zene leállítva!`,
         type: 'editreply'
     }, interaction);
 }

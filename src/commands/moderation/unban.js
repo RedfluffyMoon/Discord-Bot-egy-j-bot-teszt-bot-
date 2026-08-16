@@ -11,10 +11,10 @@ module.exports = async (client, interaction, args) => {
   interaction.guild.members.unban(interaction.options.getString('user')).then(async function () {
     var member = await interaction.guild.members.cache.get(interaction.options.getString('user'));
     client.succNormal({
-      text: "The specified user has been successfully unbanned!",
+      text: "A megadott felhasználó kitiltása sikeresen fel lett oldva!",
       fields: [
         {
-          name: "👤┆User",
+          name: "👤┆Felhasználó",
           value: member ? member.user.tag : interaction.options.getString('user'),
           inline: true
         }
@@ -23,7 +23,7 @@ module.exports = async (client, interaction, args) => {
     }, interaction);
   }).catch(function (e) {
     return client.errNormal({
-      error: `I could not find the user!`,
+      error: `Nem találtam a felhasználót!`,
       type: 'editreply'
     }, interaction);
   });

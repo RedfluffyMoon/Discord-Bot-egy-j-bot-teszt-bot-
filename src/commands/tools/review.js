@@ -4,10 +4,10 @@ const Schema = require("../../database/models/reviewChannels");
 
 module.exports = async (client, interaction, args) => {
     const stars = interaction.options.getNumber('stars');
-    const message = interaction.options.getString('message') || 'Not given';
+    const message = interaction.options.getString('message') || 'Nincs megadva';
 
     if (stars < 1 || stars > 5) return client.errNormal({
-        error: `Stars must be a minimum of 1 and a maximum of 5`,
+        error: `A csillagok száma legalább 1, legfeljebb 5 lehet`,
         type: 'editreply'
     }, interaction)
 
@@ -15,25 +15,25 @@ module.exports = async (client, interaction, args) => {
         if (data) {
             const channel = interaction.member.guild.channels.cache.get(data.Channel);
             if (!channel) return  client.errNormal({
-                error: `No review channel set! Do \`reviewchannel\``,
+                error: `Nincs beállítva értékelési csatorna! Használd a \`reviewchannel\` parancsot`,
                 type: 'editreply'
             }, interaction);
-            
+
             let totalStars = "";
             for (let i = 0; i < stars; i++) {
                 totalStars += ":star:";
             }
 
             client.succNormal({
-                text: "Your review has been successfully submitted",
+                text: "Az értékelésed sikeresen elküldve",
                 fields: [
                     {
-                        name: `⭐┇Stars`,
+                        name: `⭐┇Csillagok`,
                         value: `${stars}`,
                         inline: true
                     },
                     {
-                        name: `📘┇Channel`,
+                        name: `📘┇Csatorna`,
                         value: `<#${data.Channel}>`,
                         inline: true
                     }
@@ -42,16 +42,16 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
 
             client.embed({
-                title: `Review・${interaction.user.tag}`,
-                desc: `A new review has been written!`,
+                title: `Értékelés・${interaction.user.tag}`,
+                desc: `Egy új értékelés érkezett!`,
                 fields: [
                     {
-                        name: "Stars",
+                        name: "Csillagok",
                         value: `${totalStars}`,
                         inline: true,
                     },
                     {
-                        name: "Note",
+                        name: "Megjegyzés",
                         value: `${message}`,
                         inline: true,
                     },
@@ -61,7 +61,7 @@ module.exports = async (client, interaction, args) => {
         }
         else {
             client.errNormal({
-                error: `No review channel set! Do \`reviewchannel\``,
+                error: `Nincs beállítva értékelési csatorna! Használd a \`reviewchannel\` parancsot`,
                 type: 'editreply'
             }, interaction)
         }

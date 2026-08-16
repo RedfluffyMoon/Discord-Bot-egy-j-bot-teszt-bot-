@@ -11,21 +11,21 @@ module.exports = async (client, interaction, args) => {
     const amount = interaction.options.getNumber('amount');
 
     if (amount > 100) return client.errNormal({
-        error: "I cannot delete more than 100 messages at a time!",
+        error: "Nem tudok egyszerre 100-nál több üzenetet törölni!",
         type: 'editreply'
     }, interaction);
 
     if (amount < 1) return client.errNormal({
-        error: "I cannot delete less than 1 message!",
+        error: "Nem tudok 1-nél kevesebb üzenetet törölni!",
         type: 'editreply'
     }, interaction);
 
     interaction.channel.bulkDelete(amount + 1).then(() => {
         client.succNormal({
-            text: `I have successfully deleted the messages`,
+            text: `Sikeresen töröltem az üzeneteket`,
             fields: [
                 {
-                    name: "💬┆Amount",
+                    name: "💬┆Mennyiség",
                     value: `${amount}`,
                     inline: true
                 }
@@ -34,7 +34,7 @@ module.exports = async (client, interaction, args) => {
         }, interaction)
     }).catch(err => {
         client.errNormal({
-            error: "There was an error trying to delete messages in this channel!",
+            error: "Hiba történt az üzenetek törlése közben ebben a csatornában!",
             type: 'editreply'
         }, interaction);
     });

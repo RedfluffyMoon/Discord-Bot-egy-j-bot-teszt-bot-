@@ -15,10 +15,10 @@ module.exports = async (client, interaction, args) => {
     });
 
     client.succNormal({
-        text: "Channel unlocked successfully!",
+        text: "A csatorna sikeresen feloldva!",
         fields: [
             {
-                name: `📘┆Channel`,
+                name: `📘┆Csatorna`,
                 value: `${channel} (${channel.name})`
             }
         ],
