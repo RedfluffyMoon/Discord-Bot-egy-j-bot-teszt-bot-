@@ -41,9 +41,9 @@ module.exports = {
             flags: [Discord.PermissionsBitField.Flags.Connect, Discord.PermissionsBitField.Flags.Speak],
             perms: [Discord.PermissionsBitField.Flags.Connect, Discord.PermissionsBitField.Flags.Speak]
         }, interaction)
-        if (!interaction.member.voice.channel) return client.errNormal({ 
-            error: `You're not in a voice channel!`, 
-            type: 'editreply' 
+        if (!interaction.member.voice.channel) return client.errNormal({
+            error: `Nem vagy hangcsatornában!`,
+            type: 'editreply'
         }, interaction);
 
         client.loadSubcommands(client, interaction, args);

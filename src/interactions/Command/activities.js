@@ -38,9 +38,9 @@ module.exports = {
         const activity = interaction.options.getString('activity');
 
         const channel = interaction.member.voice.channel;
-        if (!channel) return client.errNormal({ 
-            error: `You're not in a voice channel!`, 
-            type: 'editreply' 
+        if (!channel) return client.errNormal({
+            error: `Nem vagy hangcsatornában!`,
+            type: 'editreply'
         }, interaction);
 
         if (activity == "betrayal") {
