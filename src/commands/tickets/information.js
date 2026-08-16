@@ -12,7 +12,7 @@ module.exports = async (client, interaction, args) => {
 
                     if (ticketCategory == undefined) {
                         return client.errNormal({
-                            error: "Do the setup!",
+                            error: "Végezd el a beállítást!",
                             type: 'editreply'
                         }, interaction);
                     }
@@ -20,37 +20,37 @@ module.exports = async (client, interaction, args) => {
                     if (interaction.channel.parentId == ticketCategory.id) {
 
                         client.embed({
-                            desc: `${client.emotes.animated.loading}・Loading information...`,
+                            desc: `${client.emotes.animated.loading}・Információk betöltése...`,
                             type: 'editreply'
                         }, interaction).then((msg) => {
 
                             client.transcript(interaction, interaction.channel);
 
                             return client.embed({
-                                title: `ℹ・Information`,
+                                title: `ℹ・Információ`,
                                 fields: [
                                     {
-                                        name: "Ticket name",
+                                        name: "Ticket neve",
                                         value: `\`${interaction.channel.name}\``,
                                         inline: true,
                                     },
                                     {
-                                        name: "Channel id",
+                                        name: "Csatorna azonosító",
                                         value: `\`${interaction.channel.id}\``,
                                         inline: true,
                                     },
                                     {
-                                        name: "Creator",
+                                        name: "Létrehozta",
                                         value: `<@!${ticketData.creator}>`,
                                         inline: true,
                                     },
                                     {
-                                        name: "Claimed by",
+                                        name: "Lefoglalta",
                                         value: `<@!${ticketData.claimed}>`,
                                         inline: true,
                                     },
                                     {
-                                        name: "Ticket id",
+                                        name: "Ticket azonosító",
                                         value: `${ticketData.TicketID}`,
                                         inline: true,
                                     },
@@ -61,15 +61,15 @@ module.exports = async (client, interaction, args) => {
 
                     }
                     else {
-                        client.errNormal({ 
-                            error: "This is not a ticket!", 
+                        client.errNormal({
+                            error: "Ez nem egy ticket!",
                             type: 'editreply'
                         }, interaction);
                     }
                 }
                 else {
-                    return client.errNormal({ 
-                        error: "Do the setup!", 
+                    return client.errNormal({
+                        error: "Végezd el a beállítást!",
                         type: 'editreply'
                     }, interaction);
                 }

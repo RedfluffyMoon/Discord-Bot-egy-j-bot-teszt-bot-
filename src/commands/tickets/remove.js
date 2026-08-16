@@ -18,7 +18,7 @@ module.exports = async (client, interaction, args) => {
         const ticketCategory = interaction.guild.channels.cache.get(data.Category);
         if (ticketCategory == undefined) {
             return client.errNormal({
-                error: "Do the ticket setup!",
+                error: "Végezd el a ticket beállítását!",
                 type: 'editreply'
             }, interaction)
         }
@@ -26,22 +26,22 @@ module.exports = async (client, interaction, args) => {
         if (interaction.channel.parentId == ticketCategory.id) {
             let user = interaction.options.getUser('user');
             if (ticketData && user.id == ticketData.creator) {
-                return client.errNormal({ 
-                    error: "You cannot remove the ticket maker from this ticket", 
-                    type: 'ephemeraledit' 
+                return client.errNormal({
+                    error: "Nem távolíthatod el a ticket létrehozóját ebből a ticketből",
+                    type: 'ephemeraledit'
                 }, interaction)
             }
 
             interaction.channel.permissionOverwrites.edit(user.id, { ViewChannel: false, SendMessages: false });
 
             return client.simpleEmbed({
-                desc: `Removed ${user}`,
+                desc: `${user} eltávolítva`,
                 type: 'editreply'
             }, interaction)
         }
         else {
-            client.errNormal({ 
-                error: "This is not a ticket!", 
+            client.errNormal({
+                error: "Ez nem egy ticket!",
                 type: 'editreply' 
             }, interaction)
         }

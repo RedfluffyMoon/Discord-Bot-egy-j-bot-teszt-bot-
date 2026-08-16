@@ -4,10 +4,10 @@ module.exports = async (client, interaction, args) => {
     const image = interaction.options.getString('image-url');
     const channel = interaction.options.getChannel('channel');
 
-    if (!channel) return client.errNormal({ error: `Channel not found`, type: 'editreply' }, interaction)
+    if (!channel) return client.errNormal({ error: `Csatorna nem található`, type: 'editreply' }, interaction)
 
     client.succNormal({
-        text: `The image was succesfully send to ${channel}`,
+        text: `A kép sikeresen elküldve ide: ${channel}`,
         type: 'editreply'
     }, interaction)
 

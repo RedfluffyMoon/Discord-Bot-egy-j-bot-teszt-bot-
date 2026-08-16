@@ -15,12 +15,12 @@ module.exports = async (client, interaction, args) => {
         if (data) {
             if (interaction.isCommand()) {
                 return client.errNormal({
-                    error: "Ticket limit reached. 1/1",
+                    error: "Elérted a ticket limitet. 1/1",
                     type: 'ephemeraledit'
                 }, interaction);
             }
             else return client.errNormal({
-                error: "Ticket limit reached. 1/1",
+                error: "Elérted a ticket limitet. 1/1",
                 type: 'ephemeral'
             }, interaction);
         }
@@ -33,7 +33,7 @@ module.exports = async (client, interaction, args) => {
                     let role = interaction.guild.roles.cache.find(r => r.id === ticketRole.id);
 
                     try {
-                        var openTicket = "Thanks for creating a ticket! \nSupport will be with you shortly \n\n🔒 - Close ticket \n✋ - Claim ticket \n📝 - Save transcript \n🔔 - Send a notification";
+                        var openTicket = "Köszönjük, hogy ticketet nyitottál! \nA support hamarosan jelentkezik \n\n🔒 - Ticket lezárása \n✋ - Ticket lefoglalása \n📝 - Átirat mentése \n🔔 - Értesítés küldése";
                         let ticketMessageData = await ticketMessageConfig.findOne({ Guild: interaction.guild.id });
                         if (ticketMessageData) {
                             openTicket = ticketMessageData.openTicket;
@@ -63,8 +63,8 @@ module.exports = async (client, interaction, args) => {
                             );
 
                         client.embed({
-                            title: `${client.emotes.animated.loading}・Progress`,
-                            desc: `Your ticket is being created...`,
+                            title: `${client.emotes.animated.loading}・Folyamatban`,
+                            desc: `A ticketed létrehozása folyamatban...`,
                             type: 'ephemeral'
                         }, interaction).then((msg) => {
 
@@ -79,7 +79,7 @@ module.exports = async (client, interaction, args) => {
 
                             if (ticketCategory == undefined) {
                                 return client.errNormal({
-                                    error: "Do the setup!",
+                                    error: "Végezd el a beállítást!",
                                     type: type
                                 }, interaction);
                             }
@@ -116,21 +116,21 @@ module.exports = async (client, interaction, args) => {
                                     parent: category.id
                                 }).then(async channel => {
                                     client.embed({
-                                        title: `⚙️・System`,
-                                        desc: `Ticket has been created`,
+                                        title: `⚙️・Rendszer`,
+                                        desc: `A ticket létrejött`,
                                         fields: [
                                             {
-                                                name: "👤┆Creator",
+                                                name: "👤┆Létrehozta",
                                                 value: `${interaction.user}`,
                                                 inline: true
                                             },
                                             {
-                                                name: "📂┆Channel",
+                                                name: "📂┆Csatorna",
                                                 value: `${channel}`,
                                                 inline: true
                                             },
                                             {
-                                                name: "⏰┆Created at",
+                                                name: "⏰┆Létrehozva",
                                                 value: `<t:${(Date.now() / 1000).toFixed(0)}:f>`,
                                                 inline: true
                                             }
@@ -148,21 +148,21 @@ module.exports = async (client, interaction, args) => {
 
                                     if (logsChannel) {
                                         client.embed({
-                                            title: `📝・Open ticket`,
-                                            desc: `A new ticket has been created`,
+                                            title: `📝・Ticket megnyitva`,
+                                            desc: `Egy új ticket jött létre`,
                                             fields: [
                                                 {
-                                                    name: "👤┆Creator",
+                                                    name: "👤┆Létrehozta",
                                                     value: `${interaction.user.tag} (${interaction.user.id})`,
                                                     inline: false
                                                 },
                                                 {
-                                                    name: "📂┆Channel",
-                                                    value: `${channel.name} is found at ${channel}`,
+                                                    name: "📂┆Csatorna",
+                                                    value: `${channel.name} itt található: ${channel}`,
                                                     inline: false
                                                 },
                                                 {
-                                                    name: "⏰┆Created at",
+                                                    name: "⏰┆Létrehozva",
                                                     value: `<t:${(Date.now() / 1000).toFixed(0)}:F>`,
                                                     inline: false
                                                 }
@@ -174,17 +174,17 @@ module.exports = async (client, interaction, args) => {
                                         desc: openTicket,
                                         fields: [
                                             {
-                                                name: "👤┆Creator",
+                                                name: "👤┆Létrehozta",
                                                 value: `${interaction.user}`,
                                                 inline: true
                                             },
                                             {
-                                                name: "📄┆Subject",
+                                                name: "📄┆Tárgy",
                                                 value: `${reason}`,
                                                 inline: true
                                             },
                                             {
-                                                name: "⏰┆Created at",
+                                                name: "⏰┆Létrehozva",
                                                 value: `<t:${(Date.now() / 1000).toFixed(0)}:F>`,
                                                 inline: true
                                             }
@@ -200,7 +200,7 @@ module.exports = async (client, interaction, args) => {
                     }
                     catch (err) {
                         client.errNormal({
-                            error: "Do the setup!",
+                            error: "Végezd el a beállítást!",
                             type: type
                         }, interaction);
                         console.log(err);
@@ -208,7 +208,7 @@ module.exports = async (client, interaction, args) => {
                 }
                 else {
                     return client.errNormal({
-                        error: "Do the setup!",
+                        error: "Végezd el a beállítást!",
                         type: type
                     }, interaction);
                 }
