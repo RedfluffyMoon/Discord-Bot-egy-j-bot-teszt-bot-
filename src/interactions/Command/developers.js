@@ -89,7 +89,7 @@ module.exports = {
                 client.loadSubcommands(client, interaction, args);
             } else {
                 return client.errNormal({
-                    error: 'Only Bot developers are allowed to do this',
+                    error: 'Csak a Bot fejlesztői tehetik ezt meg',
                     type: 'ephemeral'
                 }, interaction)
             }

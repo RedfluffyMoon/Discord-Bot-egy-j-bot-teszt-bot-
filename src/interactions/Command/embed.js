@@ -35,60 +35,60 @@ module.exports = {
     let row = new Discord.ActionRowBuilder().addComponents(
       new Discord.StringSelectMenuBuilder()
         .setCustomId("embedSelect")
-        .setPlaceholder("Nothing selected")
+        .setPlaceholder("Nincs kiválasztva")
         .addOptions([
           {
             emoji: "✏️",
-            label: "Title",
-            description: "Create a embed title",
+            label: "Cím",
+            description: "Embed cím létrehozása",
             value: "title_embed",
           },
           {
             emoji: "💬",
-            label: "Description",
-            description: "Create a embed description",
+            label: "Leírás",
+            description: "Embed leírás létrehozása",
             value: "description_embed",
           },
           {
             emoji: "🕵️",
-            label: "Author",
-            description: "Create a embed author",
+            label: "Szerző",
+            description: "Embed szerző létrehozása",
             value: "author_embed",
           },
           {
             emoji: "🔻",
-            label: "Footer",
-            description: "Create a embed footer",
+            label: "Lábléc",
+            description: "Embed lábléc létrehozása",
             value: "footer_embed",
           },
           {
             emoji: "🔳",
-            label: "Thumbnail",
-            description: "Create a embed thumbnail",
+            label: "Indexkép",
+            description: "Embed indexkép létrehozása",
             value: "thumbnail_embed",
           },
           {
             emoji: "🕙",
-            label: "Timestamp",
-            description: "Create a embed timestamp",
+            label: "Időbélyeg",
+            description: "Embed időbélyeg létrehozása",
             value: "timestamp_embed",
           },
           {
             emoji: "🖼️",
-            label: "Image",
-            description: "Create a embed image",
+            label: "Kép",
+            description: "Embed kép létrehozása",
             value: "image_embed",
           },
           {
             emoji: "🌐",
             label: "URL",
-            description: "Create a embed url",
+            description: "Embed URL létrehozása",
             value: "url_embed",
           },
           {
             emoji: "🔵",
-            label: "Color",
-            description: "Create a embed color",
+            label: "Szín",
+            description: "Embed szín létrehozása",
             value: "color_embed",
           },
         ])
@@ -98,12 +98,12 @@ module.exports = {
       new Discord.ButtonBuilder()
         .setCustomId("send_embed")
         .setEmoji("✅")
-        .setLabel("Send embed")
+        .setLabel("Embed küldése")
         .setStyle(Discord.ButtonStyle.Success)
     );
 
     let embed = new Discord.EmbedBuilder().setDescription(
-      `Please select some options`
+      `Válassz néhány opciót`
     );
 
     interaction.editReply({ embeds: [embed], components: [row, row2] });
@@ -119,7 +119,7 @@ module.exports = {
 
         if (i.values == "title_embed") {
           interaction.channel
-            .send({ content: "Please enter a title" })
+            .send({ content: "Add meg a címet" })
             .then((message) => {
               const filterMessage = (m) =>
                 m.author.id === interaction.user.id && !m.author.bot;
@@ -142,7 +142,7 @@ module.exports = {
 
         if (i.values == "description_embed") {
           interaction.channel
-            .send({ content: "Please enter a description" })
+            .send({ content: "Add meg a leírást" })
             .then((message) => {
               const filterMessage = (m) =>
                 m.author.id === interaction.user.id && !m.author.bot;
@@ -165,7 +165,7 @@ module.exports = {
 
         if (i.values == "author_embed") {
           interaction.channel
-            .send({ content: "Please enter a author" })
+            .send({ content: "Add meg a szerzőt" })
             .then((message) => {
               const filterMessage = (m) =>
                 m.author.id === interaction.user.id && !m.author.bot;
@@ -191,7 +191,7 @@ module.exports = {
 
         if (i.values == "footer_embed") {
           interaction.channel
-            .send({ content: "Please enter a footer" })
+            .send({ content: "Add meg a láblécet" })
             .then((message) => {
               const filterMessage = (m) =>
                 m.author.id === interaction.user.id && !m.author.bot;
@@ -216,7 +216,7 @@ module.exports = {
 
         if (i.values == "thumbnail_embed") {
           interaction.channel
-            .send({ content: "Please enter a thumbnail" })
+            .send({ content: "Add meg az indexkép linkjét" })
             .then((message) => {
               const filterMessage = (m) =>
                 m.author.id === interaction.user.id && !m.author.bot;
@@ -236,7 +236,7 @@ module.exports = {
                     !collected.first().content.includes("https://")
                   )
                     return interaction.channel.send({
-                      content: "Incorrect thumbnail link!",
+                      content: "Hibás indexkép link!",
                     });
                   embed.setThumbnail(`${collected.first().content}`);
                   await interaction.editReply({ embeds: [embed] });
@@ -251,7 +251,7 @@ module.exports = {
 
         if (i.values == "image_embed") {
           interaction.channel
-            .send({ content: "Please enter a image" })
+            .send({ content: "Add meg a kép linkjét" })
             .then((message) => {
               const filterMessage = (m) =>
                 m.author.id === interaction.user.id && !m.author.bot;
@@ -271,7 +271,7 @@ module.exports = {
                     !collected.first().content.includes("https://")
                   )
                     return interaction.channel.send({
-                      content: "Incorrect image link!",
+                      content: "Hibás kép link!",
                     });
                   embed.setImage(`${collected.first().content}`);
                   await interaction.editReply({ embeds: [embed] });
@@ -281,7 +281,7 @@ module.exports = {
 
         if (i.values == "url_embed") {
           interaction.channel
-            .send({ content: "Please enter a url" })
+            .send({ content: "Add meg az URL-t" })
             .then((message) => {
               const filterMessage = (m) =>
                 m.author.id === interaction.user.id && !m.author.bot;
@@ -301,7 +301,7 @@ module.exports = {
                     !collected.first().content.includes("https://")
                   )
                     return interaction.channel.send({
-                      content: "Incorrect url!",
+                      content: "Hibás URL!",
                     });
                   embed.setURL(`${collected.first().content}`);
                   await interaction.editReply({ embeds: [embed] });
@@ -311,7 +311,7 @@ module.exports = {
 
         if (i.values == "color_embed") {
           interaction.channel
-            .send({ content: "Please enter a color. e.g. #FF0000" })
+            .send({ content: "Add meg a színt. pl. #FF0000" })
             .then((message) => {
               const filterMessage = (m) =>
                 m.author.id === interaction.user.id && !m.author.bot;
@@ -336,7 +336,7 @@ module.exports = {
         const channel = interaction.options.getChannel("channel");
         if (!channel)
           return client.errNormal(
-            { error: `Channel not found` },
+            { error: `A csatorna nem található` },
             collected.first().channel
           );
 
@@ -350,7 +350,7 @@ module.exports = {
 
             client.succNormal(
               {
-                text: `Embed successfully sent in ${channel}`,
+                text: `Az embed sikeresen elküldve ide: ${channel}`,
                 components: [],
                 type: "editreply",
               },

@@ -21,29 +21,29 @@ module.exports = {
             .addComponents(
                 new Discord.StringSelectMenuBuilder()
                     .setCustomId('Bot-helppanel')
-                    .setPlaceholder('❌┆Nothing selected')
+                    .setPlaceholder('❌┆Nincs kiválasztva')
                     .addOptions([
                         {
-                            label: `Commands`,
-                            description: `Show the commands of Bot!`,
+                            label: `Parancsok`,
+                            description: `A Bot parancsainak megjelenítése!`,
                             emoji: "💻",
                             value: "commands-Bothelp",
                         },
                         {
-                            label: `Invite`,
-                            description: `Invite Bot to your server`,
+                            label: `Meghívás`,
+                            description: `A Bot meghívása a szerveredre`,
                             emoji: "📨",
                             value: "invite-Bothelp",
                         },
                         {
-                            label: `Support server`,
-                            description: `Join the suppport server`,
+                            label: `Támogatói szerver`,
+                            description: `Csatlakozz a támogatói szerverhez`,
                             emoji: "❓",
                             value: "support-Bothelp",
                         },
                         {
-                            label: `Changelogs`,
-                            description: `Show the bot changelogs`,
+                            label: `Changelogok`,
+                            description: `A bot changelogjainak megjelenítése`,
                             emoji: "📃",
                             value: "changelogs-Bothelp",
                         },
@@ -51,21 +51,21 @@ module.exports = {
             );
 
         return client.embed({
-            title: `❓・Help panel`,
-            desc: `Welcome to Bot's help panel! We have made a small overview to help you! Make a choice via the menu below`,
+            title: `❓・Súgó panel`,
+            desc: `Üdvözlünk a Bot súgó paneljén! Készítettünk egy kis áttekintést, hogy segítsünk! Válassz az alábbi menüből`,
             image: "https://cdn.discordapp.com/attachments/843487478881976381/874694194474668052/Bot_banner_invite.jpg",
             fields: [
                 {
-                    name: `❌┆Menu doesn't work?`,
-                    value: `Try resending the command. If you get no reaction, make sure you report the bug!`
+                    name: `❌┆Nem működik a menü?`,
+                    value: `Próbáld újraküldeni a parancsot. Ha nem kapsz reakciót, mindenképp jelentsd a hibát!`
                 },
                 {
-                    name: `🪲┆Found a bug?`,
-                    value: `Report this with \`/report bug\``
+                    name: `🪲┆Hibát találtál?`,
+                    value: `Jelentsd a \`/report bug\` paranccsal`
                 },
                 {
-                    name: `🔗┆Links`,
-                    value: `[Website](https://corwindev.nl/) | [Invite](${client.config.discord.botInvite}) | [Vote](https://top.gg/bot/798144456528363550/vote)`
+                    name: `🔗┆Linkek`,
+                    value: `[Weboldal](https://corwindev.nl/) | [Meghívás](${client.config.discord.botInvite}) | [Szavazás](https://top.gg/bot/798144456528363550/vote)`
                 },
             ],
             components: [row],
