@@ -5,23 +5,23 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('thanks')
-        .setDescription('Get an overview of the thanks system')
+        .setDescription('Áttekintés a köszönetrendszerről')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the thanks category commands')
+                .setDescription('Információ a thanks kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('check')
-                .setDescription('See your thanks')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                .setDescription('Köszöneteid megtekintése')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('thanks')
-                .setDescription('Thanks a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                .setDescription('Köszönet mondása egy felhasználónak')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
         )
     ,
 

@@ -6,7 +6,7 @@ const Schema = require("../../database/models/warnings");
 
 module.exports = {
     data: new ContextMenuCommandBuilder()
-        .setName('Unwarn')
+        .setName('Figyelmeztetés visszavonása')
         .setType(2),
 
     /** 

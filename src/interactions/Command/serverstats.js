@@ -5,84 +5,84 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('serverstats')
-        .setDescription('Manage the server stats')
+        .setDescription('A szerverstatisztikák kezelése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the server stats category commands')
+                .setDescription('Információ a serverstats kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('boosts')
-                .setDescription('Keep track of the boost count')
+                .setDescription('A boostok számának nyomon követése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('tier')
-                .setDescription('Keep track of the boost tier count')
+                .setDescription('A boost szint nyomon követése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('channels')
-                .setDescription('Keep track of the channel count')
+                .setDescription('A csatornák számának nyomon követése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('stage-channels')
-                .setDescription('Keep track of the stage channel count')
+                .setDescription('A stage csatornák számának nyomon követése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('text-channels')
-                .setDescription('Keep track of the text channel count')
+                .setDescription('A szöveges csatornák számának nyomon követése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('voice-channels')
-                .setDescription('Keep track of the voice channel count')
+                .setDescription('A hangcsatornák számának nyomon követése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('news-channels')
-                .setDescription('Keep track of the news channel count')
+                .setDescription('A hírcsatornák számának nyomon követése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('members')
-                .setDescription('Keep track of the member count')
+                .setDescription('A tagok számának nyomon követése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('bots')
-                .setDescription('Keep track of the bots count')
+                .setDescription('A botok számának nyomon követése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('roles')
-                .setDescription('Keep track of the role count')
+                .setDescription('A szerepkörök számának nyomon követése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('emoji')
-                .setDescription('Keep track of the emoji\'s count')
+                .setDescription('Az emojik számának nyomon követése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('static-emoji')
-                .setDescription('Keep track of the static emoji\'s count')
+                .setDescription('A statikus emojik számának nyomon követése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('animated-emoji')
-                .setDescription('Keep track of the animated emoji\'s count')
+                .setDescription('Az animált emojik számának nyomon követése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('time')
-                .setDescription('Keep track of your current time zone')
+                .setDescription('Az aktuális időzónád nyomon követése')
                 .addStringOption(option =>
                     option.setName('timezone')
-                        .setDescription('The timezone you want to set (e.g. Europe/Amsterdam)')
+                        .setDescription('A beállítani kívánt időzóna (pl. Europe/Amsterdam)')
                         .setRequired(true)
                 )
         )

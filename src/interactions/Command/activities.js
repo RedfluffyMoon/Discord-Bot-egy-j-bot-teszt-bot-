@@ -5,10 +5,10 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('activities')
-        .setDescription('Start a activity')
+        .setDescription('Egy aktivitás indítása')
         .addStringOption(option =>
             option.setName('activity')
-                .setDescription('The activity that you want')
+                .setDescription('A kívánt aktivitás')
                 .setRequired(true)
                 .addChoices(
                     { name: 'Betrayal.io', value: 'betrayal' },

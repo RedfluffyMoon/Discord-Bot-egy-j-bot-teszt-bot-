@@ -5,67 +5,67 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('bot')
-        .setDescription('Information about the bot')
+        .setDescription('Információ a botról')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the bot category commands')
+                .setDescription('Információ a bot kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('info')
-                .setDescription('Get information about the bot')
+                .setDescription('Információ a botról')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('ping')
-                .setDescription('See the bots ping in ms')
+                .setDescription('A bot pingjének lekérése ms-ban')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('changelogs')
-                .setDescription('Get the changelogs of the bot')
+                .setDescription('A bot változásnaplójának lekérése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('donate')
-                .setDescription('Get the Bot donate link')
+                .setDescription('A Bot adományozási linkjének lekérése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('links')
-                .setDescription('Get a message with all the Bot links')
+                .setDescription('Egy üzenet az összes Bot linkkel')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('owner')
-                .setDescription('Get info about the owner')
+                .setDescription('Információ a tulajdonosról')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('socials')
-                .setDescription('Get the Bot socials')
+                .setDescription('A Bot közösségi médiás elérhetőségei')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('support')
-                .setDescription('Get an invite of the support server')
+                .setDescription('Meghívó a támogató szerverhez')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('uptime')
-                .setDescription('Show the bot uptime')
+                .setDescription('A bot üzemidejének megjelenítése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('vote')
-                .setDescription('See if you have voted')
+                .setDescription('Megnézheted, szavaztál-e már')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('feedback')
-                .setDescription('Send your opinion about the bot to the developers')
-                .addStringOption(option => option.setName("feedback").setDescription("Your feedback").setRequired(true))
+                .setDescription('Küldd el a véleményedet a botról a fejlesztőknek')
+                .addStringOption(option => option.setName("feedback").setDescription("A visszajelzésed").setRequired(true))
         ),
 
     /** 

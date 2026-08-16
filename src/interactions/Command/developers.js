@@ -7,56 +7,56 @@ const model = require('../../database/models/badge');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('developers')
-        .setDescription('Commands for the Bot developers')
+        .setDescription('Parancsok a Bot fejlesztői számára')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the developers category commands')
+                .setDescription('Információ a developers kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('eval')
-                .setDescription('Get the result of a piece of code')
-                .addStringOption(option => option.setName('code').setDescription('Your code').setRequired(true))
+                .setDescription('Egy kódrészlet eredményének lekérése')
+                .addStringOption(option => option.setName('code').setDescription('A kódod').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('badge')
-                .setDescription('Manage the bot badges')
-                .addBooleanOption(option => option.setName('new').setDescription('Select a boolean').setRequired(true))
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addStringOption(option => option.setName('badge').setDescription('Choose your badge').setRequired(true))
+                .setDescription('A bot jelvényeinek kezelése')
+                .addBooleanOption(option => option.setName('new').setDescription('Válassz egy igen/nem értéket').setRequired(true))
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addStringOption(option => option.setName('badge').setDescription('Válaszd ki a jelvényt').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('ban')
-                .setDescription('Manage the bot bans')
-                .addBooleanOption(option => option.setName('new').setDescription('Select a boolean').setRequired(true))
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                .setDescription('A bot tiltásainak kezelése')
+                .addBooleanOption(option => option.setName('new').setDescription('Válassz egy igen/nem értéket').setRequired(true))
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('credits')
-                .setDescription('Manage the bot credits')
+                .setDescription('A bot kreditjeinek kezelése')
                 .addStringOption(option =>
                     option.setName('type')
-                        .setDescription('The type of credits')
+                        .setDescription('A kredit típusa')
                         .setRequired(true)
                         .addChoices(
-                            { name: 'Add', value: 'add' },
-                            { name: 'Remove', value: 'remove' }
+                            { name: 'Hozzáadás', value: 'add' },
+                            { name: 'Eltávolítás', value: 'remove' }
                         )
                 )
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('amount').setDescription('Amount of credits').setRequired(true))
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addNumberOption(option => option.setName('amount').setDescription('A kreditek mennyisége').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('args')
-                .setDescription('Post preset messages')
+                .setDescription('Előre elkészített üzenetek küldése')
                 .addStringOption(option =>
                     option.setName('message')
-                        .setDescription('Select a message')
+                        .setDescription('Válassz egy üzenetet')
                         .setRequired(true)
                         .addChoices(
                             { name: 'Information', value: 'information' },
@@ -72,7 +72,7 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('servers')
-                .setDescription('See all servers from this shard')
+                .setDescription('Az ehhez a shardhoz tartozó összes szerver megtekintése')
         )
     ,
 

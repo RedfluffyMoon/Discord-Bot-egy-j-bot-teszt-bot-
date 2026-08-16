@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('invite')
-        .setDescription('Get an invite to the bot'),
+        .setDescription('Meghívó a bothoz'),
 
     /** 
      * @param {Client} client

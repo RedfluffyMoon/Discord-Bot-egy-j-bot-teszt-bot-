@@ -6,70 +6,70 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('config')
-        .setDescription('Adjust the bot to your taste')
+        .setDescription('A bot beállítása az igényeidnek megfelelően')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the config category commands')
+                .setDescription('Információ a config kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('levels')
-                .setDescription('Enable/disable levels')
-                .addBooleanOption(option => option.setName('boolean').setDescription('Select a boolean').setRequired(true))
+                .setDescription('A szintrendszer be- vagy kikapcsolása')
+                .addBooleanOption(option => option.setName('boolean').setDescription('Válassz egy igen/nem értéket').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('setcolor')
-                .setDescription('Set a custom embed color')
-                .addStringOption(option => option.setName("color").setDescription("Enter a hex color").setRequired(true))
+                .setDescription('Egyéni embed szín beállítása')
+                .addStringOption(option => option.setName("color").setDescription("Add meg a hex színkódot").setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('setverify')
-                .setDescription('Setup the verify panel')
-                .addBooleanOption(option => option.setName('enable').setDescription('Select a boolean').setRequired(true))
-                .addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true).addChannelTypes(ChannelType.GuildText))
-                .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true))
+                .setDescription('A hitelesítő panel beállítása')
+                .addBooleanOption(option => option.setName('enable').setDescription('Válassz egy igen/nem értéket').setRequired(true))
+                .addChannelOption(option => option.setName('channel').setDescription('Válassz egy csatornát').setRequired(true).addChannelTypes(ChannelType.GuildText))
+                .addRoleOption(option => option.setName('role').setDescription('Válassz egy szerepkört').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('setchannelname')
-                .setDescription('Set a custom channel name for server stats')
-                .addStringOption(option => option.setName("name").setDescription("Enter a name for the channel or send HELP for the args").setRequired(true))
+                .setDescription('Egyéni csatornanév beállítása a szerverstatisztikákhoz')
+                .addStringOption(option => option.setName("name").setDescription("Add meg a csatorna nevét, vagy küldj HELP-et a lehetőségekért").setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('levelmessage')
-                .setDescription('Set the bot level message')
-                .addStringOption(option => option.setName("message").setDescription("Enter a message for the levels or send HELP for the args").setRequired(true))
+                .setDescription('A bot szintlépési üzenetének beállítása')
+                .addStringOption(option => option.setName("message").setDescription("Add meg a szintlépési üzenetet, vagy küldj HELP-et a lehetőségekért").setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('welcomemessage')
-                .setDescription('Set the welcome message')
-                .addStringOption(option => option.setName("message").setDescription("Enter a welcome message or send HELP for the args").setRequired(true))
+                .setDescription('Az üdvözlő üzenet beállítása')
+                .addStringOption(option => option.setName("message").setDescription("Add meg az üdvözlő üzenetet, vagy küldj HELP-et a lehetőségekért").setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('leavemessage')
-                .setDescription('Set the leave message')
-                .addStringOption(option => option.setName("message").setDescription("Enter a leave message or send HELP for the args").setRequired(true))
+                .setDescription('A kilépési üzenet beállítása')
+                .addStringOption(option => option.setName("message").setDescription("Add meg a kilépési üzenetet, vagy küldj HELP-et a lehetőségekért").setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('ticketmessage')
-                .setDescription('Set the ticket message of the bot')
+                .setDescription('A bot ticket üzenetének beállítása')
                 .addStringOption(option =>
                     option.setName('type')
-                        .setDescription('Ticket message type')
+                        .setDescription('A ticket üzenet típusa')
                         .setRequired(true)
                         .addChoices(
                             { name: 'open', value: 'open' },
                             { name: 'closeDM', value: 'close' }
                         )
                 )
-                .addStringOption(option => option.setName("message").setDescription("Enter a message for the ticket").setRequired(true))
+                .addStringOption(option => option.setName("message").setDescription("Add meg a ticket üzenetét").setRequired(true))
         )
     ,
 

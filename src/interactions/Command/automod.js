@@ -6,65 +6,65 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('automod')
-        .setDescription('Manage the auto mod')
+        .setDescription('Az automata moderálás kezelése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the auto setup commands')
+                .setDescription('Információ az automod kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('antiinvite')
-                .setDescription('Enable/disable antiinvite')
-                .addBooleanOption(option => option.setName('active').setDescription('Select a boolean').setRequired(true))
+                .setDescription('A meghívó-szűrés be- vagy kikapcsolása')
+                .addBooleanOption(option => option.setName('active').setDescription('Válassz egy igen/nem értéket').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('antilinks')
-                .setDescription('Enable/disable antilinks')
-                .addBooleanOption(option => option.setName('active').setDescription('Select a boolean').setRequired(true))
+                .setDescription('A link-szűrés be- vagy kikapcsolása')
+                .addBooleanOption(option => option.setName('active').setDescription('Válassz egy igen/nem értéket').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('antispam')
-                .setDescription('Enable/disable antispam')
-                .addBooleanOption(option => option.setName('active').setDescription('Select a boolean').setRequired(true))
+                .setDescription('A spamszűrés be- vagy kikapcsolása')
+                .addBooleanOption(option => option.setName('active').setDescription('Válassz egy igen/nem értéket').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('linkschannel')
-                .setDescription('Add a channel that is allowed to send links')
+                .setDescription('Egy csatorna hozzáadása, ahol engedélyezettek a linkek')
                 .addStringOption(option =>
                     option.setName('type')
-                        .setDescription('What do you want to do with the channel?')
+                        .setDescription('Mit szeretnél tenni a csatornával?')
                         .setRequired(true)
                         .addChoices(
-                            { name: 'Add', value: 'add' },
-                            { name: 'Remove', value: 'remove' }
+                            { name: 'Hozzáadás', value: 'add' },
+                            { name: 'Eltávolítás', value: 'remove' }
                         )
                 )
-                .addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true).addChannelTypes(ChannelType.GuildText))
+                .addChannelOption(option => option.setName('channel').setDescription('Válassz egy csatornát').setRequired(true).addChannelTypes(ChannelType.GuildText))
         )
         .addSubcommandGroup(group =>
             group
                 .setName('blacklist')
-                .setDescription('Manage the blacklist')
+                .setDescription('A feketelista kezelése')
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('display')
-                        .setDescription('Show the whole blacklist')
+                        .setDescription('A teljes feketelista megjelenítése')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('add')
-                        .setDescription('Add a word to the blacklist')
-                        .addStringOption(option => option.setName('word').setDescription('The word for the blacklist').setRequired(true))
+                        .setDescription('Szó hozzáadása a feketelistához')
+                        .addStringOption(option => option.setName('word').setDescription('A feketelistára kerülő szó').setRequired(true))
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('remove')
-                        .setDescription('Remove a word from the blacklist')
-                        .addStringOption(option => option.setName('word').setDescription('The word for the blacklist').setRequired(true))
+                        .setDescription('Szó eltávolítása a feketelistáról')
+                        .addStringOption(option => option.setName('word').setDescription('A feketelistáról eltávolítandó szó').setRequired(true))
                 )
         )
     ,

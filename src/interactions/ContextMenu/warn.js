@@ -7,7 +7,7 @@ const Case = require("../../database/models/warnCase");
 
 module.exports = {
     data: new ContextMenuCommandBuilder()
-        .setName('Warn')
+        .setName('Figyelmeztetés')
         .setType(2),
 
     /** 

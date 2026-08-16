@@ -7,33 +7,33 @@ module.exports = {
 
     data: new SlashCommandBuilder()
         .setName('soundboard')
-        .setDescription('Play all the sounds in Bot')
+        .setDescription('Az összes hang lejátszása a Botban')
 
         .addSubcommand((subcommand) =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the soundboard category commands')
+                .setDescription('Információ a soundboard kategória parancsairól')
         )
-        
+
         // Windows Sounds
         .addSubcommandGroup((group) =>
             group
                 .setName('windows')
-                .setDescription('Play the windows sounds in Bot')
+                .setDescription('A windows hangok lejátszása a Botban')
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('windowserror')
-                        .setDescription('Play the windows error sound')
+                        .setDescription('A windows hiba hang lejátszása')
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('windowsshutdown')
-                        .setDescription('Play the windows shutdown sound')
+                        .setDescription('A windows leállítás hang lejátszása')
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('windowsstartup')
-                        .setDescription('Play the windows startup sound')
+                        .setDescription('A windows indítás hang lejátszása')
                 )
         )
 
@@ -42,31 +42,31 @@ module.exports = {
         .addSubcommandGroup((group) =>
             group
                 .setName('earrape')
-                .setDescription('Play the earrape sounds in Bot')
+                .setDescription('Az earrape hangok lejátszása a Botban')
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('reee')
-                        .setDescription('Play the reee sound')
+                        .setDescription('A reee hang lejátszása')
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('defaultdance')
-                        .setDescription('Play the defaultdance sound')
+                        .setDescription('A defaultdance hang lejátszása')
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('startup')
-                        .setDescription('Play the startup sound')
+                        .setDescription('A startup hang lejátszása')
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('thomas')
-                        .setDescription('Play the thomas sound')
+                        .setDescription('A thomas hang lejátszása')
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('wegothim')
-                        .setDescription('Play the wegothim sound')
+                        .setDescription('A wegothim hang lejátszása')
                 )
         )
 
@@ -75,36 +75,36 @@ module.exports = {
         .addSubcommandGroup((group) =>
             group
                 .setName('songs')
-                .setDescription('Play the song sounds in Bot')
+                .setDescription('A dal hangok lejátszása a Botban')
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('dancememe')
-                        .setDescription('Play the dancememe sound')
+                        .setDescription('A dancememe hang lejátszása')
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('despacito')
-                        .setDescription('Play the despacito sound')
+                        .setDescription('A despacito hang lejátszása')
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('elevator')
-                        .setDescription('Play the elevator sound')
+                        .setDescription('Az elevator hang lejátszása')
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('rickastley')
-                        .setDescription('Play the rickastley sound')
+                        .setDescription('A rickastley hang lejátszása')
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('running')
-                        .setDescription('Play the running sound')
+                        .setDescription('A running hang lejátszása')
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('tobecontinued')
-                        .setDescription('Play the tobecontinued sound')
+                        .setDescription('A tobecontinued hang lejátszása')
                 )
         )
 
@@ -113,24 +113,24 @@ module.exports = {
         .addSubcommandGroup((group) =>
             group
                 .setName('discord')
-                .setDescription('Play the discord sounds in Bot')
+                .setDescription('A discord hangok lejátszása a Botban')
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('discordcall')
-                        .setDescription('Play the discord call sound'),
+                        .setDescription('A discord hívás hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('discordjoin')
-                        .setDescription('Play the discord voice call join sound'),
+                        .setDescription('A discord hangcsatorna belépés hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
-                    subcommand.setName('discordleave').setDescription('Play the discord voice call leave sound')
+                    subcommand.setName('discordleave').setDescription('A discord hangcsatorna kilépés hang lejátszása')
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('discordnotification')
-                        .setDescription('Play the discord notification sound'),
+                        .setDescription('A discord értesítés hang lejátszása'),
                 )
         )
 
@@ -139,76 +139,76 @@ module.exports = {
         .addSubcommandGroup((group) =>
             group
                 .setName('memes')
-                .setDescription('Play the meme sounds in Bot')
+                .setDescription('A meme hangok lejátszása a Botban')
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('fbi')
-                        .setDescription('Play the fbi sound'),
+                        .setDescription('Az fbi hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('jeff')
-                        .setDescription('Play the jeff sound'),
+                        .setDescription('A jeff hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('lambo')
-                        .setDescription('Play the lambo sound'),
+                        .setDescription('A lambo hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('missionfailed')
-                        .setDescription('Play the missionfailed sound'),
+                        .setDescription('A missionfailed hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('moaning')
-                        .setDescription('Play themoaning sound'),
+                        .setDescription('A moaning hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('nani')
-                        .setDescription('Play the nani sound'),
+                        .setDescription('A nani hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('nyancat')
-                        .setDescription('Play the nyancat sound'),
+                        .setDescription('A nyancat hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('ohh')
-                        .setDescription('Play the ohh sound'),
+                        .setDescription('Az ohh hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('rimshot')
-                        .setDescription('Play the rimshot sound'),
+                        .setDescription('A rimshot hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('roblox')
-                        .setDescription('Play the roblox sound'),
+                        .setDescription('A roblox hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('shotdown')
-                        .setDescription('Play the shotdown sound'),
+                        .setDescription('A shotdown hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('spongebob')
-                        .setDescription('Play the spongebob sound'),
+                        .setDescription('A spongebob hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('wow')
-                        .setDescription('Play the wow sound'),
+                        .setDescription('A wow hang lejátszása'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('yeet')
-                        .setDescription('Play the yeet sound'),
+                        .setDescription('A yeet hang lejátszása'),
                 )
         ),
 

@@ -7,7 +7,7 @@ require("moment-duration-format");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('help')
-        .setDescription('Get help with the bot'),
+        .setDescription('Segítség kérése a bothoz'),
 
     /** 
      * @param {Client} client

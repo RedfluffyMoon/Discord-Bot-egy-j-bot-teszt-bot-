@@ -5,36 +5,36 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('casino')
-        .setDescription('Play the casino game')
+        .setDescription('Kaszinójáték indítása')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the casino category commands')
+                .setDescription('Információ a casino kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('blackjack')
-                .setDescription('Play a blackjack game to win money')
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount').setRequired(true))
+                .setDescription('Blackjack játék pénznyerésért')
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az összeget').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('crash')
-                .setDescription('More risk, more reward')
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount').setRequired(true))
+                .setDescription('Több kockázat, nagyobb nyeremény')
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az összeget').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('roulette')
-                .setDescription('Play roulette')
-                .addStringOption(option => option.setName('color').setDescription('Enter a hex color').setRequired(true))
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount').setRequired(true))
+                .setDescription('Rulett játék')
+                .addStringOption(option => option.setName('color').setDescription('Add meg a hex színkódot').setRequired(true))
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az összeget').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('slots')
-                .setDescription('Play slots')
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount').setRequired(true))
+                .setDescription('Nyerőgép játék')
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az összeget').setRequired(true))
         )
     ,
 

@@ -5,54 +5,54 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('messages')
-        .setDescription('View the message system')
+        .setDescription('Az üzenetrendszer megtekintése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the message category commands')
+                .setDescription('Információ a messages kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('add')
-                .setDescription('Add messages to a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount of messages').setRequired(true))
+                .setDescription('Üzenetek hozzáadása egy felhasználóhoz')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az üzenetek számát').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('deletereward')
-                .setDescription('Delete a message reward')
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount of messages').setRequired(true))
+                .setDescription('Egy üzenet-jutalom törlése')
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az üzenetek számát').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('createreward')
-                .setDescription('Create a message reward')
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount of messages').setRequired(true))
-                .addRoleOption(option => option.setName('role').setDescription('The role for this reward').setRequired(true))
+                .setDescription('Üzenet-jutalom létrehozása')
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az üzenetek számát').setRequired(true))
+                .addRoleOption(option => option.setName('role').setDescription('A jutalomhoz tartozó szerepkör').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('remove')
-                .setDescription('Remove messages to a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount of messages').setRequired(true))
+                .setDescription('Üzenetek eltávolítása egy felhasználótól')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az üzenetek számát').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('show')
-                .setDescription('See your messages')
-                .addUserOption(option => option.setName('user').setDescription('Select a user'))
+                .setDescription('Üzeneteid megtekintése')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót'))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('rewards')
-                .setDescription('Show all message rewards')
+                .setDescription('Az összes üzenet-jutalom megjelenítése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('leaderboard')
-                .setDescription('See the message leaderboard')
+                .setDescription('Az üzenet toplista megtekintése')
         )
     ,
 

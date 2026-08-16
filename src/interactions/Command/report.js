@@ -5,19 +5,19 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('report')
-        .setDescription('Report a bug or user to the developers')
+        .setDescription('Egy hiba vagy felhasználó bejelentése a fejlesztőknek')
         .addStringOption(option =>
             option.setName('type')
-                .setDescription('The type of your report')
+                .setDescription('A bejelentés típusa')
                 .setRequired(true)
                 .addChoices(
-                    { name: 'Bug', value: 'bug' },
-                    { name: 'User', value: 'user' }
+                    { name: 'Hiba', value: 'bug' },
+                    { name: 'Felhasználó', value: 'user' }
                 )
         )
         .addStringOption(option =>
             option.setName('description')
-                .setDescription('Description with your report')
+                .setDescription('A bejelentésed leírása')
                 .setRequired(true)
         )
     ,

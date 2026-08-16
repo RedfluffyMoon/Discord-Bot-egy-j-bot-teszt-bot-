@@ -5,11 +5,11 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('fun')
-        .setDescription('Run fun commands in Bot')
+        .setDescription('Szórakoztató parancsok futtatása a Botban')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the fun category commands')
+                .setDescription('Információ a fun kategória parancsairól')
         )
 
         // Meme Commands
@@ -17,52 +17,52 @@ module.exports = {
         .addSubcommandGroup((group) =>
             group
                 .setName('meme')
-                .setDescription('See all the fun meme commands in Bot')
+                .setDescription('A Bot összes vicces meme parancsa')
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('confused')
-                        .setDescription('React with a Confused Nick Young meme')
+                        .setDescription('Reagálás egy Confused Nick Young meme-mel')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('cleverrate')
-                        .setDescription('See how much clever you are')
+                        .setDescription('Megnézheted, mennyire vagy okos')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('dinochrome')
-                        .setDescription('Dinosaur in Chrome')
+                        .setDescription('Dínó a Chrome-ban')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('epicgamerrate')
-                        .setDescription('See how much of an epic gamer you are')
+                        .setDescription('Megnézheted, mennyire vagy epikus gamer')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('howgay')
-                        .setDescription('See how gay you are')
+                        .setDescription('Megnézheted, mennyire vagy meleg')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('roast')
-                        .setDescription('Roasts a user')
-                        .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                        .setDescription('Egy felhasználó lehúzása')
+                        .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('simprate')
-                        .setDescription('See how simp you are')
+                        .setDescription('Megnézheted, mennyire vagy simp')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('stankrate')
-                        .setDescription('See how stanky you are')
+                        .setDescription('Megnézheted, mennyire vagy büdös')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('rickroll')
-                        .setDescription('Get a rickroll')
+                        .setDescription('Egy rickroll kapása')
                 )
         )
 
@@ -71,38 +71,38 @@ module.exports = {
         .addSubcommandGroup((group) =>
             group
                 .setName('user')
-                .setDescription('See all the fun user commands in Bot')
+                .setDescription('A Bot összes vicces felhasználói parancsa')
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('hack')
-                        .setDescription('Hack your friends or enemies!')
-                        .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                        .setDescription('Hackeld meg a barátaidat vagy ellenségeidet!')
+                        .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('hug')
-                        .setDescription('Give a hug to a user')
-                        .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                        .setDescription('Ölelés adása egy felhasználónak')
+                        .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('kill')
-                        .setDescription('Kill a user')
-                        .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                        .setDescription('Egy felhasználó megölése')
+                        .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('lovemeter')
-                        .setDescription('See how much you fit in with someone')
-                        .addUserOption(option => option.setName('user1').setDescription('Select a user').setRequired(true))
-                        .addUserOption(option => option.setName('user2').setDescription('Select a user').setRequired(true))
+                        .setDescription('Megnézheted, mennyire illetek össze valakivel')
+                        .addUserOption(option => option.setName('user1').setDescription('Válassz egy felhasználót').setRequired(true))
+                        .addUserOption(option => option.setName('user2').setDescription('Válassz egy felhasználót').setRequired(true))
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('sudo')
-                        .setDescription('Say something like someone else')
-                        .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                        .addStringOption(option => option.setName('text').setDescription('Enter a text').setRequired(true))
+                        .setDescription('Mondj valamit valaki más nevében')
+                        .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                        .addStringOption(option => option.setName('text').setDescription('Add meg a szöveget').setRequired(true))
                 )
         )
 
@@ -111,30 +111,30 @@ module.exports = {
         .addSubcommandGroup((group) =>
             group
                 .setName('text')
-                .setDescription('See all the fun text commands in Bot')
+                .setDescription('A Bot összes vicces szöveges parancsa')
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('ascii')
-                        .setDescription('Make ascii text')
-                        .addStringOption(option => option.setName('text').setDescription('Enter a text').setRequired(true))
+                        .setDescription('ASCII szöveg készítése')
+                        .addStringOption(option => option.setName('text').setDescription('Add meg a szöveget').setRequired(true))
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('gif')
-                        .setDescription('Search a gif')
-                        .addStringOption(option => option.setName('text').setDescription('Enter a text').setRequired(true))
+                        .setDescription('Keresés egy gif után')
+                        .addStringOption(option => option.setName('text').setDescription('Add meg a szöveget').setRequired(true))
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('reverse')
-                        .setDescription('Reverse your text')
-                        .addStringOption(option => option.setName('text').setDescription('Enter a text').setRequired(true))
+                        .setDescription('Szöveged megfordítása')
+                        .addStringOption(option => option.setName('text').setDescription('Add meg a szöveget').setRequired(true))
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('say')
-                        .setDescription('Have the bot say something')
-                        .addStringOption(option => option.setName('text').setDescription('Enter a text').setRequired(true))
+                        .setDescription('Mondasd ki a bottal, amit szeretnél')
+                        .addStringOption(option => option.setName('text').setDescription('Add meg a szöveget').setRequired(true))
                 )
         )
 
@@ -143,51 +143,51 @@ module.exports = {
         .addSubcommandGroup((group) =>
             group
                 .setName('extra')
-                .setDescription('See all the fun extra commands in Bot')
+                .setDescription('A Bot összes egyéb vicces parancsa')
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('birdfact')
-                        .setDescription('Get a random bird fact')
+                        .setDescription('Egy véletlenszerű madár-tény lekérése')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('catfact')
-                        .setDescription('Get a random cat fact')
+                        .setDescription('Egy véletlenszerű macska-tény lekérése')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('dogfact')
-                        .setDescription('Get a random dog fact')
+                        .setDescription('Egy véletlenszerű kutya-tény lekérése')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('fact')
-                        .setDescription('Get a random fact')
+                        .setDescription('Egy véletlenszerű tény lekérése')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('koalafact')
-                        .setDescription('Get a random koalafact fact')
+                        .setDescription('Egy véletlenszerű koala-tény lekérése')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('pandafact')
-                        .setDescription('Get a random pandafact fact')
+                        .setDescription('Egy véletlenszerű panda-tény lekérése')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('token')
-                        .setDescription('Get my token')
+                        .setDescription('Kérd el a tokenemet')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('worldclock')
-                        .setDescription('Shows the world clock(s)')
+                        .setDescription('Megjeleníti a világórákat')
                 )
                 .addSubcommand(subcommand =>
                     subcommand
                         .setName('xmas')
-                        .setDescription('See the number of days until Christmas')
+                        .setDescription('Megnézheted, hány nap van hátra karácsonyig')
                 )
         ),
 

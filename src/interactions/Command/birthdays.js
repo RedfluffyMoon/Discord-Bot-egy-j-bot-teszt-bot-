@@ -5,33 +5,33 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('birthdays')
-        .setDescription('View or register a birthday')
+        .setDescription('Egy születésnap megtekintése vagy regisztrálása')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the birthdays category commands')
+                .setDescription('Információ a birthdays kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('check')
-                .setDescription('Check your birthday')
+                .setDescription('Születésnapod ellenőrzése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('delete')
-                .setDescription('Delete your birthday')
+                .setDescription('Születésnapod törlése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('list')
-                .setDescription('Get to see all birthdays')
+                .setDescription('Az összes születésnap megtekintése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('set')
-                .setDescription('Set your birthday')
-                .addNumberOption(option => option.setName('day').setDescription('The day number that is your birthday').setRequired(true))
-                .addNumberOption(option => option.setName('month').setDescription('The month number that is your birthday').setRequired(true))
+                .setDescription('Születésnapod beállítása')
+                .addNumberOption(option => option.setName('day').setDescription('A születésnapod napja').setRequired(true))
+                .addNumberOption(option => option.setName('month').setDescription('A születésnapod hónapja').setRequired(true))
         )
     ,
 

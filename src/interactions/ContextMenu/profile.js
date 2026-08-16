@@ -8,7 +8,7 @@ const CreditsSchema = require("../../database/models/votecredits");
 
 module.exports = {
     data: new ContextMenuCommandBuilder()
-        .setName('Bot profile')
+        .setName('Bot profilja')
         .setType(2),
 
     /** 

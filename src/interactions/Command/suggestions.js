@@ -5,29 +5,29 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('suggestions')
-        .setDescription('Manage the suggestions')
+        .setDescription('A javaslatok kezelése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the suggestions category commands')
+                .setDescription('Információ a suggestions kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('accept')
-                .setDescription('Accept a suggestion')
-                .addStringOption(option => option.setName('id').setDescription('Suggestion message ID').setRequired(true))
+                .setDescription('Egy javaslat elfogadása')
+                .addStringOption(option => option.setName('id').setDescription('A javaslat üzenetének azonosítója').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('deny')
-                .setDescription('Deny a suggestion')
-                .addStringOption(option => option.setName('id').setDescription('Suggestion message ID').setRequired(true))
+                .setDescription('Egy javaslat elutasítása')
+                .addStringOption(option => option.setName('id').setDescription('A javaslat üzenetének azonosítója').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('send')
-                .setDescription('Send a suggestion')
-                .addStringOption(option => option.setName('suggestion').setDescription('Your suggestion').setRequired(true))
+                .setDescription('Javaslat küldése')
+                .addStringOption(option => option.setName('suggestion').setDescription('A javaslatod').setRequired(true))
         )
     ,
 

@@ -5,36 +5,36 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('invites')
-        .setDescription('View the invites system')
+        .setDescription('A meghívórendszer megtekintése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the invites category commands')
+                .setDescription('Információ az invites kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('add')
-                .setDescription('Add invites to a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount of invites').setRequired(true))
+                .setDescription('Meghívók hozzáadása egy felhasználóhoz')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg a meghívók számát').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('remove')
-                .setDescription('Remove invites from a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount of invites').setRequired(true))
+                .setDescription('Meghívók eltávolítása egy felhasználótól')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg a meghívók számát').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('show')
-                .setDescription('See your invites')
-                .addUserOption(option => option.setName('user').setDescription('Select a user'))
+                .setDescription('Meghívóid megtekintése')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót'))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('leaderboard')
-                .setDescription('See the invites leaderboard')
+                .setDescription('A meghívó toplista megtekintése')
         )
     ,
 

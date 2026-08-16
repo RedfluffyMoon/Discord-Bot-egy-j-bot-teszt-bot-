@@ -7,7 +7,7 @@ const model = require('../../database/models/badge');
 
 module.exports = {
     data: new ContextMenuCommandBuilder()
-        .setName('Userinfo')
+        .setName('Felhasználói adatok')
         .setType(2),
 
     /** 

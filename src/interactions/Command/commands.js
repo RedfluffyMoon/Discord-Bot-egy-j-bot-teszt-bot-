@@ -7,24 +7,24 @@ const Schema = require("../../database/models/music");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('custom-commands')
-        .setDescription('Create some custom commands')
+        .setDescription('Egyéni parancsok létrehozása')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the custom commands category'),
+                .setDescription('Információ az egyéni parancsok kategóriáról'),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('add')
-                .setDescription('Create a custom command')
-                .addStringOption(option => option.setName('command').setDescription('The name of the command').setRequired(true))
-                .addStringOption(option => option.setName('text').setDescription('The response of the command').setRequired(true)),
+                .setDescription('Egyéni parancs létrehozása')
+                .addStringOption(option => option.setName('command').setDescription('A parancs neve').setRequired(true))
+                .addStringOption(option => option.setName('text').setDescription('A parancs válasza').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('delete')
-                .setDescription('Delete a custom command')
-                .addStringOption(option => option.setName('command').setDescription('The name of the command').setRequired(true)),
+                .setDescription('Egyéni parancs törlése')
+                .addStringOption(option => option.setName('command').setDescription('A parancs neve').setRequired(true)),
         )
     ,
 

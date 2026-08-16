@@ -6,119 +6,119 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('moderation')
-        .setDescription('Manage all server moderation')
+        .setDescription('A szerver moderálásának kezelése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the moderation category commands')
+                .setDescription('Információ a moderation kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('ban')
-                .setDescription('Ban a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addStringOption(option => option.setName('reason').setDescription('The reason for the ban'))
+                .setDescription('Egy felhasználó kitiltása')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addStringOption(option => option.setName('reason').setDescription('A kitiltás indoka'))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('clear')
-                .setDescription('Clear messages')
-                .addNumberOption(option => option.setName('amount').setDescription('Amount of messages').setRequired(true))
+                .setDescription('Üzenetek törlése')
+                .addNumberOption(option => option.setName('amount').setDescription('Az üzenetek száma').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('clearuser')
-                .setDescription('Clear user messages in a channel')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                .setDescription('Egy felhasználó üzeneteinek törlése egy csatornában')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('demote')
-                .setDescription('Demote a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                .setDescription('Egy felhasználó lefokozása')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('kick')
-                .setDescription('Kick a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addStringOption(option => option.setName('reason').setDescription('The reason for the kick'))
+                .setDescription('Egy felhasználó kirúgása')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addStringOption(option => option.setName('reason').setDescription('A kirúgás indoka'))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('lock')
-                .setDescription('Lock a channel')
-                .addChannelOption(option => option.setName('channel').setDescription('Select a channel').addChannelTypes(ChannelType.GuildText))
+                .setDescription('Egy csatorna lezárása')
+                .addChannelOption(option => option.setName('channel').setDescription('Válassz egy csatornát').addChannelTypes(ChannelType.GuildText))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('lockdown')
-                .setDescription('Lock all channels')
+                .setDescription('Az összes csatorna lezárása')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('nuke')
-                .setDescription('Nuke a channel')
+                .setDescription('Egy csatorna kiürítése (nuke)')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('softban')
-                .setDescription('Softban a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addStringOption(option => option.setName('reason').setDescription('The reason for the ban'))
+                .setDescription('Egy felhasználó softban-elése')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addStringOption(option => option.setName('reason').setDescription('A kitiltás indoka'))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('timeout')
-                .setDescription('Timeout a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('time').setDescription('Number of minutes').setRequired(true))
-                .addStringOption(option => option.setName('reason').setDescription('Reason for the time out').setRequired(true))
+                .setDescription('Egy felhasználó időzítése (timeout)')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addNumberOption(option => option.setName('time').setDescription('A percek száma').setRequired(true))
+                .addStringOption(option => option.setName('reason').setDescription('A timeout indoka').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('tempban')
-                .setDescription('Temp ban a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('time').setDescription('Number of minutes').setRequired(true))
-                .addStringOption(option => option.setName('reason').setDescription('The reason for the ban'))
+                .setDescription('Egy felhasználó ideiglenes kitiltása')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addNumberOption(option => option.setName('time').setDescription('A percek száma').setRequired(true))
+                .addStringOption(option => option.setName('reason').setDescription('A kitiltás indoka'))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('unlock')
-                .setDescription('Unlock a channel')
-                .addChannelOption(option => option.setName('channel').setDescription('Select a channel').addChannelTypes(ChannelType.GuildText))
+                .setDescription('Egy csatorna feloldása')
+                .addChannelOption(option => option.setName('channel').setDescription('Válassz egy csatornát').addChannelTypes(ChannelType.GuildText))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('unban')
-                .setDescription('Unban a user')
-                .addStringOption(option => option.setName('user').setDescription('Give a user id').setRequired(true))
+                .setDescription('Egy felhasználó kitiltásának visszavonása')
+                .addStringOption(option => option.setName('user').setDescription('Add meg a felhasználó azonosítóját').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('banlist')
-                .setDescription('Get all banned users')
+                .setDescription('Az összes kitiltott felhasználó lekérése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('warn')
-                .setDescription('Warn a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addStringOption(option => option.setName('reason').setDescription('The reason for the warn').setRequired(true))
+                .setDescription('Egy felhasználó figyelmeztetése')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addStringOption(option => option.setName('reason').setDescription('A figyelmeztetés indoka').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('unwarn')
-                .setDescription('Unwarn a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addIntegerOption(option => option.setName('case').setDescription('Give a case number').setRequired(true))
+                .setDescription('Egy felhasználó figyelmeztetésének visszavonása')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addIntegerOption(option => option.setName('case').setDescription('Add meg az eset számát').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('warnings')
-                .setDescription('See a users warnings')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                .setDescription('Egy felhasználó figyelmeztetéseinek megtekintése')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
         )
     ,
 

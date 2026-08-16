@@ -5,19 +5,19 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('music')
-        .setDescription('Playing music in Bot')
+        .setDescription('Zenelejátszás a Botban')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the music category commands')
+                .setDescription('Információ a zene kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('bassboost')
-                .setDescription('Set the bassboost level')
+                .setDescription('A basszuserősítés szintjének beállítása')
                 .addStringOption(option =>
                     option.setName('level')
-                        .setDescription('The level of the bassboost')
+                        .setDescription('A basszuserősítés szintje')
                         .setRequired(true)
                         .addChoices(
                             { name: '0', value: '0' },
@@ -30,88 +30,88 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('play')
-                .setDescription('Start the music')
-                .addStringOption(option => option.setName('song').setDescription('Enter a song name/url').setRequired(true))
+                .setDescription('Zene indítása')
+                .addStringOption(option => option.setName('song').setDescription('Add meg egy dal nevét vagy URL-jét').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('clear')
-                .setDescription('Delete the music queue')
+                .setDescription('Zenelejátszási lista törlése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('loop')
-                .setDescription('Loop the music')
+                .setDescription('Zene ismétlésének beállítása')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('lyrics')
-                .setDescription('Get the lyrics of the current song')
-                .addStringOption(option => option.setName('song').setDescription('Enter a song name'))
+                .setDescription('Az aktuális dal szövegének lekérése')
+                .addStringOption(option => option.setName('song').setDescription('Add meg egy dal nevét'))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('playing')
-                .setDescription('See which song is playing now')
+                .setDescription('Megnézheted, melyik dal szól most')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('pause')
-                .setDescription('Pause the music')
+                .setDescription('Zene szüneteltetése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('previous')
-                .setDescription('Play previous song')
+                .setDescription('Előző dal lejátszása')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('queue')
-                .setDescription('See the music queue')
+                .setDescription('Lejátszási lista megtekintése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('resume')
-                .setDescription('Resume the music')
+                .setDescription('Zene folytatása')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('remove')
-                .setDescription('Remove a song from the queue')
-                .addNumberOption(option => option.setName('number').setDescription('Song number').setRequired(true))
+                .setDescription('Dal eltávolítása a listából')
+                .addNumberOption(option => option.setName('number').setDescription('A dal sorszáma').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('seek')
-                .setDescription('Seek the current playing music')
-                .addNumberOption(option => option.setName('time').setDescription('New song time').setRequired(true))
+                .setDescription('Ugrás a jelenleg lejátszott zenében')
+                .addNumberOption(option => option.setName('time').setDescription('Az új időpont a dalban').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('shuffle')
-                .setDescription('Shuffle the music')
+                .setDescription('Lejátszási lista összekeverése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('skip')
-                .setDescription('Skip the current song')
+                .setDescription('Jelenlegi dal kihagyása')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('skipto')
-                .setDescription('Skip to a new song')
-                .addNumberOption(option => option.setName('number').setDescription('Song number').setRequired(true))
+                .setDescription('Ugrás egy másik dalra')
+                .addNumberOption(option => option.setName('number').setDescription('A dal sorszáma').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('stop')
-                .setDescription('Stop the music')
+                .setDescription('Zene leállítása')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('volume')
-                .setDescription('Set the music volume')
-                .addNumberOption(option => option.setName('amount').setDescription('New volume number'))
+                .setDescription('Zene hangerejének beállítása')
+                .addNumberOption(option => option.setName('amount').setDescription('Az új hangerő értéke'))
         ),
 
     /** 

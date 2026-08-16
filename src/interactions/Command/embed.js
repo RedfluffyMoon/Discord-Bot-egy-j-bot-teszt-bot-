@@ -6,11 +6,11 @@ const Discord = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("embed")
-    .setDescription("Generate an embed")
+    .setDescription("Egy beágyazott üzenet (embed) létrehozása")
     .addChannelOption((option) =>
       option
         .setName("channel")
-        .setDescription("Channel where the embed should be")
+        .setDescription("A csatorna, ahova az embed kerüljön")
         .setRequired(true)
         .addChannelTypes(ChannelType.GuildText)
     ),

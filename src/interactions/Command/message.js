@@ -6,10 +6,10 @@ const model = require('../../database/models/badge');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('message')
-        .setDescription('Post preset messages')
+        .setDescription('Előre elkészített üzenetek küldése')
         .addStringOption(option =>
             option.setName('message')
-                .setDescription('Select a message')
+                .setDescription('Válassz egy üzenetet')
                 .setRequired(true)
                 .addChoices(
                     { name: 'Information', value: 'information' },
