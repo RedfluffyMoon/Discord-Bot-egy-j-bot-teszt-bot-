@@ -4,15 +4,15 @@ const ms = require('ms');
 module.exports = async (client, interaction, args) => {
     const messageID = interaction.options.getString('message');
     const giveaway = client.giveawaysManager.giveaways.find((g) => g.guildId === interaction.guildId && g.messageId === messageID);
-    if (!giveaway) return client.errNormal({ error: "This message ID is not from this guild", type: 'editreply' }, interaction)
+    if (!giveaway) return client.errNormal({ error: "Ez az üzenetazonosító nem ebből a szerverből származik", type: 'editreply' }, interaction)
     client.giveawaysManager.delete(messageID).then(() => {
         client.succNormal({
-            text: `The giveaway has been successfully removed`,
+            text: `A nyereményjáték sikeresen eltávolítva`,
             type: 'editreply'
         }, interaction);
     }).catch((err) => {
         client.errNormal({
-            error: `I can't find the giveaway for ${messageID}!`,
+            error: `Nem található nyereményjáték ezzel az azonosítóval: ${messageID}!`,
             type: 'editreply'
         }, interaction)
     });

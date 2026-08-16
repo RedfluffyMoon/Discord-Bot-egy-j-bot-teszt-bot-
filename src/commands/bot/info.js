@@ -16,122 +16,122 @@ module.exports = async (client, interaction, args) => {
             const totalChannels = results[2].reduce((acc, channelCount) => acc + channelCount, 0);
             const totalVoice = results[3].reduce((acc, voiceCount) => acc + voiceCount, 0);
 
-            const duration = moment.duration(client.uptime).format("\`D\` [days], \`H\` [hrs], \`m\` [mins], \`s\` [secs]");
+            const duration = moment.duration(client.uptime).format("\`D\` [nap], \`H\` [óra], \`m\` [perc], \`s\` [mp]");
 
             client.embed({
-                title: `ℹ・Bot information`,
+                title: `ℹ・Bot információ`,
                 desc: `____________________________`,
                 thumbnail: client.user.avatarURL({ size: 1024 }),
                 fields: [
                {
-                    name: "ℹ️┆Information",
-                    value: `Bot is a bot with which you can run your entire server! With no less than 350+ commands, we have a large bot with many options to improve your server!`,
+                    name: "ℹ️┆Információ",
+                    value: `A Bot egy olyan bot, amellyel az egész szerveredet üzemeltetheted! Nem kevesebb, mint 350+ paranccsal egy nagy botot kínálunk, sok lehetőséggel a szervered fejlesztéséhez!`,
                     inline: false,
                 },
                 {
-                    name: "_____ \n\n│General",
+                    name: "_____ \n\n│Általános",
                     value: `_____`,
                     inline: false,
                 },
                 {
-                    name: "🤖┆Bot name",
+                    name: "🤖┆Bot neve",
                     value: `${client.user.username}`,
                     inline: true,
                 },
                 {
-                    name: "🆔┆Bot id",
+                    name: "🆔┆Bot azonosító",
                     value: `${client.user.id}`,
                     inline: true,
                 },
                 {
-                    name: "💻┆Shards",
-                    value: `\`${client.options.shardCount}\` shards`,
+                    name: "💻┆Shardok",
+                    value: `\`${client.options.shardCount}\` shard`,
                     inline: true,
                 },
                 {
-                    name: "🔧┆Bot owner",
+                    name: "🔧┆Bot tulajdonosa",
                     value: `<@!755297485328482356> `,
                     inline: true,
                 },
                 {
-                    name: "🔧┆Bot developer",
+                    name: "🔧┆Bot fejlesztője",
                     value: `<@!755297485328482356> <@!884553151666061372>`,
                     inline: true,
                 },
                 {
-                    name: "💻┆Commands",
-                    value: `\`${client.commands.size}\` commands`,
+                    name: "💻┆Parancsok",
+                    value: `\`${client.commands.size}\` parancs`,
                     inline: true,
                 },
                 {
-                    name: "🌐┆Servers",
-                    value: `\`${totalGuilds}\` servers`,
+                    name: "🌐┆Szerverek",
+                    value: `\`${totalGuilds}\` szerver`,
                     inline: true,
                 },
                 {
-                    name: "🌐┆Servers this shard",
-                    value: `\`${client.guilds.cache.size}\` servers`,
+                    name: "🌐┆Szerverek ezen a shardon",
+                    value: `\`${client.guilds.cache.size}\` szerver`,
                     inline: true,
                 },
                 {
-                    name: "👥┆Members",
-                    value: `\`${totalMembers}\` members`,
+                    name: "👥┆Tagok",
+                    value: `\`${totalMembers}\` tag`,
                     inline: true,
                 },
                 {
-                    name: "🔊┆Connected channels",
-                    value: `\`${totalVoice}\` channels`,
+                    name: "🔊┆Csatlakoztatott csatornák",
+                    value: `\`${totalVoice}\` csatorna`,
                     inline: true,
                 },
                 {
-                    name: "📺┆Channels",
-                    value: `\`${totalChannels}\` channels`,
+                    name: "📺┆Csatornák",
+                    value: `\`${totalChannels}\` csatorna`,
                     inline: true,
                 },
                 {
-                    name: "📅┆Created",
+                    name: "📅┆Létrehozva",
                     value: `<t:${Math.round(client.user.createdTimestamp / 1000)}>`,
                     inline: true,
                 },
 
                 {
-                    name: "_____ \n\n│System",
+                    name: "_____ \n\n│Rendszer",
                     value: `_____`,
                     inline: false,
                 },
                 {
-                    name: "🆙┆Uptime",
+                    name: "🆙┆Üzemidő",
                     value: `${duration}`,
                     inline: true,
                 },
                 {
-                    name: "⌛┆API speed:",
+                    name: "⌛┆API sebesség:",
                     value: `\`${client.ws.ping}\`ms`,
                     inline: true,
                 },
                 {
-                    name: "🏷┆Bot Version",
+                    name: "🏷┆Bot verzió",
                     value: `\`${require(`${process.cwd()}/package.json`).version}\``,
                     inline: true,
                 },
                 {
-                    name: "🏷┆Node.js Version",
+                    name: "🏷┆Node.js verzió",
                     value: `\`${process.version}\``,
                     inline: true,
                 },
                 {
-                    name: "📂┆Discord.js Version",
+                    name: "📂┆Discord.js verzió",
                     value: `\`${Discord.version}\``,
                     inline: true,
                 },
                 {
-                    name: "💾┆Bot memory",
+                    name: "💾┆Bot memória",
                     value: `\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}\` MB`,
                     inline: true,
                 },
                 {
-                    name: "🔗┆Links",
-                    value: `Add me: [[HERE]](${client.config.discord.botInvite}) \nSupport server: [[HERE]](${client.config.discord.serverInvite})`,
+                    name: "🔗┆Linkek",
+                    value: `Meghívás: [[ITT]](${client.config.discord.botInvite}) \nTámogatói szerver: [[ITT]](${client.config.discord.serverInvite})`,
                     inline: false,
                 }],
                 type: 'editreply'

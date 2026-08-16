@@ -8,12 +8,12 @@ module.exports = async (client, interaction, args) => {
     const author = interaction.user;
 
     if (author.id == target.id) return client.errNormal({
-        error: "You cannot adopt yourself",
+        error: "Nem örökbe fogadhatod önmagad",
         type: 'editreply'
     }, interaction);
 
     if (target.bot) return client.errNormal({
-        error: "You cannot adopt a bot",
+        error: "Nem fogadhatsz örökbe egy botot",
         type: 'editreply'
     }, interaction);
 
@@ -23,7 +23,7 @@ module.exports = async (client, interaction, args) => {
 
     if (familyMember || familyMember2 || familyMember3) {
         return client.errNormal({
-            error: `You cannot adopt a family member!`,
+            error: `Nem fogadhatsz örökbe egy családtagot!`,
             type: 'editreply'
         }, interaction);
     }
@@ -31,7 +31,7 @@ module.exports = async (client, interaction, args) => {
     const checkAdopt = await Schema.findOne({ Guild: interaction.guild.id, Children: target.username });
     if (checkAdopt) {
         return client.errNormal({
-            error: `This user has already been adopted`,
+            error: `Ez a felhasználó már örökbe lett fogadva`,
             type: 'editreply'
         }, interaction);
     }
@@ -50,8 +50,8 @@ module.exports = async (client, interaction, args) => {
         );
 
     client.embed({
-        title: `👪・Adoption`,
-        desc: `${author} has ${target} asked to adopt him! \n${target} click on one of the buttons`,
+        title: `👪・Örökbefogadás`,
+        desc: `${author} megkérte ${target} felhasználót, hogy fogadja őt örökbe! \n${target} kattints az egyik gombra`,
         components: [row],
         content: `${target}`,
         type: 'editreply',
@@ -91,8 +91,8 @@ module.exports = async (client, interaction, args) => {
             })
 
             client.embed({
-                title: `👪・Adoption - Approved`,
-                desc: `${author} is now the proud parent of ${target}! 🎉`,
+                title: `👪・Örökbefogadás - Elfogadva`,
+                desc: `${author} mostantól ${target} büszke szülője! 🎉`,
                 components: [],
                 type: 'editreply'
             }, interaction);
@@ -100,16 +100,16 @@ module.exports = async (client, interaction, args) => {
 
         if (i.customId == "adopt_deny") {
             client.embed({
-                title: `👪・Adoption - Denied`,
-                desc: `${target} don't want to be adopted by ${author}`,
+                title: `👪・Örökbefogadás - Elutasítva`,
+                desc: `${target} nem akarja, hogy ${author} örökbe fogadja`,
                 components: [],
                 type: 'editreply'
             }, interaction);
         }
     }).catch(() => {
         client.embed({
-            title: `👪・Adoption - Denied`,
-            desc: `${target} has not answered anything! The adoption is canceled`,
+            title: `👪・Örökbefogadás - Elutasítva`,
+            desc: `${target} nem válaszolt! Az örökbefogadás megszakítva`,
             components: [],
             type: 'editreply'
         }, interaction);

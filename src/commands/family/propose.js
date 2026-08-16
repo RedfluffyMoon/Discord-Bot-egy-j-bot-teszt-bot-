@@ -8,32 +8,32 @@ module.exports = async (client, interaction, args) => {
     const author = interaction.user;
     const guild = { Guild: interaction.guild.id };
 
-    if (author.id == target.id) return client.errNormal({ error: "You cannot marry yourself!", type: 'editreply' }, interaction);
+    if (author.id == target.id) return client.errNormal({ error: "Nem vehetsz feleségül/férjhez saját magadhoz!", type: 'editreply' }, interaction);
 
     Schema.findOne({ Guild: interaction.guild.id, Partner: author.id }, async (err, data) => {
         if (data) {
-            client.errNormal({ error: "Someone in the couple is already married!", type: 'editreply' }, interaction);
+            client.errNormal({ error: "A pár egyik tagja már házas!", type: 'editreply' }, interaction);
         }
         else {
             Schema.findOne({ Guild: interaction.guild.id, Partner: target.id }, async (err, data) => {
                 if (data) {
-                    client.errNormal({ error: "Someone in the couple is already married!", type: 'editreply' }, interaction);
+                    client.errNormal({ error: "A pár egyik tagja már házas!", type: 'editreply' }, interaction);
                 }
                 else {
                     Schema.findOne({ Guild: interaction.guild.id, User: target.id, Parent: author.id }, async (err, data) => {
                         if (data) {
-                            client.errNormal({ error: "You cannot marry a family member!", type: 'editreply' }, interaction);
+                            client.errNormal({ error: "Nem házasodhatsz össze egy családtaggal!", type: 'editreply' }, interaction);
                         }
                         else {
                             Schema.findOne({ Guild: interaction.guild.id, User: author.id, Parent: target.id }, async (err, data) => {
                                 if (data) {
-                                    client.errNormal({ error: "You cannot marry a family member!", type: 'editreply' }, interaction);
+                                    client.errNormal({ error: "Nem házasodhatsz össze egy családtaggal!", type: 'editreply' }, interaction);
                                 }
                                 else {
                                     Schema.findOne({ Guild: interaction.guild.id, User: author.id }, async (err, data) => {
                                         if (data) {
                                             if (data.Children.includes(target.id)) {
-                                                client.errNormal({ error: "You cannot marry a family member!", type: 'editreply' }, interaction);
+                                                client.errNormal({ error: "Nem házasodhatsz össze egy családtaggal!", type: 'editreply' }, interaction);
                                             }
                                             else {
                                                 propose();
@@ -67,8 +67,8 @@ module.exports = async (client, interaction, args) => {
             );
 
         client.embed({
-            title: `👰・Marriage proposal`,
-            desc: `${author} has ${target} asked to propose him! \n${target} click on one of the buttons`,
+            title: `👰・Házassági ajánlat`,
+            desc: `${author} megkérte ${target} kezét! \n${target} kattints az egyik gombra`,
             components: [row],
             content: `${target}`,
             type: 'editreply'
@@ -108,8 +108,8 @@ module.exports = async (client, interaction, args) => {
                 })
 
                 client.embed({
-                    title: `👰・Marriage proposal - Approved`,
-                    desc: `${author} and ${target} are now married! 👰🎉`,
+                    title: `👰・Házassági ajánlat - Elfogadva`,
+                    desc: `${author} és ${target} mostantól házasok! 👰🎉`,
                     components: [],
                     content: `${target}`,
                     type: 'editreply'
@@ -118,8 +118,8 @@ module.exports = async (client, interaction, args) => {
 
             if (i.customId == "propose_deny") {
                 client.embed({
-                    title: `👰・Marriage proposal - Denied`,
-                    desc: `${target} loves someone else and chose not to marry ${author}`,
+                    title: `👰・Házassági ajánlat - Elutasítva`,
+                    desc: `${target} mást szeret, és úgy döntött, nem házasodik össze ${author} felhasználóval`,
                     components: [],
                     content: `${target}`,
                     type: 'editreply'
@@ -127,8 +127,8 @@ module.exports = async (client, interaction, args) => {
             }
         }).catch(() => {
             client.embed({
-                title: `👰・Marriage proposal - Denied`,
-                desc: `${target} has not answered anything! The wedding is canceled`,
+                title: `👰・Házassági ajánlat - Elutasítva`,
+                desc: `${target} nem válaszolt! Az esküvő megszakítva`,
                 components: [],
                 content: `${target}`,
                 type: 'editreply'

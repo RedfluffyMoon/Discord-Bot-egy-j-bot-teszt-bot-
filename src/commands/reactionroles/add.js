@@ -9,7 +9,7 @@ module.exports = async (client, interaction, args) => {
 
     const parsedEmoji = Discord.parseEmoji(emoji);
     if (!parsedEmoji) return client.errNormal({
-        error: `Emoji not found in this server!`,
+        error: `Ez az emoji nem található ezen a szerveren!`,
         type: 'editreply'
     }, interaction)
 
@@ -42,17 +42,17 @@ module.exports = async (client, interaction, args) => {
             }).save();
         }
 
-        client.succNormal({ 
-            text: "Reaction role successfully created! Create a panel in the following way",
+        client.succNormal({
+            text: "A reakció szerepkör sikeresen létrehozva! Hozz létre egy panelt az alábbi módon",
             fields: [
                 {
-                    name: `📘┆Menu panel`,
-                    value: `\`/reactionroles menu [category name]\``,
+                    name: `📘┆Menü panel`,
+                    value: `\`/reactionroles menu [kategória neve]\``,
                     inline: true
                 },
                 {
-                    name: `📘┆Button panel`,
-                    value: `\`/reactionroles button [category name]\``,
+                    name: `📘┆Gomb panel`,
+                    value: `\`/reactionroles button [kategória neve]\``,
                     inline: true
                 }
             ],

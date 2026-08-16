@@ -8,16 +8,16 @@ module.exports = async (client, interaction, args) => {
     Schema.findOne({ Guild: interaction.guild.id, User: user.id }, async (err, data) => {
         if (data) {
             client.embed({
-                title: "📨・Invites",
-                desc: `**${user.tag}** has \`${data.Invites}\` invites`,
+                title: "📨・Meghívók",
+                desc: `**${user.tag}** felhasználónak \`${data.Invites}\` meghívója van`,
                 fields: [
                     {
-                        name: "Total",
+                        name: "Összesen",
                         value: `${data.Total}`,
                         inline: true
                     },
                     {
-                        name: "Left",
+                        name: "Elveszett",
                         value: `${data.Left}`,
                         inline: true
                     }
@@ -27,16 +27,16 @@ module.exports = async (client, interaction, args) => {
         }
         else {
             client.embed({
-                title: "📨・Invites",
-                desc: `**${user.tag}** has \`0\` invites`,
+                title: "📨・Meghívók",
+                desc: `**${user.tag}** felhasználónak \`0\` meghívója van`,
                 fields: [
                     {
-                        name: "Total",
+                        name: "Összesen",
                         value: `0`,
                         inline: true
                     },
                     {
-                        name: "Left",
+                        name: "Elveszett",
                         value: `0`,
                         inline: true
                     }

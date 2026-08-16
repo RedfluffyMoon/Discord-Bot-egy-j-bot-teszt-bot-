@@ -9,7 +9,7 @@ module.exports = async (client, interaction, args) => {
     });
 
     let code = interaction.options.getString('code');
-    if (code.includes('token') == true) return client.errNormal({ error: "I'm not going to send my token!", type: 'editreply' }, interaction);
+    if (code.includes('token') == true) return client.errNormal({ error: "Nem fogom elküldeni a tokenemet!", type: 'editreply' }, interaction);
 
     code = code.replace(/[""]/g, '"').replace(/['']/g, "'");
     let evaled;
@@ -30,12 +30,12 @@ module.exports = async (client, interaction, args) => {
                 title: `💻・Eval`,
                 fields: [
                     {
-                        name: "📥┇Input",
+                        name: "📥┇Bemenet",
                         value: `\`\`\`${code}\`\`\``,
                         inline: false,
                     },
                     {
-                        name: "📥┇Output",
+                        name: "📥┇Kimenet",
                         value: outputResponse.substr(0, 1024),
                         inline: false,
                     },
@@ -44,10 +44,10 @@ module.exports = async (client, interaction, args) => {
             }, interaction)
 
             const embed2 = new Discord.EmbedBuilder()
-                .setTitle(`${interaction.user.tag} used eval command`)
+                .setTitle(`${interaction.user.tag} eval parancsot használt`)
                 .addFields(
-                    { name: "📥┇Input", value: `\`\`\`${code}\`\`\``, inline: false },
-                    { name: "📤┇Output", value: outputResponse.substr(0, 1024), inline: false },
+                    { name: "📥┇Bemenet", value: `\`\`\`${code}\`\`\``, inline: false },
+                    { name: "📤┇Kimenet", value: outputResponse.substr(0, 1024), inline: false },
                 )
                 .setColor(client.config.colors.normal)
                 .setTimestamp();
@@ -61,7 +61,7 @@ module.exports = async (client, interaction, args) => {
             var embed2 = new Discord.EmbedBuilder()
                 .setAuthor(client.user.username, client.user.avatarURL())
                 .addFields(
-                    { name: "📥┇Input", value: `\`\`\`${code}\`\`\``, inline: false },
+                    { name: "📥┇Bemenet", value: `\`\`\`${code}\`\`\``, inline: false },
                 )
                 .setColor(client.config.colors.succes)
                 .setFooter(client.config.discord.footer)
@@ -76,12 +76,12 @@ module.exports = async (client, interaction, args) => {
             title: `💻・Eval`,
             fields: [
                 {
-                    name: "📥┇Input",
+                    name: "📥┇Bemenet",
                     value: `\`\`\`${code}\`\`\``,
                     inline: false,
                 },
                 {
-                    name: "📥┇Error!",
+                    name: "📥┇Hiba!",
                     value: `\`\`\`${clean(err)}\`\`\``,
                     inline: false,
                 },
