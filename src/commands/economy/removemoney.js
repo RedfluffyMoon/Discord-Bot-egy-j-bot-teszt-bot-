@@ -15,10 +15,10 @@ module.exports = async (client, interaction, args) => {
 
     if (!user || !amount) return client.errUsage({ usage: "addmoney [user] [amount]", type: 'editreply' }, interaction);
 
-    if (isNaN(amount)) return client.errNormal({ error: "Enter a valid number!", type: 'editreply' }, interaction);
+    if (isNaN(amount)) return client.errNormal({ error: "Adj meg egy érvényes számot!", type: 'editreply' }, interaction);
 
     if (user.bot) return client.errNormal({
-        error: "You cannot remove money from a bot!",
+        error: "Nem vehetsz el pénzt egy bottól!",
         type: 'editreply'
     }, interaction);
 
@@ -29,15 +29,15 @@ module.exports = async (client, interaction, args) => {
             if (data) {
 
                 client.succNormal({
-                    text: `Removed money from a user!`,
+                    text: `Pénzt vettél el egy felhasználótól!`,
                     fields: [
                         {
-                            name: `👤┆User`,
+                            name: `👤┆Felhasználó`,
                             value: `<@!${user.id}>`,
                             inline: true
                         },
                         {
-                            name: `${client.emotes.economy.coins}┆Amount`,
+                            name: `${client.emotes.economy.coins}┆Összeg`,
                             value: `$${amount}`,
                             inline: true
                         }
@@ -46,7 +46,7 @@ module.exports = async (client, interaction, args) => {
                 }, interaction);
             }
             else {
-                client.errNormal({ error: `This user doesn't have any money!`, type: 'editreply' }, interaction);
+                client.errNormal({ error: `Ennek a felhasználónak nincs pénze!`, type: 'editreply' }, interaction);
             }
         }, 500)
     })
