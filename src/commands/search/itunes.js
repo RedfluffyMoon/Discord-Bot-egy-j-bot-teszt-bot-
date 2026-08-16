@@ -6,8 +6,8 @@ module.exports = async (client, interaction, args) => {
     const song = interaction.options.getString('song');
 
     const r = await pop.itunes(song).catch(e => {
-        return client.errNormal({ 
-            error: "Song not found!",
+        return client.errNormal({
+            error: "Nem található a dal!",
             type: 'editreply'
         }, interaction)
     });
@@ -18,12 +18,12 @@ module.exports = async (client, interaction, args) => {
         url: r.url,
         fields: [
             {
-                name: "💬┇Name",
+                name: "💬┇Név",
                 value: `${r.name}`,
                 inline: true,
             },
             {
-                name: "🎤┇Artist",
+                name: "🎤┇Előadó",
                 value: `${r.artist}`,
                 inline: true,
             },
@@ -33,22 +33,22 @@ module.exports = async (client, interaction, args) => {
                 inline: true,
             },
             {
-                name: "🎼┇Length",
+                name: "🎼┇Hossz",
                 value: `${r.length}`,
                 inline: true,
             },
             {
-                name: "🏷️┇Genre",
+                name: "🏷️┇Műfaj",
                 value: `${r.genre}`,
                 inline: true,
             },
             {
-                name: "💵┇Price",
+                name: "💵┇Ár",
                 value: `${r.price}`,
                 inline: true,
             },
             {
-                name: "⏰┇Release Date",
+                name: "⏰┇Megjelenés dátuma",
                 value: `<t:${Math.round(new Date(r.release_date).getTime() / 1000)}>`,
                 inline: true,
             },

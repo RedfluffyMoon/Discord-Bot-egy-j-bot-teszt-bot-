@@ -8,7 +8,7 @@ module.exports = async (client, interaction, args) => {
 
     const s = await pop.steam(name).catch(e => {
         return client.errNormal({
-            error: "Application not found!",
+            error: "Nem található az alkalmazás!",
             type: 'editreply'
         }, interaction)
     });
@@ -18,27 +18,27 @@ module.exports = async (client, interaction, args) => {
         thumbnail: s.thumbnail,
         fields: [
             {
-                name: `💬┇Name`,
+                name: `💬┇Név`,
                 value: `${s.name}`,
                 inline: true,
             },
             {
-                name: `📃┇Capital`,
+                name: `📃┇Leírás`,
                 value: `${s.description}`,
                 inline: false,
             },
             {
-                name: "💻┇Developers",
+                name: "💻┇Fejlesztők",
                 value: `${s.developers.join(", ")}`,
                 inline: true,
             },
             {
-                name: "☁┇Publishers",
+                name: "☁┇Kiadók",
                 value: `${s.publishers.join(", ")}`,
                 inline: true,
             },
             {
-                name: "🪙┇Price",
+                name: "🪙┇Ár",
                 value: `${s.price}`,
                 inline: true,
             }

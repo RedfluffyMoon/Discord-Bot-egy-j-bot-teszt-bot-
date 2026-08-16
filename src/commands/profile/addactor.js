@@ -9,7 +9,7 @@ module.exports = async (client, interaction, args) => {
 
             if (data && data.Actors) {
                 if (data.Actors.includes(actor)) {
-                    return client.errNormal({ error: `That actor is already exists in your database!`, type: 'editreply' }, interaction);
+                    return client.errNormal({ error: `Ez a színész már szerepel az adatbázisodban!`, type: 'editreply' }, interaction);
                 }
                 data.Actors.push(actor);
                 data.save();
@@ -19,9 +19,9 @@ module.exports = async (client, interaction, args) => {
                 data.save();
             }
             client.succNormal({
-                text: "Added your actor",
+                text: "Színész hozzáadva",
                 fields: [{
-                    name: "👨‍🎤┆Actor",
+                    name: "👨‍🎤┆Színész",
                     value: `\`\`\`${actor}\`\`\``,
                     inline: true,
                 }],
@@ -29,7 +29,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
         else {
-            return client.errNormal({ error: "No profile found! Open a profile with createprofile", type:'editreply' }, interaction);
+            return client.errNormal({ error: "Nem található profil! Nyiss egyet a createprofile paranccsal", type:'editreply' }, interaction);
         }
     })
 

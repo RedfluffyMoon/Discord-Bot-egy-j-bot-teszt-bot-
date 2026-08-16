@@ -7,10 +7,10 @@ module.exports = async (client, interaction, args) => {
 
     const r = await pop.github(name).catch(() => {
         return client.errNormal({
-            error: `No account found with the username: ${name}`,
+            error: `Nem található fiók ezzel a felhasználónévvel: ${name}`,
             type: 'editreply'
         }, interaction)
-    
+
     })
 
     client.embed({
@@ -19,27 +19,27 @@ module.exports = async (client, interaction, args) => {
         url: r.url,
         fields: [
             {
-                name: "💬┇Name",
+                name: "💬┇Név",
                 value: `${r.name}`,
                 inline: true,
             },
             {
-                name: "🧑‍💼┇Company",
+                name: "🧑‍💼┇Cég",
                 value: `${r.company}`,
                 inline: true,
             },
             {
-                name: "💬┇Bio",
+                name: "💬┇Bemutatkozás",
                 value: `${r.bio}`,
                 inline: true,
             },
             {
-                name: "📁┇Public Repositories",
+                name: "📁┇Nyilvános tárolók",
                 value: `${r.public_repos}`,
                 inline: true,
             },
             {
-                name: "⏰┇Created At",
+                name: "⏰┇Létrehozva",
                 value: `<t:${Math.round(new Date(r.created_at).getTime() / 1000)}>`,
                 inline: true,
             },

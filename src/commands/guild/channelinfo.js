@@ -4,11 +4,11 @@ module.exports = async (client, interaction, args) => {
   const channel = interaction.options.getChannel('channel');
 
   client.embed({
-      title: `ℹ・Channel information`,
-      desc: `Channel information about: <#${channel.id}>`,
+      title: `ℹ・Csatorna információ`,
+      desc: `Csatorna információ erről: <#${channel.id}>`,
       fields: [
           {
-              name: "Type",
+              name: "Típus",
               value: `${channel.type}`,
               inline: true,
           },
@@ -18,18 +18,18 @@ module.exports = async (client, interaction, args) => {
               inline: true,
           },
           {
-              name: "Type",
+              name: "Típus",
               value: `${channel.type}`,
               inline: true,
           },
           {
-              name: "Made on",
+              name: "Létrehozva",
               value: `${channel.createdAt}`,
               inline: true,
           },
           {
-              name: "Subject",
-              value: `${channel.topic ? channel.topic : 'N/A'}`,
+              name: "Téma",
+              value: `${channel.topic ? channel.topic : 'Nincs'}`,
               inline: true,
           },
           {
@@ -38,8 +38,8 @@ module.exports = async (client, interaction, args) => {
               inline: true,
           },
           {
-              name: "Parent",
-              value: `${channel.parentID ? channel.parentID : 'N/A'}`,
+              name: "Szülő",
+              value: `${channel.parentID ? channel.parentID : 'Nincs'}`,
               inline: true,
           },
       ],

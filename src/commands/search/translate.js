@@ -8,16 +8,16 @@ module.exports = async (client, interaction, args) => {
 
     translate(text, { to: language }).then(res => {
         client.embed({
-            title: `${client.emotes.normal.check}・Success!`,
-            desc: `I have translated the following`,
+            title: `${client.emotes.normal.check}・Siker!`,
+            desc: `A következőt fordítottam le`,
             fields: [
                 {
-                    name: "📥 - Input",
+                    name: "📥 - Bemenet",
                     value: `${text}`,
                     inline: false,
                 },
                 {
-                    name: "📤 - Output",
+                    name: "📤 - Kimenet",
                     value: `${res.text}`,
                     inline: false,
                 },
@@ -28,7 +28,7 @@ module.exports = async (client, interaction, args) => {
     }).catch(err => {
         console.log(err)
         client.errNormal({
-            error: "Please provide a valid ISO language code!",
+            error: "Kérlek adj meg egy érvényes ISO nyelvi kódot!",
             type: 'editreply'
         }, interaction);
     })

@@ -6,7 +6,7 @@ const model = require('../../database/models/badge');
 module.exports = async (client, interaction, args) => {
   const member = await interaction.guild.members.fetch(interaction.options.getUser('user').id);
   if(!member) return client.errNormal({
-    error: "This user is not in this guild!",
+    error: "Ez a felhasználó nincs ezen a szerveren!",
     type: 'editreply'
   }, interaction);
   const badgeFlags = {
@@ -26,22 +26,22 @@ module.exports = async (client, interaction, args) => {
   }
 
   const flags = {
-    ActiveDeveloper: "👨‍💻・Active Developer",
-    BugHunterLevel1: "🐛・Discord Bug Hunter",
-    BugHunterLevel2: "🐛・Discord Bug Hunter",
-    CertifiedModerator: "👮‍♂️・Certified Moderator",
-    HypeSquadOnlineHouse1: "🏠・House Bravery Member",
-    HypeSquadOnlineHouse2: "🏠・House Brilliance Member",
-    HypeSquadOnlineHouse3: "🏠・House Balance Member",
-    HypeSquadEvents: "🏠・HypeSquad Events",
-    PremiumEarlySupporter: "👑・Early Supporter",
+    ActiveDeveloper: "👨‍💻・Aktív fejlesztő",
+    BugHunterLevel1: "🐛・Discord Hibavadász",
+    BugHunterLevel2: "🐛・Discord Hibavadász",
+    CertifiedModerator: "👮‍♂️・Hivatalos moderátor",
+    HypeSquadOnlineHouse1: "🏠・House Bravery tag",
+    HypeSquadOnlineHouse2: "🏠・House Brilliance tag",
+    HypeSquadOnlineHouse3: "🏠・House Balance tag",
+    HypeSquadEvents: "🏠・HypeSquad Események",
+    PremiumEarlySupporter: "👑・Korai támogató",
     Partner: "👑・Partner",
-    Quarantined: "🔒・Quarantined", // Not sure if this is still a thing
+    Quarantined: "🔒・Karanténban", // Not sure if this is still a thing
     Spammer: "🔒・Spammer", // Not sure if this one works
     Staff: "👨‍💼・Discord Staff",
-    TeamPseudoUser: "👨‍💼・Discord Team",
-    VerifiedBot: "🤖・Verified Bot",
-    VerifiedDeveloper: "👨‍💻・(early)Verified Bot Developer",
+    TeamPseudoUser: "👨‍💼・Discord Csapat",
+    VerifiedBot: "🤖・Hitelesített bot",
+    VerifiedDeveloper: "👨‍💻・(korai)Hitelesített bot fejlesztő",
   }
 
   let Badges = await model.findOne({ User: member.user.id });
@@ -53,24 +53,24 @@ module.exports = async (client, interaction, args) => {
   const userFlags = member.user.flags ? member.user.flags.toArray() : [];
 
   return client.embed({
-    title: `👤・User information`,
-    desc: `Information about ${member.user.username}`,
+    title: `👤・Felhasználói információ`,
+    desc: `Információ róla: ${member.user.username}`,
     thumbnail: member.user.displayAvatarURL({ dynamic: true, size: 1024 }),
     image: member.user.bannerURL({ dynamic: true, size: 1024 }),
     fields: [
       {
-        name: "Username",
+        name: "Felhasználónév",
         value: `${member.user.username}`,
         inline: true,
       },
       {
-        name: "Discriminator",
+        name: "Azonosítócímke",
         value: `${member.user.discriminator}`,
         inline: true,
       },
       {
-        name: "Nickname",
-        value: `${member.nickname || 'No nickname'}`,
+        name: "Becenév",
+        value: `${member.nickname || 'Nincs becenév'}`,
         inline: true,
       },
       {
@@ -79,28 +79,28 @@ module.exports = async (client, interaction, args) => {
         inline: true,
       },
       {
-        name: "Flags",
-        value: `${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None'}`,
+        name: "Jelzők",
+        value: `${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'Nincs'}`,
         inline: true,
       },
       {
-        name: "Badges",
-        value: `${Badges.FLAGS ? Badges.FLAGS.map(flag => badgeFlags[flag]).join(' ') : 'None'}`,
+        name: "Jelvények",
+        value: `${Badges.FLAGS ? Badges.FLAGS.map(flag => badgeFlags[flag]).join(' ') : 'Nincs'}`,
         inline: true,
       },
       {
-        name: "Discord joined at",
+        name: "Discordra csatlakozott",
         value: `<t:${Math.round(member.user.createdTimestamp / 1000)}>`,
         inline: true,
       },
       {
-        name: "Server joined at",
+        name: "Szerverre csatlakozott",
         value: `<t:${Math.round(member.joinedAt / 1000)}>`,
         inline: true,
       },
       {
-        name: `Roles [${roles.length}]`,
-        value: `${roles.length ? roles.join(', ') : 'None'}`,
+        name: `Rangok [${roles.length}]`,
+        value: `${roles.length ? roles.join(', ') : 'Nincs'}`,
         inline: false,
       }
     ],

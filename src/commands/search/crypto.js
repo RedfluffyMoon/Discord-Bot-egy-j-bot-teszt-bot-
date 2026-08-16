@@ -13,16 +13,16 @@ module.exports = async (client, interaction, args) => {
 
         if (!data[coin][currency]) return;
 
-        client.embed({ 
-            title: `💹・Crypto stats`, 
-            desc: `The current price of **1 ${coin}** = **${data[coin][currency]} ${currency}**`, 
-            type: 'editreply' 
+        client.embed({
+            title: `💹・Kripto statisztika`,
+            desc: `A jelenlegi ár: **1 ${coin}** = **${data[coin][currency]} ${currency}**`,
+            type: 'editreply'
         }, interaction);
     }
     catch {
-        client.errNormal({ 
-            error: "Please check your inputs!", 
-            type: 'editreply' 
+        client.errNormal({
+            error: "Kérlek ellenőrizd a megadott adatokat!",
+            type: 'editreply'
         }, interaction);
     }
 }

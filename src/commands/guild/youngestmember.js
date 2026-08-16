@@ -8,16 +8,16 @@ module.exports = async (client, interaction, args) => {
   const member = Array.from(getMember.values());
 
   client.embed({
-    title: `👶・Youngest member`,
-    desc: `See who is the youngest member in **${interaction.guild.name}**`,
+    title: `👶・Legfiatalabb tag`,
+    desc: `Nézd meg, ki a legfiatalabb tag itt: **${interaction.guild.name}**`,
     fields: [
       {
-        name: `👤┆User`,
+        name: `👤┆Felhasználó`,
         value: `${member[0]} (${member[0].user.username}#${member[0].user.discriminator})`,
         inline: true
       },
       {
-        name: `⏰┆Account creation`,
+        name: `⏰┆Fiók létrehozva`,
         value: `<t:${Math.round(member[0].user.createdTimestamp / 1000)}>`,
         inline: true
       },

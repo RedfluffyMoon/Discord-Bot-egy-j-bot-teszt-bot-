@@ -9,7 +9,7 @@ module.exports = async (client, interaction, args) => {
 
             if (data && data.Hobbys) {
                 if (data.Hobbys.includes(hobby)) {
-                    return client.errNormal({ error: `That hobby is already exists in your database!`, type: 'editreply' }, interaction);
+                    return client.errNormal({ error: `Ez a hobbi már szerepel az adatbázisodban!`, type: 'editreply' }, interaction);
                 }
                 data.Hobbys.push(hobby);
                 data.save();
@@ -19,9 +19,9 @@ module.exports = async (client, interaction, args) => {
                 data.save();
             }
             client.succNormal({
-                text: "Added your hobby",
+                text: "Hobbi hozzáadva",
                 fields: [{
-                    name: "⚽┆Hobby",
+                    name: "⚽┆Hobbi",
                     value: `\`\`\`${hobby}\`\`\``,
                     inline: true,
                 }],
@@ -29,7 +29,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
         else {
-            return client.errNormal({ error: "No profile found! Open a profile with createprofile", type:'editreply' }, interaction);
+            return client.errNormal({ error: "Nem található profil! Nyiss egyet a createprofile paranccsal", type:'editreply' }, interaction);
         }
     })
 

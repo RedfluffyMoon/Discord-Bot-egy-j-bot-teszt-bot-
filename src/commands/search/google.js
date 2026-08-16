@@ -6,11 +6,11 @@ module.exports = async (client, interaction, args) => {
     let link = `https://www.google.com/search?q=${name}`;
 
     client.succNormal({
-        text: `I have found the following for: \`${name}\``,
+        text: `Ezt találtam erre: \`${name}\``,
         fields: [
             {
                 name: `🔗┇Link`,
-                value: `[Click here to see the link](${link})`,
+                value: `[Kattints ide a link megtekintéséhez](${link})`,
                 inline: true,
             }
         ], type: 'editreply'

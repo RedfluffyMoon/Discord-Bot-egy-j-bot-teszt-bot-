@@ -19,7 +19,7 @@ module.exports = async (client, interaction, args) => {
 
       interaction.guild.emojis.create({ attachment: url, name: parsedEmoji.name, roles: [role.id] }).then(emoji => {
         client.succNormal({
-          text: `Emoji successfully added to the server`,
+          text: `Emoji sikeresen hozzáadva a szerverhez`,
           fields: [
             {
               name: "😛┇Emoji",
@@ -27,7 +27,7 @@ module.exports = async (client, interaction, args) => {
               inline: true,
             },
             {
-              name: "😜┇Emoji name",
+              name: "😜┇Emoji neve",
               value: `${emoji.name}`,
               inline: true,
             },
@@ -43,7 +43,7 @@ module.exports = async (client, interaction, args) => {
     }else{
       interaction.guild.emojis.create({ attachment: url, name: parsedEmoji.name }).then(emoji => {
         client.succNormal({
-          text: `Emoji successfully added to the server`,
+          text: `Emoji sikeresen hozzáadva a szerverhez`,
           fields: [
             {
               name: "😛┇Emoji",
@@ -51,7 +51,7 @@ module.exports = async (client, interaction, args) => {
               inline: true,
             },
             {
-              name: "😜┇Emoji name",
+              name: "😜┇Emoji neve",
               value: `${emoji.name}`,
               inline: true,
             },
@@ -68,7 +68,7 @@ module.exports = async (client, interaction, args) => {
   }
   else {
     client.errNormal({
-      error: "Emoji not found!",
+      error: "Nem található emoji!",
       type: 'editreply'
     }, interaction)
   }

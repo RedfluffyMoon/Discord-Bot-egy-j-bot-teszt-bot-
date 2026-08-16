@@ -10,7 +10,7 @@ module.exports = async (client, interaction, args) => {
 
             if (data && data.Artists) {
                 if (!data.Artists.includes(artist)) {
-                    return client.errNormal({ error: `That artist doesn't exist in the database!`, type: 'editreply' }, interaction);
+                    return client.errNormal({ error: `Ez az előadó nem szerepel az adatbázisban!`, type: 'editreply' }, interaction);
                 }
 
                 const filtered = data.Artists.filter((target) => target !== artist);
@@ -20,9 +20,9 @@ module.exports = async (client, interaction, args) => {
                 });
             }
             client.succNormal({
-                text: "Removed your artist",
+                text: "Előadó eltávolítva",
                 fields: [{
-                    name: "🎤┆Artist",
+                    name: "🎤┆Előadó",
                     value: `\`\`\`${artist}\`\`\``,
                     inline: true,
                 }],
@@ -30,7 +30,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
         else {
-            return client.errNormal({ error: "No profile found! Open a profile with createprofile", type:'editreply' }, interaction);
+            return client.errNormal({ error: "Nem található profil! Nyiss egyet a createprofile paranccsal", type:'editreply' }, interaction);
         }
     })
 
