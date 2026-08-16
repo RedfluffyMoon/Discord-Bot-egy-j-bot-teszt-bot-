@@ -80,113 +80,113 @@ module.exports = {
                 const userFlags = user.flags ? user.flags.toArray() : [];
 
                 client.embed({
-                    title: `${client.user.username}・Profile`,
+                    title: `${client.user.username}・Profil`,
                     desc: '_____',
                     thumbnail: user.avatarURL({ dynamic: true }),
                     fields: [{
-                        name: "👤┆User",
+                        name: "👤┆Felhasználó",
                         value: user.username,
                         inline: true
                     },
                     {
-                        name: "📘┆Discriminator",
+                        name: "📘┆Diszkriminátor",
                         value: user.discriminator,
                         inline: true
                     },
                     {
-                        name: "🆔┆ID",
+                        name: "🆔┆Azonosító",
                         value: user.id,
                         inline: true
                     },
                     {
-                        name: "👨‍👩‍👦┆Gender",
-                        value: `${data.Gender || 'Not set'}`,
+                        name: "👨‍👩‍👦┆Nem",
+                        value: `${data.Gender || 'Nincs beállítva'}`,
                         inline: true
                     },
                     {
-                        name: "🔢┆Age",
-                        value: `${data.Age || 'Not set'}`,
+                        name: "🔢┆Kor",
+                        value: `${data.Age || 'Nincs beállítva'}`,
                         inline: true
                     },
                     {
-                        name: "🎂┆Birthday",
-                        value: `${data.Birthday || 'Not set'}`,
+                        name: "🎂┆Születésnap",
+                        value: `${data.Birthday || 'Nincs beállítva'}`,
                         inline: true
                     },
                     {
-                        name: "🎨┆Favorite color",
-                        value: `${data.Color || 'Not set'}`,
+                        name: "🎨┆Kedvenc szín",
+                        value: `${data.Color || 'Nincs beállítva'}`,
                         inline: true
                     },
                     {
-                        name: "🐶┆Favorite pets",
-                        value: `${data.Pets.join(', ') || 'Not set'}`,
+                        name: "🐶┆Kedvenc háziállatok",
+                        value: `${data.Pets.join(', ') || 'Nincs beállítva'}`,
                         inline: true
                     },
                     {
-                        name: "🍕┆Favorite food",
-                        value: `${data.Food.join(', ') || 'Not set'}`,
+                        name: "🍕┆Kedvenc étel",
+                        value: `${data.Food.join(', ') || 'Nincs beállítva'}`,
                         inline: true
                     },
                     {
-                        name: "🎶┆Favorite songs",
-                        value: `${data.Songs.join(', ') || 'Not set'}`,
+                        name: "🎶┆Kedvenc dalok",
+                        value: `${data.Songs.join(', ') || 'Nincs beállítva'}`,
                         inline: true
                     },
                     {
-                        name: "🎤┆Favorite artists",
-                        value: `${data.Artists.join(', ') || 'Not set'}`,
+                        name: "🎤┆Kedvenc előadók",
+                        value: `${data.Artists.join(', ') || 'Nincs beállítva'}`,
                         inline: true
                     },
                     {
-                        name: "🎬┆Favorite movies",
-                        value: `${data.Movies.join(', ') || 'Not set'}`,
+                        name: "🎬┆Kedvenc filmek",
+                        value: `${data.Movies.join(', ') || 'Nincs beállítva'}`,
                         inline: true
                     },
                     {
-                        name: "👨‍🎤┆Favorite actors",
-                        value: `${data.Actors.join(', ') || 'Not set'}`,
+                        name: "👨‍🎤┆Kedvenc színészek",
+                        value: `${data.Actors.join(', ') || 'Nincs beállítva'}`,
                         inline: true
                     },
                     {
-                        name: "🏴┆Origin",
-                        value: `${data.Orgin || 'Not set'}`,
+                        name: "🏴┆Származás",
+                        value: `${data.Orgin || 'Nincs beállítva'}`,
                         inline: true
                     },
                     {
-                        name: "🎮┆Hobby's",
-                        value: `${data.Hobbys.join(', ') || 'Not set'}`,
+                        name: "🎮┆Hobbik",
+                        value: `${data.Hobbys.join(', ') || 'Nincs beállítva'}`,
                         inline: true
                     },
                     {
-                        name: "😛┆Status",
-                        value: `${data.Status || 'Not set'}`,
+                        name: "😛┆Státusz",
+                        value: `${data.Status || 'Nincs beállítva'}`,
                         inline: true
                     },
                     {
-                        name: "📛┆Bot Badges",
-                        value: `${Badges.FLAGS ? Badges.FLAGS.map(flag => badgeFlags[flag]).join(' ') : 'None'}`,
+                        name: "📛┆Bot jelvények",
+                        value: `${Badges.FLAGS ? Badges.FLAGS.map(flag => badgeFlags[flag]).join(' ') : 'Nincs'}`,
                         inline: true
                     },
                     {
-                        name: "🏷️┆Discord Badges",
-                        value: `${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None' || 'None'}`,
+                        name: "🏷️┆Discord jelvények",
+                        value: `${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'Nincs' || 'Nincs'}`,
                         inline: true
                     },
                     {
                         name: "💳┆Dcredits",
-                        value: `${credits || 'None'}`,
+                        value: `${credits || 'Nincs'}`,
                         inline: true
                     },
                     {
-                        name: "ℹ️┆About me",
-                        value: `${data.Aboutme || 'Not set'}`,
+                        name: "ℹ️┆Rólam",
+                        value: `${data.Aboutme || 'Nincs beállítva'}`,
                         inline: false
                     },], type: 'editreply'
                 }, interaction);
             }
             else {
-                return client.errNormal({ error: "No profile found! Open a profile with /profile create", type: 'ephemeral' }, interaction);
+                return client.errNormal({ error: "Nem található profil! Nyiss egyet a /profile create paranccsal", type: 'ephemeral' }, interaction);
             }
         })
     },

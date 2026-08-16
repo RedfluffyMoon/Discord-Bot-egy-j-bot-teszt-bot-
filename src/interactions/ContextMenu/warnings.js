@@ -22,7 +22,7 @@ module.exports = {
 
         if (perms == false){
             client.errNormal({
-                error: "You don't have the required permissions to use this command!",
+                error: "Nincs jogosultságod ehhez a parancshoz!",
                 type: 'ephemeral'
             }, interaction);
             return;
@@ -36,17 +36,17 @@ module.exports = {
                 var fields = [];
                 data.Warnings.forEach(element => {
                     fields.push({
-                        name: "Warning **" + element.Case + "**",
-                        value: "Reason: " + element.Reason + "\nModerator <@!" + element.Moderator + ">",
+                        name: "**" + element.Case + "**. figyelmeztetés",
+                        value: "Indok: " + element.Reason + "\nModerátor: <@!" + element.Moderator + ">",
                         inline: true
                     })
                 });
                 client.embed({
-                    title: `${client.emotes.normal.error}・Warnings`,
-                    desc: `The warnings of **${member.user.tag}**`,
+                    title: `${client.emotes.normal.error}・Figyelmeztetések`,
+                    desc: `**${member.user.tag}** figyelmeztetései`,
                     fields: [
                         {
-                            name: "Total",
+                            name: "Összesen",
                             value: `${data.Warnings.length}`,
                         },
                         ...fields
@@ -56,8 +56,8 @@ module.exports = {
             }
             else {
                 client.embed({
-                    title: `${client.emotes.normal.error}・Warnings`,
-                    desc: `User ${member.user.tag} has no warnings!`,
+                    title: `${client.emotes.normal.error}・Figyelmeztetések`,
+                    desc: `${member.user.tag} felhasználónak nincs figyelmeztetése!`,
                     type: 'editreply'
                 }, interaction)
             }
