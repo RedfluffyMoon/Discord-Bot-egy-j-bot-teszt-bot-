@@ -28,10 +28,10 @@ module.exports = async (client, interaction, args) => {
         })
 
         client.succNormal({
-            text: "Sticky message created",
+            text: "A tapadós üzenet létrehozva",
             fields: [
                 {
-                    name: `💬┆Message`,
+                    name: `💬┆Üzenet`,
                     value: `${content}`
                 }
             ],

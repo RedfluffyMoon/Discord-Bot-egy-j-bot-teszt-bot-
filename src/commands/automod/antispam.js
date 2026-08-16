@@ -18,7 +18,7 @@ module.exports = async (client, interaction, args) => {
     }
 
     client.succNormal({
-        text: `Anti spam is now **${boolean ? 'enabled' : 'disabled'}** in this guild`,
+        text: `A spam-blokkolás mostantól **${boolean ? 'engedélyezve' : 'letiltva'}** ezen a szerveren`,
         type: 'editreply'
     }, interaction);
 }

@@ -36,10 +36,10 @@ module.exports = async (client, interaction, args) => {
             });
 
             client.succNormal({
-                text: `Custom voice has been set up successfully!`,
+                text: `Az egyéni hangcsatorna sikeresen beállítva!`,
                 fields: [
                     {
-                        name: `📘┆Channel`,
+                        name: `📘┆Csatorna`,
                         value: `${ch} (${ch.name})`
                     }
                 ],

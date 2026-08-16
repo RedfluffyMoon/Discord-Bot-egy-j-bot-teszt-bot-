@@ -10,7 +10,7 @@ module.exports = async (client, interaction, args) => {
             let money = parseInt(interaction.options.getNumber('amount'));
 
             if (!money) return client.errUsage({ usage: "blackjack [amount]", type: 'editreply' }, interaction);
-            if (money > data.Money) return client.errNormal({ error: `You are betting more than you have!`, type: 'editreply' }, interaction);
+            if (money > data.Money) return client.errNormal({ error: `Többet teszel fel, mint amennyid van!`, type: 'editreply' }, interaction);
 
             var numCardsPulled = 0;
             var gameOver = false;
@@ -136,12 +136,12 @@ module.exports = async (client, interaction, args) => {
                     .addComponents(
                         new Discord.ButtonBuilder()
                             .setCustomId('blackjack_hit')
-                            .setLabel(`Hit`)
+                            .setLabel(`Lapot kérek`)
                             .setStyle(Discord.ButtonStyle.Primary),
 
                         new Discord.ButtonBuilder()
                             .setCustomId('blackjack_stand')
-                            .setLabel(`Stand`)
+                            .setLabel(`Megállok`)
                             .setStyle(Discord.ButtonStyle.Primary),
                     )
 
@@ -152,7 +152,7 @@ module.exports = async (client, interaction, args) => {
                         desc: `${f} \n${msg}`,
                         fields: [
                             {
-                                name: `You`,
+                                name: `Te`,
                                 value: cardsMsg,
                                 inline: true,
                             },
@@ -171,7 +171,7 @@ module.exports = async (client, interaction, args) => {
                         desc: `${f} \n${msg}`,
                         fields: [
                             {
-                                name: `You`,
+                                name: `Te`,
                                 value: cardsMsg,
                                 inline: true,
                             },
@@ -192,8 +192,8 @@ module.exports = async (client, interaction, args) => {
                     bet("win");
                     gameOver = true;
                     endMsg(
-                        `Win! You got 21!`,
-                        `Bot had ${dealer.score.toString()}`,
+                        `Nyertél! 21-et kaptál!`,
+                        `A botnak ${dealer.score.toString()} volt`,
                         `GREEN`
                     );
                 }
@@ -201,8 +201,8 @@ module.exports = async (client, interaction, args) => {
                     bet("lose");
                     gameOver = true;
                     endMsg(
-                        `Lost! You reached over 21!`,
-                        `Bot had ${dealer.score.toString()}`,
+                        `Vesztettél! 21 fölé mentél!`,
+                        `A botnak ${dealer.score.toString()} volt`,
                         `RED`
                     );
                 }
@@ -210,8 +210,8 @@ module.exports = async (client, interaction, args) => {
                     bet("lose");
                     gameOver = true;
                     endMsg(
-                        `Lost! The dealer got 21!`,
-                        `Bot had ${dealer.score.toString()}`,
+                        `Vesztettél! A dealer 21-et kapott!`,
+                        `A botnak ${dealer.score.toString()} volt`,
                         `RED`
                     );
                 }
@@ -219,8 +219,8 @@ module.exports = async (client, interaction, args) => {
                     bet("win");
                     gameOver = true;
                     endMsg(
-                        `Win! Bot reached over 21!`,
-                        `Bot had ${dealer.score.toString()}`,
+                        `Nyertél! A bot 21 fölé ment!`,
+                        `A botnak ${dealer.score.toString()} volt`,
                         `GREEN`
                     );
                 }
@@ -232,8 +232,8 @@ module.exports = async (client, interaction, args) => {
                     bet("win");
                     gameOver = true;
                     endMsg(
-                        `Win! You defeated Bot!`,
-                        `Bot had ${dealer.score.toString()}`,
+                        `Nyertél! Legyőzted a botot!`,
+                        `A botnak ${dealer.score.toString()} volt`,
                         `GREEN`
                     );
                 }
@@ -245,8 +245,8 @@ module.exports = async (client, interaction, args) => {
                     bet("lose");
                     gameOver = true;
                     endMsg(
-                        `Lost! Bot won!`,
-                        `Bot had ${dealer.score.toString()}`,
+                        `Vesztettél! A bot nyert!`,
+                        `A botnak ${dealer.score.toString()} volt`,
                         `RED`
                     );
                 }
@@ -256,7 +256,7 @@ module.exports = async (client, interaction, args) => {
                     dealer.score < 21
                 ) {
                     gameOver = true;
-                    endMsg(`Tie!`, `Bot had ${dealer.score.toString()}`, `RED`);
+                    endMsg(`Döntetlen!`, `A botnak ${dealer.score.toString()} volt`, `RED`);
                 }
             }
 
@@ -294,8 +294,8 @@ module.exports = async (client, interaction, args) => {
                 if (gameOver) return;
 
                 endMsg(
-                    "To hit type `h`, for stand type `s`",
-                    `GoodLuck ;)`,
+                    "Laphoz nyomd meg a `h`-t, megálláshoz az `s`-t",
+                    `Sok szerencsét ;)`,
                     client.color
                 );
 
@@ -313,7 +313,7 @@ module.exports = async (client, interaction, args) => {
                         }
                     })
                     .catch(_ => {
-                        interaction.channel.send("Lost!!");
+                        interaction.channel.send("Vesztettél!!");
                         bet("lose");
                         return;
                     });
@@ -321,7 +321,7 @@ module.exports = async (client, interaction, args) => {
             await loop();
         }
         else {
-            client.errNormal({ error: `You don't have any ${client.emotes.economy.coins}!`, type: 'editreply' }, interaction);
+            client.errNormal({ error: `Nincs egy ${client.emotes.economy.coins} sem nálad!`, type: 'editreply' }, interaction);
         }
     })
 }

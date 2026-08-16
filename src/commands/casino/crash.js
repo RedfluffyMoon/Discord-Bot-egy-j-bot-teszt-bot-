@@ -11,7 +11,7 @@ module.exports = async (client, interaction, args) => {
             let money = parseInt(interaction.options.getNumber('amount'));
             if (!money) return client.errUsage({ usage: "crash [amount]", type: 'editreply' }, interaction);
 
-            if (money > data.Money) return client.errNormal({ error: `You are betting more than you have!`, type: 'editreply' }, interaction);
+            if (money > data.Money) return client.errNormal({ error: `Többet teszel fel, mint amennyid van!`, type: 'editreply' }, interaction);
 
             const row = new Discord.ActionRowBuilder()
                 .addComponents(
@@ -31,15 +31,15 @@ module.exports = async (client, interaction, args) => {
                 )
 
             client.embed({
-                desc: `Crash started by ${user}・React 🛑 to stop`,
+                desc: `A crash-t elindította ${user}・Reagálj 🛑-lal a megállításhoz`,
                 fields: [
                     {
-                        name: `Multiplier`,
+                        name: `Szorzó`,
                         value: `1x`,
                         inline: true,
                     },
                     {
-                        name: `Profit`,
+                        name: `Nyereség`,
                         value: `**0**`,
                         inline: true,
                     }
@@ -65,12 +65,12 @@ module.exports = async (client, interaction, args) => {
                         })
 
                         return client.embed({
-                            title: `Crash Results of ${user}`,
+                            title: `${user} crash eredménye`,
                             desc: `${msg}`,
                             type: 'edit',
                             fields: [
                                 {
-                                    name: `Loss`,
+                                    name: `Veszteség`,
                                     value: `**${money}**`,
                                     inline: false,
                                 }
@@ -86,16 +86,16 @@ module.exports = async (client, interaction, args) => {
                         let profit = calc - money;
 
                         client.embed({
-                            desc: `Crash started by ${user}・React 🛑 to stop`,
+                            desc: `A crash-t elindította ${user}・Reagálj 🛑-lal a megállításhoz`,
                             type: 'edit',
                             fields: [
                                 {
-                                    name: `Multiplier`,
+                                    name: `Szorzó`,
                                     value: `${multiplier.toFixed(1)}x`,
                                     inline: true,
                                 },
                                 {
-                                    name: `Profit`,
+                                    name: `Nyereség`,
                                     value: `**$${profit.toFixed(2)}**`,
                                     inline: true,
                                 }
@@ -122,10 +122,10 @@ module.exports = async (client, interaction, args) => {
                             })
 
                             return client.embed({
-                                desc: `Crash Results of ${user}`,
+                                desc: `${user} crash eredménye`,
                                 fields: [
                                     {
-                                        name: `Profit`,
+                                        name: `Nyereség`,
                                         value: `**$${profit.toFixed(2)}**`,
                                         inline: false,
                                     }
@@ -148,11 +148,11 @@ module.exports = async (client, interaction, args) => {
                             }
                         )
                         return client.embed({
-                            desc: `Crash Results of ${user}`,
+                            desc: `${user} crash eredménye`,
                             type: 'edit',
                             fields: [
                                 {
-                                    name: `Loss`,
+                                    name: `Veszteség`,
                                     value: `**${money}**`,
                                     inline: false,
                                 }
@@ -165,7 +165,7 @@ module.exports = async (client, interaction, args) => {
 
         }
         else {
-            client.errNormal({ error: `You has no ${client.emotes.economy.coins}!`, type: 'editreply' }, interaction);
+            client.errNormal({ error: `Nincs egy ${client.emotes.economy.coins} sem nálad!`, type: 'editreply' }, interaction);
         }
     })
 }

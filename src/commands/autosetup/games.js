@@ -14,8 +14,8 @@ module.exports = async (client, interaction, args) => {
             type: Discord.ChannelType.GuildText
         }).then((ch) => {
             client.embed({
-                title: `🔢・Counting`,
-                desc: `This is the start of counting! The first number is **1**`
+                title: `🔢・Számolás`,
+                desc: `Ez a számolás kezdete! Az első szám: **1**`
             }, ch)
 
             client.createChannelSetup(Counting, ch, interaction)
@@ -28,8 +28,8 @@ module.exports = async (client, interaction, args) => {
             type: Discord.ChannelType.GuildText
         }).then((ch) => {
             client.embed({
-                title: `🔢・Guess the number`,
-                desc: `Guess the number between **1** and **10.000**!`
+                title: `🔢・Találd ki a számot`,
+                desc: `Találd ki a számot **1** és **10.000** között!`
             }, ch)
 
             client.createChannelSetup(GTN, ch, interaction)
@@ -45,11 +45,11 @@ module.exports = async (client, interaction, args) => {
             var shuffled = word.split('').sort(function () { return 0.5 - Math.random() }).join('');
 
             client.embed({
-                title: `💬・Guess the word`,
-                desc: `Put the letters in the right position!`,
+                title: `💬・Találd ki a szót`,
+                desc: `Rakd a betűket a helyes sorrendbe!`,
                 fields: [
                     {
-                        name: `🔀┆Word`,
+                        name: `🔀┆Szó`,
                         value: `${shuffled.toLowerCase()}`
                     }
                 ],

@@ -19,12 +19,12 @@ module.exports = async (client, interaction, args) => {
 
             if (!colour || !money) return client.errUsage({ usage: "roulette [color] [amount]", type: 'editreply' }, interaction);
             colour = colour.toLowerCase()
-            if (money > data.Money) return client.errNormal({ error: `You are betting more than you have!`, type: 'editreply' }, interaction);
+            if (money > data.Money) return client.errNormal({ error: `Többet teszel fel, mint amennyid van!`, type: 'editreply' }, interaction);
 
             if (colour == "b" || colour.includes("black")) colour = 0;
             else if (colour == "r" || colour.includes("red")) colour = 1;
             else if (colour == "g" || colour.includes("green")) colour = 2;
-            else return client.errNormal({ error: `No correct color specified!`, type: 'editreply' }, interaction);
+            else return client.errNormal({ error: `Nem adtál meg helyes színt!`, type: 'editreply' }, interaction);
 
             if (random == 0 && colour == 2) { // Green
                 money *= 15
@@ -32,7 +32,7 @@ module.exports = async (client, interaction, args) => {
                 data.Money += money;
                 data.save();
 
-                client.embed({ title: `🎰・Multiplier: 15x`, desc: `You won **${client.emotes.economy.coins} $${money}**`, type: 'editreply' }, interaction);
+                client.embed({ title: `🎰・Szorzó: 15x`, desc: `Nyertél **${client.emotes.economy.coins} $${money}**-t`, type: 'editreply' }, interaction);
             }
 
             else if (isOdd(random) && colour == 1) { // Red
@@ -40,7 +40,7 @@ module.exports = async (client, interaction, args) => {
                 data.Money += money;
                 data.save();
 
-                client.embed({ title: `🎰・Multiplier: 1.5x`, desc: `You won **${client.emotes.economy.coins} $${money}**`, type: 'editreply' }, interaction);
+                client.embed({ title: `🎰・Szorzó: 1.5x`, desc: `Nyertél **${client.emotes.economy.coins} $${money}**-t`, type: 'editreply' }, interaction);
             }
 
             else if (!isOdd(random) && colour == 0) { // Black
@@ -48,19 +48,19 @@ module.exports = async (client, interaction, args) => {
                 data.Money += money;
                 data.save();
 
-                client.embed({ title: `🎰・Multiplier: 2x`, desc: `You won **${client.emotes.economy.coins} $${money}**`, type: 'editreply' }, interaction);
+                client.embed({ title: `🎰・Szorzó: 2x`, desc: `Nyertél **${client.emotes.economy.coins} $${money}**-t`, type: 'editreply' }, interaction);
             }
 
             else { // Wrong
                 data.Money -= money;
                 data.save();
 
-                client.embed({ title: `🎰・Multiplier: 0x`, desc: `You lost **${client.emotes.economy.coins} $${money}**`, type: 'editreply' }, interaction);
+                client.embed({ title: `🎰・Szorzó: 0x`, desc: `Vesztettél **${client.emotes.economy.coins} $${money}**-t`, type: 'editreply' }, interaction);
             }
 
         }
         else {
-            client.errNormal({ error: `You has no ${client.emotes.economy.coins}!`, type: 'editreply' }, interaction);
+            client.errNormal({ error: `Nincs egy ${client.emotes.economy.coins} sem nálad!`, type: 'editreply' }, interaction);
         }
     })
 }

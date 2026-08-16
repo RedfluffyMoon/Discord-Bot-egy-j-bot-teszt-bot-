@@ -9,7 +9,7 @@ module.exports = async (client, interaction, args) => {
         if (data) {
             if (!data.Words.includes(word)) {
                 return client.errNormal({
-                    error: `That word doesn't exist in the database!`,
+                    error: `Ez a szó nem szerepel az adatbázisban!`,
                     type: 'editreply'
                 }, interaction);
             }
@@ -22,10 +22,10 @@ module.exports = async (client, interaction, args) => {
             });
 
             client.succNormal({
-                text: `Word is removed from the blacklist!`,
+                text: `A szó eltávolítva a feketelistáról!`,
                 fields: [
                     {
-                        name: `💬┆Word`,
+                        name: `💬┆Szó`,
                         value: `${word}`
                     }
                 ],
@@ -34,7 +34,7 @@ module.exports = async (client, interaction, args) => {
         }
         else {
             client.errNormal({
-                error: `This guild has not data!`,
+                error: `Ehhez a szerverhez nincs adat!`,
                 type: 'editreply'
             }, interaction);
         }

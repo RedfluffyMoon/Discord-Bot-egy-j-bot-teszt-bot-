@@ -8,9 +8,9 @@ module.exports = async (client, interaction, args) => {
     Schema.findOne({ Guild: interaction.guild.id }, async (err, data) => {
         if (data) {
             if (data.Words.includes(word)) {
-                return client.errNormal({ 
-                    error: `That word is already exists in the database!`,
-                    type: 'editreply' 
+                return client.errNormal({
+                    error: `Ez a szó már szerepel az adatbázisban!`,
+                    type: 'editreply'
                 }, interaction);
             }
             if(!data.Words) data.Words = [];
@@ -26,10 +26,10 @@ module.exports = async (client, interaction, args) => {
     })
 
     client.succNormal({
-        text: `Word is now blacklisted!`,
+        text: `A szó feketelistára került!`,
         fields: [
             {
-                name: `💬┆Word`,
+                name: `💬┆Szó`,
                 value: `${word}`
             }
         ],

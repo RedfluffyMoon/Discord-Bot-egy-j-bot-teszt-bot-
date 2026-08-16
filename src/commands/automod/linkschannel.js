@@ -11,7 +11,7 @@ module.exports = async (client, interaction, args) => {
             if (data) {
                 if (data.Channels.includes(channel.id)) {
                     return client.errNormal({
-                        error: `The channel ${channel} is already in the database!`,
+                        error: `A(z) ${channel} csatorna már szerepel az adatbázisban!`,
                         type: 'editreply'
                     }, interaction);
                 }
@@ -28,10 +28,10 @@ module.exports = async (client, interaction, args) => {
         })
 
         client.succNormal({
-            text: `Channel has been added to the whitelist!`,
+            text: `A csatorna hozzáadva a fehérlistához!`,
             fields: [
                 {
-                    name: `📘┆Channel`,
+                    name: `📘┆Csatorna`,
                     value: `${channel} (${channel.name})`
                 }
             ],
@@ -43,7 +43,7 @@ module.exports = async (client, interaction, args) => {
             if (data) {
                 if (!data.Channels.includes(channel.id)) {
                     return client.errNormal({
-                        error: `The channel ${channel} doesn't exist in the database!`,
+                        error: `A(z) ${channel} csatorna nem szerepel az adatbázisban!`,
                         type: 'editreply'
                     }, interaction);
                 }
@@ -57,10 +57,10 @@ module.exports = async (client, interaction, args) => {
 
 
                 client.succNormal({
-                    text: `Channel has been removed from the whitelist!`,
+                    text: `A csatorna eltávolítva a fehérlistáról!`,
                     fields: [
                         {
-                            name: `📘┆Channel`,
+                            name: `📘┆Csatorna`,
                             value: `${channel} (${channel.name})`
                         }
                     ],
@@ -69,7 +69,7 @@ module.exports = async (client, interaction, args) => {
             }
             else {
                 return client.errNormal({
-                    error: `This guild has not data!`,
+                    error: `Ehhez a szerverhez nincs adat!`,
                     type: 'editreply'
                 }, interaction);
             }

@@ -6,14 +6,14 @@ module.exports = async (client, interaction, args) => {
 
     const editMessage = await interaction.channel.messages.fetch(messageId);
 
-    client.embed({ 
-        title: `📢・Announcement!`, 
+    client.embed({
+        title: `📢・Bejelentés!`,
         desc: message,
         type: 'edit'
     }, editMessage);
 
     client.succNormal({
-        text: `Announcement has been edit successfully!`,
+        text: `A bejelentés sikeresen szerkesztve!`,
         type: 'ephemeraledit'
     }, interaction);
 }
