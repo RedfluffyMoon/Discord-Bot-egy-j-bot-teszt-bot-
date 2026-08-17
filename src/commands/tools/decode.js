@@ -5,7 +5,7 @@ module.exports = async (client, interaction, args) => {
     const code = interaction.options.getString('code');
 
     if (isNaN(parseInt(code))) return client.errNormal({
-        error: `You can only decode binary code!`,
+        error: `Csak bináris kódot tudsz dekódolni!`,
         type: 'editreply'
     }, interaction);
 
@@ -14,16 +14,16 @@ module.exports = async (client, interaction, args) => {
         .join('');
 
     client.embed({
-        title: `${client.emotes.normal.check}・Success!`,
-        desc: `I have decoded code`,
+        title: `${client.emotes.normal.check}・Siker!`,
+        desc: `Dekódoltam a kódot`,
         fields: [
             {
-                name: "📥 - Input",
+                name: "📥 - Bemenet",
                 value: `\`\`\`${code}\`\`\``,
                 inline: false,
             },
             {
-                name: "📥 - Output",
+                name: "📥 - Kimenet",
                 value: `\`\`\`${decode}\`\`\``,
                 inline: false,
             },

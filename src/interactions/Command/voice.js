@@ -5,33 +5,33 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('voice')
-        .setDescription('Manage the voice channels')
+        .setDescription('A hangcsatornák kezelése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the voice category commands')
+                .setDescription('Információ a voice kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('limit')
-                .setDescription('Limit your custom voice channel')
-                .addNumberOption(option => option.setName('limit').setDescription('Enter a limit').setRequired(true))
+                .setDescription('Az egyéni hangcsatornád létszámkorlátjának beállítása')
+                .addNumberOption(option => option.setName('limit').setDescription('Add meg a korlátot').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('lock')
-                .setDescription('Lock your custom voice channel')
+                .setDescription('Az egyéni hangcsatornád lezárása')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('rename')
-                .setDescription('Rename your custom voice channel')
-                .addStringOption(option => option.setName('name').setDescription('New voice name').setRequired(true))
+                .setDescription('Az egyéni hangcsatornád átnevezése')
+                .addStringOption(option => option.setName('name').setDescription('Az új csatornanév').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('unlock')
-                .setDescription('Unlock your custom voice channel')
+                .setDescription('Az egyéni hangcsatornád feloldása')
         )
     ,
 

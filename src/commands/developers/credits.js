@@ -27,16 +27,16 @@ module.exports = async (client, interaction, args) => {
         })
 
         client.succNormal({
-            text: `Added **${amount} credits** to ${user}`,
+            text: `**${amount} kredit** hozzáadva ehhez: ${user}`,
             type: 'editreply'
         }, interaction);
 
         let embedLogs = new Discord.EmbedBuilder()
-            .setTitle(`🪙・Credits added`)
-            .setDescription(`Added credits to ${user} (${user.id})`)
+            .setTitle(`🪙・Kredit hozzáadva`)
+            .setDescription(`Kredit hozzáadva ehhez: ${user} (${user.id})`)
             .addFields(
-                { name: "👤┆Added By", value: `${interaction.user} (${interaction.user.tag})`, inline: true },
-                { name: "🔢┆Amount", value: `${amount}`, inline: true },
+                { name: "👤┆Hozzáadta", value: `${interaction.user} (${interaction.user.tag})`, inline: true },
+                { name: "🔢┆Mennyiség", value: `${amount}`, inline: true },
             )
             .setColor(client.config.colors.normal)
             .setTimestamp();
@@ -54,16 +54,16 @@ module.exports = async (client, interaction, args) => {
         })
 
         client.succNormal({
-            text: `Removed **${amount} credits** from ${user}`,
+            text: `**${amount} kredit** eltávolítva innen: ${user}`,
             type: 'editreply'
         }, interaction);
 
         let embedLogs = new Discord.EmbedBuilder()
-            .setTitle(`🪙・Credits removed`)
-            .setDescription(`Removed credits from ${user} (${user.id})`)
+            .setTitle(`🪙・Kredit eltávolítva`)
+            .setDescription(`Kredit eltávolítva innen: ${user} (${user.id})`)
             .addFields(
-                { name: "👤┆Removed By", value: `${interaction.user} (${interaction.user.tag})`, inline: true },
-                { name: "🔢┆Amount", value: `${amount}`, inline: true },
+                { name: "👤┆Eltávolította", value: `${interaction.user} (${interaction.user.tag})`, inline: true },
+                { name: "🔢┆Mennyiség", value: `${amount}`, inline: true },
             )
             .setColor(client.config.colors.normal)
             .setTimestamp();

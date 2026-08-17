@@ -4,8 +4,8 @@ module.exports = async (client, interaction, args) => {
     var result = Math.ceil(Math.random() * 6);
 
     client.embed({
-        title: `🎲・Roll`,
-        desc: `You rolled ${result}`,
+        title: `🎲・Dobás`,
+        desc: `${result}-ot dobtál`,
         type: 'editreply'
     }, interaction);
 }

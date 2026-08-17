@@ -9,13 +9,13 @@ module.exports = async (client, interaction, args) => {
 
     if (!amount) return client.errUsage({ usage: "withdraw [amount]", type: 'editreply' }, interaction);
 
-    if (isNaN(amount)) return client.errNormal({ error: "Enter a valid number!", type: 'editreply' }, interaction);
+    if (isNaN(amount)) return client.errNormal({ error: "Adj meg egy érvényes számot!", type: 'editreply' }, interaction);
 
-    if (amount < 0) return client.errNormal({ error: `You can't withdraw negative money!`, type: 'editreply' }, interaction);
+    if (amount < 0) return client.errNormal({ error: `Nem vehetsz ki negatív összeget!`, type: 'editreply' }, interaction);
 
     Schema.findOne({ Guild: interaction.guild.id, User: user.id }, async (err, data) => {
         if (data) {
-            if (data.Bank === 0) return client.errNormal({ error: `You have nothing left in the bank!`, type: 'editreply' }, interaction);
+            if (data.Bank === 0) return client.errNormal({ error: `Nincs semmi a bankban!`, type: 'editreply' }, interaction);
 
             let money = parseInt(amount);
 
@@ -24,10 +24,10 @@ module.exports = async (client, interaction, args) => {
             data.save();
 
             client.succNormal({
-                text: `You've have withdrawn some money from your bank!`,
+                text: `Kivettél egy kis pénzt a bankból!`,
                 fields: [
                     {
-                        name: `${client.emotes.economy.coins}┆Amount`,
+                        name: `${client.emotes.economy.coins}┆Összeg`,
                         value: `$${amount}`,
                         inline: true
                     }
@@ -36,7 +36,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
         else {
-            client.errNormal({ text: `You don't have any money to withdraw!`, type: 'editreply' }, interaction);
+            client.errNormal({ text: `Nincs pénzed, amit kivehetnél!`, type: 'editreply' }, interaction);
         }
     })
 }

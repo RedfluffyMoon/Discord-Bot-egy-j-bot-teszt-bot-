@@ -5,40 +5,40 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('autosetup')
-        .setDescription('Let the bot setup automatically')
+        .setDescription('A bot automatikus beállítása')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the auto setup commands')
+                .setDescription('Információ az autosetup parancsokról')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('logs')
-                .setDescription('Set the logs from the server')
+                .setDescription('A szerver naplózásának beállítása')
                 .addStringOption(option =>
                     option.setName('setup')
-                        .setDescription('The setup that you want')
+                        .setDescription('A kívánt beállítás')
                         .setRequired(true)
                         .addChoices(
-                            { name: 'Server logs', value: 'serverLogs' },
-                            { name: 'Level logs', value: 'levelLogs' },
-                            { name: 'Boost logs', value: 'boostLogs' }
+                            { name: 'Szerver naplók', value: 'serverLogs' },
+                            { name: 'Szint naplók', value: 'levelLogs' },
+                            { name: 'Boost naplók', value: 'boostLogs' }
                         )
                 )
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('fun')
-                .setDescription('Set the fun channels from the server')
+                .setDescription('A szerver szórakoztató csatornáinak beállítása')
                 .addStringOption(option =>
                     option.setName('setup')
-                        .setDescription('The setup that you want')
+                        .setDescription('A kívánt beállítás')
                         .setRequired(true)
                         .addChoices(
-                            { name: 'Birthdays', value: 'birthdays' },
+                            { name: 'Születésnapok', value: 'birthdays' },
                             { name: 'Chatbot', value: 'chatbot' },
-                            { name: 'Reviews', value: 'reviews' },
-                            { name: 'Suggestions', value: 'suggestions' },
+                            { name: 'Vélemények', value: 'reviews' },
+                            { name: 'Javaslatok', value: 'suggestions' },
                             { name: 'Starboard', value: 'starboard' }
                         )
                 )
@@ -46,43 +46,43 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('games')
-                .setDescription('Set the game channels from the server')
+                .setDescription('A szerver játék csatornáinak beállítása')
                 .addStringOption(option =>
                     option.setName('setup')
-                        .setDescription('The setup that you want')
+                        .setDescription('A kívánt beállítás')
                         .setRequired(true)
                         .addChoices(
-                            { name: 'Counting', value: 'counting' },
-                            { name: 'Guess the number', value: 'gtn' },
-                            { name: 'Guess the word', value: 'gtw' },
-                            { name: 'Word snake', value: 'wordsnake' }
+                            { name: 'Számolás', value: 'counting' },
+                            { name: 'Találd ki a számot', value: 'gtn' },
+                            { name: 'Találd ki a szót', value: 'gtw' },
+                            { name: 'Szó kígyó', value: 'wordsnake' }
                         )
                 )
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('welcome')
-                .setDescription('Setup the welcome system')
+                .setDescription('Az üdvözlő rendszer beállítása')
                 .addStringOption(option =>
                     option.setName('setup')
-                        .setDescription('The setup that you want')
+                        .setDescription('A kívánt beállítás')
                         .setRequired(true)
                         .addChoices(
-                            { name: 'Welcome channel', value: 'welcomechannel' },
-                            { name: 'Welcome role', value: 'welcomerole' },
-                            { name: 'Leave channnel', value: 'leavechannel' }
+                            { name: 'Üdvözlő csatorna', value: 'welcomechannel' },
+                            { name: 'Üdvözlő szerepkör', value: 'welcomerole' },
+                            { name: 'Kilépési csatorna', value: 'leavechannel' }
                         )
                 )
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('customvoice')
-                .setDescription('Set the custom voice channels from the server')
+                .setDescription('A szerver egyéni hangcsatornáinak beállítása')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('ticketpanel')
-                .setDescription('Set the ticket panel from the server')
+                .setDescription('A szerver ticket paneljének beállítása')
         )
     ,
 

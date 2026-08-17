@@ -19,7 +19,7 @@ module.exports = async (client, interaction, args) => {
         const embedData = suggestEmbed.embeds[0];
 
         client.embed({
-            title: `${client.emotes.normal.check}・Suggestion accepted`,
+            title: `${client.emotes.normal.check}・Javaslat elfogadva`,
             desc: `\`\`\`${embedData.description}\`\`\``,
             color: client.config.colors.succes,
             author: {
@@ -34,11 +34,11 @@ module.exports = async (client, interaction, args) => {
 
             if (user) {
                 client.embed({
-                    title: `${client.emotes.normal.check}・Suggestion accepted`,
-                    desc: `Your suggestion in ${interaction.guild.name} has been accepted by a moderator!`,
+                    title: `${client.emotes.normal.check}・Javaslat elfogadva`,
+                    desc: `A(z) ${interaction.guild.name} szerveren tett javaslatodat elfogadta egy moderátor!`,
                     fields: [
                         {
-                            name: `💬┆Suggestion`,
+                            name: `💬┆Javaslat`,
                             value: `${embedData.description}`
                         }
                     ],
@@ -48,10 +48,10 @@ module.exports = async (client, interaction, args) => {
         catch { }
 
         client.succNormal({
-            text: "Suggestion successfully accepted",
+            text: "A javaslat sikeresen elfogadva",
             fields: [
                 {
-                    name: `💬┆Suggestion`,
+                    name: `💬┆Javaslat`,
                     value: `${embedData.description}`
                 }
             ],
@@ -60,7 +60,7 @@ module.exports = async (client, interaction, args) => {
     }
     else {
         client.errNormal({
-            error: `No suggestion channel set! Please do the setup`,
+            error: `Nincs beállítva javaslat csatorna! Kérlek végezd el a beállítást`,
             type: 'editreply'
         }, interaction);
     }

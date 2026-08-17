@@ -12,11 +12,11 @@ module.exports = async (client, interaction, args) => {
 
   member.roles.remove(member.roles.highest.id).then(r => {
     client.embed({
-      title: `🔨・Demote`,
-      desc: `You've been demoted from **${interaction.guild.name}**`,
+      title: `🔨・Rangfosztás`,
+      desc: `Rangfosztva lettél itt: **${interaction.guild.name}**`,
       fields: [
         {
-          name: "👤┆Moderator",
+          name: "👤┆Moderátor",
           value: interaction.user.tag,
           inline: true
         },
@@ -24,9 +24,9 @@ module.exports = async (client, interaction, args) => {
     }, member).catch(() => { })
 
     client.succNormal({
-      text: `User successfully demoted`, fields: [
+      text: `A felhasználó sikeresen rangfosztva`, fields: [
         {
-          name: "👤┆User",
+          name: "👤┆Felhasználó",
           value: `${member}`,
           inline: true
         }
@@ -35,7 +35,7 @@ module.exports = async (client, interaction, args) => {
     }, interaction);
   }).catch(e => {
     client.errNormal({
-      error: "I can't demote the user",
+      error: "Nem tudom rangfosztani a felhasználót",
       type: 'editreply'
     }, interaction)
   });

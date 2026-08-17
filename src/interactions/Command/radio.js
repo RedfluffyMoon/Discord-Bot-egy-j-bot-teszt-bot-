@@ -7,26 +7,26 @@ const Schema = require("../../database/models/music");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('radio')
-        .setDescription('Playing radio in Bot')
+        .setDescription('Rádió hallgatása a Botban')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the radio category commands')
+                .setDescription('Információ a radio kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('play')
-                .setDescription('Start the radio'),
+                .setDescription('Rádió indítása'),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('stop')
-                .setDescription('Stop the radio'),
+                .setDescription('Rádió leállítása'),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('playing')
-                .setDescription('Show what is playing now'),
+                .setDescription('Megmutatja, mi szól most'),
         ),
 
     /** 
@@ -41,9 +41,9 @@ module.exports = {
             flags: [Discord.PermissionsBitField.Flags.Connect, Discord.PermissionsBitField.Flags.Speak],
             perms: [Discord.PermissionsBitField.Flags.Connect, Discord.PermissionsBitField.Flags.Speak]
         }, interaction)
-        if (!interaction.member.voice.channel) return client.errNormal({ 
-            error: `You're not in a voice channel!`, 
-            type: 'editreply' 
+        if (!interaction.member.voice.channel) return client.errNormal({
+            error: `Nem vagy hangcsatornában!`,
+            type: 'editreply'
         }, interaction);
 
         client.loadSubcommands(client, interaction, args);

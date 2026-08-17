@@ -18,7 +18,7 @@ module.exports = async (client, interaction, args) => {
 
             if (ticketCategory == undefined) {
                 return client.errNormal({
-                    error: "Do the setup!",
+                    error: "Végezd el a beállítást!",
                     type: 'editreply'
                 }, interaction);
             }
@@ -35,13 +35,13 @@ module.exports = async (client, interaction, args) => {
                     });
 
                     return client.simpleEmbed({
-                        desc: `Ticket raised by <@!${interaction.user.id}>`,
+                        desc: `A ticketet <@!${interaction.user.id}> emelte`,
                         type: 'editreply'
                     }, interaction)
                 }
                 catch {
                     client.errNormal({
-                        error: "Something went wrong!",
+                        error: "Valami hiba történt!",
                         type: 'editreply'
                     }, interaction);
                 }
@@ -49,7 +49,7 @@ module.exports = async (client, interaction, args) => {
             }
             else {
                 client.errNormal({
-                    error: "This is not a ticket!",
+                    error: "Ez nem egy ticket!",
                     type: 'editreply'
                 }, interaction);
 
@@ -57,7 +57,7 @@ module.exports = async (client, interaction, args) => {
         }
         else {
             return client.errNormal({
-                error: "Do the setup!",
+                error: "Végezd el a beállítást!",
                 type: 'editreply'
             }, interaction);
         }

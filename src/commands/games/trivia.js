@@ -31,23 +31,23 @@ module.exports = async (client, interaction, args) => {
         const absoluteDays = Math.floor(time / (1000 * 60 * 60 * 24));
         const d = absoluteDays
             ? absoluteDays === 1
-                ? '1 day'
-                : `${absoluteDays} days`
+                ? '1 nap'
+                : `${absoluteDays} nap`
             : null;
         const h = absoluteHours
             ? absoluteHours === 1
-                ? '1 hour'
-                : `${absoluteHours} hours`
+                ? '1 óra'
+                : `${absoluteHours} óra`
             : null;
         const m = absoluteMinutes
             ? absoluteMinutes === 1
-                ? '1 minute'
-                : `${absoluteMinutes} minutes`
+                ? '1 perc'
+                : `${absoluteMinutes} perc`
             : null;
         const s = absoluteSeconds
             ? absoluteSeconds === 1
-                ? '1 second'
-                : `${absoluteSeconds} seconds`
+                ? '1 másodperc'
+                : `${absoluteSeconds} másodperc`
             : null;
         const absoluteTime = [];
         if (d) absoluteTime.push(d);
@@ -146,11 +146,11 @@ module.exports = async (client, interaction, args) => {
     }
 
     await client.embed({
-        title: `🕹️・Trivia`,
+        title: `🕹️・Kvíz`,
         fields: [
             {
                 name: `${decode(question.question)}`,
-                value: `You only have **${convertTime(60000)}** to guess the answer!\n\n${opt}`
+                value: `Csak **${convertTime(60000)}** időd van kitalálni a választ!\n\n${opt}`
             }
         ],
         components: [row],
@@ -214,8 +214,8 @@ module.exports = async (client, interaction, args) => {
                 const time = convertTime(Date.now() - gameCreatedAt);
 
                 await client.embed({
-                    title: `🕹️・Trivia`,
-                    desc: `GG, It was **${question.options[question.correct]}**. You gave the correct answer in **${time}**.`,
+                    title: `🕹️・Kvíz`,
+                    desc: `GG, a válasz ez volt: **${question.options[question.correct]}**. Helyesen válaszoltál **${time}** alatt.`,
                     components: [{ type: 1, components: [fbtn1, fbtn2, fbtn3, fbtn4] }],
                     type: 'editreply'
                 }, interaction)
@@ -306,8 +306,8 @@ module.exports = async (client, interaction, args) => {
                 }
 
                 await client.embed({
-                    title: `🕹️・Trivia`,
-                    desc: `Better luck next time! The correct answer was **${question.options[question.correct]}**.`,
+                    title: `🕹️・Kvíz`,
+                    desc: `Legközelebb sikerül! A helyes válasz ez volt: **${question.options[question.correct]}**.`,
                     components: [{ type: 1, components: [fbtn1, fbtn2, fbtn3, fbtn4] }],
                     type: 'editreply'
                 }, interaction)
@@ -356,8 +356,8 @@ module.exports = async (client, interaction, args) => {
                 }
 
                 client.embed({
-                    title: `🕹️・Trivia`,
-                    desc: `Better luck next time! The correct answer was **${question.options[question.correct]}**.`,
+                    title: `🕹️・Kvíz`,
+                    desc: `Legközelebb sikerül! A helyes válasz ez volt: **${question.options[question.correct]}**.`,
                     components: [{ type: 1, components: [fbtn1, fbtn2, fbtn3, fbtn4] }],
                     type: 'editreply'
                 }, interaction)

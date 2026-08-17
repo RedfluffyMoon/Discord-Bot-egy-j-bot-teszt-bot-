@@ -20,16 +20,16 @@ module.exports = async (client, interaction, args) => {
     }
     else {
         return client.errNormal({
-            error: `No message data found for ${user}`,
+            error: `Nem található üzenet adat ehhez: ${user}`,
             type: 'editreply'
         }, interaction);
     }
 
     client.succNormal({
-        text: `Removed **${amount}** messages from ${user}`,
+        text: `**${amount}** üzenet eltávolítva innen: ${user}`,
         fields: [
             {
-                name: "💬┆Total messages",
+                name: "💬┆Összes üzenet",
                 value: `${data.Messages}`,
                 inline: true,
             }

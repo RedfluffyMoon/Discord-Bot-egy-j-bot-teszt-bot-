@@ -3,20 +3,20 @@ const moment = require("moment");
 require("moment-duration-format");
 
 module.exports = async (client, interaction, args) => {
-    const duration = moment.duration(client.uptime).format("\`D\` [days], \`H\` [hrs], \`m\` [mins], \`s\` [secs]");
+    const duration = moment.duration(client.uptime).format("\`D\` [nap], \`H\` [óra], \`m\` [perc], \`s\` [mp]");
     const upvalue = (Date.now() / 1000 - client.uptime / 1000).toFixed(0);
 
     client.embed({
-        title: `${client.emotes.normal.arrowUp}・Uptime`,
-        desc: `See the uptime of Bot`,
+        title: `${client.emotes.normal.arrowUp}・Üzemidő`,
+        desc: `Nézd meg a Bot üzemidejét`,
         fields: [
             {
-                name: "⌛┇Uptime",
+                name: "⌛┇Üzemidő",
                 value: `${duration}`,
                 inline: true
             },
             {
-                name: "⏰┇Up Since",
+                name: "⏰┇Elindulva",
                 value: `<t:${upvalue}>`,
                 inline: true
             }

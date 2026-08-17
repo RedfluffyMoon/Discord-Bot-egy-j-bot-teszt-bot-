@@ -4,7 +4,7 @@ module.exports = async (client, interaction, args) => {
 
     const status = interaction.options.getString('text');
 
-    if (status.length > 30) return client.errNormal({ error: "Your status cannot be longer than 30 characters", type: 'editreply' }, interaction);
+    if (status.length > 30) return client.errNormal({ error: "A státuszod nem lehet hosszabb 30 karakternél", type: 'editreply' }, interaction);
 
     Schema.findOne({ User: interaction.user.id }, async (err, data) => {
         if (data) {
@@ -12,9 +12,9 @@ module.exports = async (client, interaction, args) => {
             data.save();
 
             client.succNormal({
-                text: "Your status is set",
+                text: "Státuszod beállítva",
                 fields: [{
-                    name: "😎┆Status",
+                    name: "😎┆Státusz",
                     value: `\`\`\`${status}\`\`\``,
                     inline: true,
                 }],
@@ -22,7 +22,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
         else {
-            return client.errNormal({ error: "No profile found! Open a profile with createprofile", type:'editreply' }, interaction);
+            return client.errNormal({ error: "Nem található profil! Nyiss egyet a createprofile paranccsal", type:'editreply' }, interaction);
         }
     })
 }

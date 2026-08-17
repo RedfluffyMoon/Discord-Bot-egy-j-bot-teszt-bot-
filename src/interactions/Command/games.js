@@ -5,73 +5,73 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('games')
-        .setDescription('Play games in Bot')
+        .setDescription('Játékok indítása a Botban')
         .addSubcommand(subcommand =>
             subcommand
-                .setName('help') 
-                .setDescription('Get information about the games category commands')
+                .setName('help')
+                .setDescription('Információ a games kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('8ball')
-                .setDescription('Ask the bot a question')
-                .addStringOption(option => option.setName('question').setDescription('The question you want to ask').setRequired(true))
+                .setDescription('Tegyél fel egy kérdést a botnak')
+                .addStringOption(option => option.setName('question').setDescription('A feltenni kívánt kérdés').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('fasttype')
-                .setDescription('Learn to type faster'),
+                .setDescription('Tanulj meg gyorsabban gépelni'),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('music-trivia')
-                .setDescription('Play music trivia')
-                .addNumberOption(option => option.setName('number').setDescription('The amount of songs').setRequired(true)),
+                .setDescription('Zenei kvíz indítása')
+                .addNumberOption(option => option.setName('number').setDescription('A dalok száma').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('roll')
-                .setDescription('Roll a die'),
+                .setDescription('Dobókocka dobása'),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('rps')
-                .setDescription('Play rock paper scissors against the bot')
+                .setDescription('Kő-papír-olló a bot ellen')
                 .addStringOption(option =>
                     option.setName('option')
-                        .setDescription('Choose what you want')
+                        .setDescription('Válaszd ki, mit szeretnél')
                         .setRequired(true)
                         .addChoices(
-                            { name: '🪨 Rock', value: 'rock' },
-                            { name: '📃 Paper', value: 'paper' },
-                            { name: '✂️ Scissors', value: 'scissors' }
+                            { name: '🪨 Kő', value: 'rock' },
+                            { name: '📃 Papír', value: 'paper' },
+                            { name: '✂️ Olló', value: 'scissors' }
                         )
                 )
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('skipword')
-                .setDescription('Skip the current word'),
+                .setDescription('Jelenlegi szó kihagyása'),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('snake')
-                .setDescription('Playing the game snake'),
+                .setDescription('A snake (kígyó) játék indítása'),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('trivia')
-                .setDescription('Play Trivia'),
+                .setDescription('Kvíz indítása'),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('willyoupressthebutton')
-                .setDescription('Play Will You Press The Button'),
+                .setDescription('A "Megnyomnád a gombot?" játék indítása'),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('wouldyourather')
-                .setDescription('Play Would You Rather'),
+                .setDescription('A "Melyiket választanád?" játék indítása'),
         ),
 
     /** 

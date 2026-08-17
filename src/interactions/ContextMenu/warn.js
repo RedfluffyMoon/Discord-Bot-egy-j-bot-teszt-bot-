@@ -7,7 +7,7 @@ const Case = require("../../database/models/warnCase");
 
 module.exports = {
     data: new ContextMenuCommandBuilder()
-        .setName('Warn')
+        .setName('Figyelmeztetés')
         .setType(2),
 
     /** 
@@ -22,21 +22,21 @@ module.exports = {
         }, interaction)
         if (perms === false) {
             client.errNormal({
-                error: `You don't have the required permissions to use this command!`,
+                error: `Nincs jogosultságod ehhez a parancshoz!`,
                 type: 'ephemeral'
             }, interaction);
             return;
         }
         // Create modal to give a reason
         const modal = new Discord.ModalBuilder()
-            .setTitle('Warn')
+            .setTitle('Figyelmeztetés')
             .setCustomId('warn')
             .addComponents(
                 new Discord.ActionRowBuilder().addComponents(
                     new Discord.TextInputBuilder()
                         .setCustomId('reason')
-                        .setPlaceholder('Reason')
-                        .setLabel('Reason')
+                        .setPlaceholder('Indok')
+                        .setLabel('Indok')
                         .setMinLength(1)
                         .setStyle(Discord.TextInputStyle.Short)
                         .setMaxLength(100)),
@@ -94,16 +94,16 @@ module.exports = {
         })
 
         client.embed({
-            title: `🔨・Warn`,
-            desc: `You've been warned in **${interaction.guild.name}**`,
+            title: `🔨・Figyelmeztetés`,
+            desc: `Figyelmeztetést kaptál itt: **${interaction.guild.name}**`,
             fields: [
                 {
-                    name: "👤┆Moderator",
+                    name: "👤┆Moderátor",
                     value: interaction.user.tag,
                     inline: true
                 },
                 {
-                    name: "📄┆Reason",
+                    name: "📄┆Indok",
                     value: submitted.fields.getTextInputValue("reason"),
                     inline: true
                 }
@@ -112,20 +112,20 @@ module.exports = {
 
         client.emit('warnAdd', member, interaction.user, submitted.fields.getTextInputValue("reason"));
         client.succNormal({
-            text: `User has received a warning!`,
+            text: `A felhasználó figyelmeztetést kapott!`,
             fields: [
                 {
-                    name: "👤┆User",
+                    name: "👤┆Felhasználó",
                     value: `${member}`,
                     inline: true
                 },
                 {
-                    name: "👤┆Moderator",
+                    name: "👤┆Moderátor",
                     value: `${interaction.user}`,
                     inline: true
                 },
                 {
-                    name: "📄┆Reason",
+                    name: "📄┆Indok",
                     value: submitted.fields.getTextInputValue("reason"),
                     inline: false
                 }

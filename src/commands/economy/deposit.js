@@ -9,13 +9,13 @@ module.exports = async (client, interaction, args) => {
 
     if (!amount) return client.errUsage({ usage: "deposit [amount]", type: 'editreply' }, interaction);
 
-    if (isNaN(amount)) return client.errNormal({ error: "Enter a valid number!", type: 'editreply' }, interaction);
+    if (isNaN(amount)) return client.errNormal({ error: "Adj meg egy érvényes számot!", type: 'editreply' }, interaction);
 
-    if (amount < 0) return client.errNormal({ error: `You can't deposit negative money!`, type: 'editreply' }, interaction);
+    if (amount < 0) return client.errNormal({ error: `Nem fizethetsz be negatív összeget!`, type: 'editreply' }, interaction);
 
     Schema.findOne({ Guild: interaction.guild.id, User: user.id }, async (err, data) => {
         if (data) {
-            if (data.Money < parseInt(amount)) return client.errNormal({ error: `You don't have that much money!`, type: 'editreply' }, interaction);
+            if (data.Money < parseInt(amount)) return client.errNormal({ error: `Nincs ennyi pénzed!`, type: 'editreply' }, interaction);
 
             let money = parseInt(amount);
 
@@ -24,10 +24,10 @@ module.exports = async (client, interaction, args) => {
             data.save();
 
             client.succNormal({
-                text: `You've have deposited some money into your bank!`,
+                text: `Befizettél egy kis pénzt a bankba!`,
                 fields: [
                     {
-                        name: `${client.emotes.economy.coins}┆Amount`,
+                        name: `${client.emotes.economy.coins}┆Összeg`,
                         value: `$${amount}`,
                         inline: true
                     }
@@ -36,7 +36,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
         else {
-            client.errNormal({ text: `You don't have any money to deposit!`, type: 'editreply' }, interaction);
+            client.errNormal({ text: `Nincs pénzed, amit befizethetnél!`, type: 'editreply' }, interaction);
         }
     })
 }

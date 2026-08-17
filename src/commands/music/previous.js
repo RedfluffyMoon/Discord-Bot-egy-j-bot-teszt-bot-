@@ -5,17 +5,17 @@ module.exports = async (client, interaction, args) => {
 
     const channel = interaction.member.voice.channel;
     if (!channel) return client.errNormal({
-        error: `You're not in a voice channel!`,
+        error: `Nem vagy hangcsatornában!`,
         type: 'editreply'
     }, interaction);
 
     if (player && (channel.id !== player?.voiceChannel)) return client.errNormal({
-        error: `You're not in the same voice channel!`,
+        error: `Nem vagy ugyanabban a hangcsatornában!`,
         type: 'editreply'
     }, interaction);
 
     if (!player || !player.queue.previous) return client.errNormal({
-        error: "There are no songs was played previously",
+        error: "Korábban nem volt lejátszva zene",
         type: 'editreply'
     }, interaction);
 
@@ -47,21 +47,21 @@ module.exports = async (client, interaction, args) => {
     client.embed({
         title: `${client.emotes.normal.music}・${track.title}`,
         url: track.uri,
-        desc: `Music started in <#${player.voiceChannel}>!`,
+        desc: `A zene elindult itt: <#${player.voiceChannel}>!`,
         thumbnail: track.thumbnail,
         fields: [
             {
-                name: `👤┆Requested By`,
+                name: `👤┆Kérte`,
                 value: `${track.requester}`,
                 inline: true
             },
             {
-                name: `${client.emotes.normal.clock}┆Ends at`,
+                name: `${client.emotes.normal.clock}┆Vége`,
                 value: `<t:${((Date.now() / 1000) + (track.duration / 1000)).toFixed(0)}:f>`,
                 inline: true
             },
             {
-                name: `🎬┆Author`,
+                name: `🎬┆Előadó`,
                 value: `${track.author}`,
                 inline: true
             }

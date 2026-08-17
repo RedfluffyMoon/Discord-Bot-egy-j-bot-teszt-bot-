@@ -8,14 +8,14 @@ module.exports = async (client, interaction, args) => {
     const { data } = await axios.get(
         `https://some-random-api.com/canvas/rgb?hex=${color}`
     ).catch(e => {
-        return client.errNormal({ 
-            error: "Color not found!",
+        return client.errNormal({
+            error: "Nem található a szín!",
             type: 'editreply'
         }, interaction)
     });
 
     client.embed({
-        title: `🎨・Color info`,
+        title: `🎨・Szín információ`,
         image: `https://some-random-api.com/canvas/colorviewer?hex=${color}`,
         color: `#${color}`,
         fields: [

@@ -18,8 +18,8 @@ module.exports = async (client, interaction, args) => {
         );
 
     client.embed({
-        title: `${client.emotes.normal.error}・Reset family`,
-        desc: `Are you sure you want to reset your family?`,
+        title: `${client.emotes.normal.error}・Család visszaállítása`,
+        desc: `Biztosan vissza akarod állítani a családodat?`,
         components: [row],
         type: 'editreply'
     }, interaction);
@@ -45,7 +45,7 @@ module.exports = async (client, interaction, args) => {
                     partner.save();
                 }
 
-                client.succNormal({ text: `Your family has been deleted!`, type: 'editreply' }, interaction);
+                client.succNormal({ text: `A családodat töröltük!`, type: 'editreply' }, interaction);
             }
 
             if (i.customId == "family_stop") {
@@ -54,7 +54,7 @@ module.exports = async (client, interaction, args) => {
         })
         .catch((err) => {
             console.log(err)
-            client.errNormal({ error: "Time's up! Cancelled backup loading!", type: 'editreply' }, interaction);
+            client.errNormal({ error: "Lejárt az idő! A folyamat megszakítva!", type: 'editreply' }, interaction);
         });
 }
 

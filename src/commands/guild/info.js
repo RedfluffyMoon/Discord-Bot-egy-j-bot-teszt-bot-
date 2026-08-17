@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
   let verifLevels = {
-    "0": "None",
-    "1": "Low",
-    "2": "Medium",
+    "0": "Nincs",
+    "1": "Alacsony",
+    "2": "Közepes",
     "3": "(╯°□°）╯︵  ┻━┻",
     "4": "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"
   }
@@ -28,108 +28,108 @@ module.exports = async (client, interaction, args) => {
   }
 
   let tier = {
-     "0": "None",
-    "1": "TIER 1",
-    "2": "TIER 2",
-    "3": "**TIER 3**"
+     "0": "Nincs",
+    "1": "1. SZINT",
+    "2": "2. SZINT",
+    "3": "**3. SZINT**"
   }
 
   const members = await interaction.guild.members.fetch();
 
   client.embed({
-    title: `ℹ️・Server Information`,
-    desc: `Information about the server ${interaction.guild.name}`,
+    title: `ℹ️・Szerver információ`,
+    desc: `Információ a szerverről: ${interaction.guild.name}`,
     thumbnail: interaction.guild.iconURL({ dynamic: true, size: 1024 }),
     image: interaction.guild.bannerURL({ size: 1024 }),
     fields: [
       {
-        name: "Server name:",
+        name: "Szerver neve:",
         value: `${interaction.guild.name}`,
         inline: true,
       },
       {
-        name: "Server id:",
+        name: "Szerver azonosító:",
         value: `${interaction.guild.id}`,
         inline: true,
       },
       {
-        name: "Owner: ",
+        name: "Tulajdonos: ",
         value: `<@!${interaction.guild.ownerId}>`,
         inline: true
       },
       {
-        name: "Verify level: ",
+        name: "Ellenőrzési szint: ",
         value: `${verifLevels[interaction.guild.verificationLevel]}`,
         inline: true
       },
       {
-        name: "Boost tier: ",
+        name: "Boost szint: ",
         value: `${tier[interaction.guild.premiumTier]}`,
         inline: true
       },
       {
-        name: "Boost count:",
-        value: `${interaction.guild.premiumSubscriptionCount || '0'} boosts`,
+        name: "Boostok száma:",
+        value: `${interaction.guild.premiumSubscriptionCount || '0'} boost`,
         inline: true
       },
       {
-        name: "Created on:",
+        name: "Létrehozva:",
         value: `<t:${Math.round(interaction.guild.createdTimestamp / 1000)}>`,
         inline: true
       },
       {
-        name: "Members:",
-        value: `${interaction.guild.memberCount} members!`,
+        name: "Tagok:",
+        value: `${interaction.guild.memberCount} tag!`,
         inline: true
       },
       {
-        name: "Bots:",
-        value: `${members.filter(member => member.user.bot).size} bots!`,
+        name: "Botok:",
+        value: `${members.filter(member => member.user.bot).size} bot!`,
         inline: true
       },
       {
-        name: "Text Channels: ",
-        value: `${interaction.guild.channels.cache.filter(channel => channel.type === Discord.ChannelType.GuildText).size} channels!`,
+        name: "Szöveges csatornák: ",
+        value: `${interaction.guild.channels.cache.filter(channel => channel.type === Discord.ChannelType.GuildText).size} csatorna!`,
         inline: true
       },
       {
-        name: "Voice Channels:",
-        value: `${interaction.guild.channels.cache.filter(channel => channel.type ===  Discord.ChannelType.GuildVoice).size} channels!`,
+        name: "Hangcsatornák:",
+        value: `${interaction.guild.channels.cache.filter(channel => channel.type ===  Discord.ChannelType.GuildVoice).size} csatorna!`,
         inline: true
       },
       {
-        name: "Stage Channels:",
-        value: `${interaction.guild.channels.cache.filter(channel => channel.type ===  Discord.ChannelType.GuildStageVoice).size} channels!`,
+        name: "Stage csatornák:",
+        value: `${interaction.guild.channels.cache.filter(channel => channel.type ===  Discord.ChannelType.GuildStageVoice).size} csatorna!`,
         inline: true
       },
       {
-        name: "News Channels:",
-        value: `${interaction.guild.channels.cache.filter(channel => channel.type ===  Discord.ChannelType.GuildAnnouncement).size} channels!`,
+        name: "Hírcsatornák:",
+        value: `${interaction.guild.channels.cache.filter(channel => channel.type ===  Discord.ChannelType.GuildAnnouncement).size} csatorna!`,
         inline: true
       },
       {
-        name: "Public Threads:",
-        value: `${interaction.guild.channels.cache.filter(channel => channel.type === 'GUILD_PUBLIC_THREAD').size} threads!`,
+        name: "Nyilvános szálak:",
+        value: `${interaction.guild.channels.cache.filter(channel => channel.type === 'GUILD_PUBLIC_THREAD').size} szál!`,
         inline: true
       },
       {
-        name: "Private Threads:",
-        value: `${interaction.guild.channels.cache.filter(channel => channel.type === 'GUILD_PRIVATE_THREAD').size} threads!`,
+        name: "Privát szálak:",
+        value: `${interaction.guild.channels.cache.filter(channel => channel.type === 'GUILD_PRIVATE_THREAD').size} szál!`,
         inline: true
       },
       {
-        name: "Roles:",
-        value: `${interaction.guild.roles.cache.size} roles!`,
+        name: "Rangok:",
+        value: `${interaction.guild.roles.cache.size} rang!`,
         inline: true
       },
       {
-        name: "Emoji count:",
-        value: `${interaction.guild.emojis.cache.size} emoji's`,
+        name: "Emojik száma:",
+        value: `${interaction.guild.emojis.cache.size} emoji`,
         inline: true
       },
       {
-        name: "Sticker count:",
-        value: `${interaction.guild.stickers.cache.size} stickers`,
+        name: "Matricák száma:",
+        value: `${interaction.guild.stickers.cache.size} matrica`,
         inline: true
       }
     ],

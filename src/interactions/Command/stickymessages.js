@@ -6,29 +6,29 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('stickymessages')
-        .setDescription('Manage the sticky messages')
+        .setDescription('A kitűzött üzenetek kezelése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the sticky messages category commands')
+                .setDescription('Információ a stickymessages kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('stick')
-                .setDescription('Stick an message in a channel')
-                .addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true).addChannelTypes(ChannelType.GuildText))
-                .addStringOption(option => option.setName('message').setDescription('Your sticky messages').setRequired(true))
+                .setDescription('Üzenet kitűzése egy csatornában')
+                .addChannelOption(option => option.setName('channel').setDescription('Válassz egy csatornát').setRequired(true).addChannelTypes(ChannelType.GuildText))
+                .addStringOption(option => option.setName('message').setDescription('A kitűzött üzeneted').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('messages')
-                .setDescription('Show all your guild sticky messages')
+                .setDescription('A szervered összes kitűzött üzenetének megjelenítése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('unstick')
-                .setDescription('Unstick an message in a channel')
-                .addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true).addChannelTypes(ChannelType.GuildText))
+                .setDescription('Egy kitűzött üzenet eltávolítása egy csatornából')
+                .addChannelOption(option => option.setName('channel').setDescription('Válassz egy csatornát').setRequired(true).addChannelTypes(ChannelType.GuildText))
         )
     ,
 

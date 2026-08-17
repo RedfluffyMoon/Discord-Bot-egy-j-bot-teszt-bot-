@@ -7,7 +7,7 @@ module.exports = async (client, interaction, args) => {
     const user = interaction.options.getUser('user') || interaction.user;
 
     if (user.bot) return client.errNormal({
-        error: "You cannot see the balance of a bot!",
+        error: "Egy bot egyenlegét nem nézheted meg!",
         type: 'editreply'
     }, interaction);
 
@@ -17,10 +17,10 @@ module.exports = async (client, interaction, args) => {
             let total = data.Money + data.Bank;
 
             client.embed({
-                title: `${client.emotes.economy.coins}・Balance`,
+                title: `${client.emotes.economy.coins}・Egyenleg`,
                 fields: [
                     {
-                        name: `${client.emotes.economy.pocket}┆Wallet`,
+                        name: `${client.emotes.economy.pocket}┆Tárca`,
                         value: `$${data.Money}`,
                         inline: true
                     },
@@ -30,18 +30,18 @@ module.exports = async (client, interaction, args) => {
                         inline: true
                     },
                     {
-                        name: `💰┆Total`,
+                        name: `💰┆Összesen`,
                         value: `$${total}`,
                         inline: true
                     }
                 ],
-                desc: `The current balance of \`${user.tag}\``,
+                desc: `\`${user.tag}\` jelenlegi egyenlege`,
                 type: 'editreply'
             }, interaction);
         }
         else {
             client.errNormal({
-                error: `The user doesn't have any money!`, type: 'editreply'
+                error: `A felhasználónak nincs pénze!`, type: 'editreply'
             }, interaction);
         }
     })

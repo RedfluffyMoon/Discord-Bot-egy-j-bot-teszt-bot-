@@ -20,16 +20,16 @@ module.exports = async (client, interaction, args) => {
 
         const user = await client.setLevel(target.id, interaction.guild.id, level);
 
-        client.succNormal({ 
-            text: `Level has been modified successfully`,
+        client.succNormal({
+            text: `A szint sikeresen módosítva`,
             fields: [
                 {
-                    name: "🆕┆New Level",
+                    name: "🆕┆Új szint",
                     value: `${user.level}`,
                     inline: true,
                 },
                 {
-                    name: "👤┆User",
+                    name: "👤┆Felhasználó",
                     value: `${target} (${target.tag})`,
                     inline: true,
                 }
@@ -39,7 +39,7 @@ module.exports = async (client, interaction, args) => {
     }
     else {
         client.errNormal({
-            error: "Levels are disabled in this guild!",
+            error: "A szintrendszer le van tiltva ezen a szerveren!",
             type: 'editreply'
         }, interaction);
     }

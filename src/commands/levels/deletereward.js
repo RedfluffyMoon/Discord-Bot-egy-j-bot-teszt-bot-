@@ -16,10 +16,10 @@ module.exports = async (client, interaction, args) => {
         if (data) {
             Schema.findOneAndDelete({ Guild: interaction.guild.id, Level: level }).then(() => {
                 client.succNormal({
-                    text: `Level reward removed`,
+                    text: `Szint jutalom eltávolítva`,
                     fields: [
                         {
-                            name: "🆙┆Level",
+                            name: "🆙┆Szint",
                             value: `${level}`,
                             inline: true,
                         }
@@ -30,7 +30,7 @@ module.exports = async (client, interaction, args) => {
         }
         else {
             return client.errNormal({
-                error: "No level reward found at this level!",
+                error: "Ezen a szinten nem található jutalom!",
                 type: 'editreply'
             }, interaction);
         }

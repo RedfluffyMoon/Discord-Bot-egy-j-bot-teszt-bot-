@@ -20,16 +20,16 @@ module.exports = async (client, interaction, args) => {
 
         const user = await client.setXP(target.id, interaction.guild.id, xp);
 
-        client.succNormal({ 
-            text: `XP has been modified successfully`,
+        client.succNormal({
+            text: `Az XP sikeresen módosítva`,
             fields: [
                 {
-                    name: "🆕┆New XP",
+                    name: "🆕┆Új XP",
                     value: `${user.xp}`,
                     inline: true,
                 },
                 {
-                    name: "👤┆User",
+                    name: "👤┆Felhasználó",
                     value: `${target} (${target.tag})`,
                     inline: true,
                 }
@@ -39,7 +39,7 @@ module.exports = async (client, interaction, args) => {
     }
     else {
         client.errNormal({
-            error: "Levels are disabled in this guild!",
+            error: "A szintrendszer le van tiltva ezen a szerveren!",
             type: 'editreply'
         }, interaction);
     }

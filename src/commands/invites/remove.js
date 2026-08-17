@@ -21,16 +21,16 @@ module.exports = async (client, interaction, args) => {
     }
     else {
         return client.errNormal({
-            error: `No invite data found for ${user}`,
+            error: `Nem található meghívó adat ehhez: ${user}`,
             type: 'editreply'
         }, interaction);
     }
 
     client.succNormal({
-        text: `Removed **${amount}** invites from ${user}`,
+        text: `**${amount}** meghívó eltávolítva innen: ${user}`,
         fields: [
             {
-                name: "📨┆Total invites",
+                name: "📨┆Összes meghívó",
                 value: `${data.Invites}`,
                 inline: true,
             }

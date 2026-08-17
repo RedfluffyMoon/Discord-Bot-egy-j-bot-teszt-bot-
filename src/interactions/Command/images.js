@@ -8,46 +8,46 @@ module.exports = {
 
     data: new SlashCommandBuilder()
         .setName('images')
-        .setDescription('See all the images in Bot')
+        .setDescription('A Bot összes képének megtekintése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the message category commands')
+                .setDescription('Információ az images kategória parancsairól')
         )
         .addSubcommandGroup((group) =>
             group
                 .setName('memes')
-                .setDescription('See all the memes in Bot')
+                .setDescription('A Bot összes meme-jének megtekintése')
                 .addSubcommand((subcommand) =>
-                    subcommand.setName('clyde').setDescription('Get a custom clyde message')
-                        .addStringOption(option => option.setName('text').setDescription('Enter a text').setRequired(true))
+                    subcommand.setName('clyde').setDescription('Egyéni Clyde üzenet létrehozása')
+                        .addStringOption(option => option.setName('text').setDescription('Add meg a szöveget').setRequired(true))
 
                 )
                 .addSubcommand((subcommand) =>
-                    subcommand.setName('drake').setDescription('Create a drake meme')
-                        .addStringOption(option => option.setName('text1').setDescription('Enter a text').setRequired(true))
-                        .addStringOption(option => option.setName('text2').setDescription('Enter a text').setRequired(true)),
+                    subcommand.setName('drake').setDescription('Drake meme létrehozása')
+                        .addStringOption(option => option.setName('text1').setDescription('Add meg a szöveget').setRequired(true))
+                        .addStringOption(option => option.setName('text2').setDescription('Add meg a szöveget').setRequired(true)),
 
                 )
                 .addSubcommand((subcommand) =>
-                    subcommand.setName('meme').setDescription('Get a random meme'),
+                    subcommand.setName('meme').setDescription('Egy véletlenszerű meme lekérése'),
                 )
                 .addSubcommand((subcommand) =>
-                    subcommand.setName('pooh').setDescription('Create a pooh meme')
-                        .addStringOption(option => option.setName('text1').setDescription('Enter a text').setRequired(true))
-                        .addStringOption(option => option.setName('text2').setDescription('Enter a text').setRequired(true)),
+                    subcommand.setName('pooh').setDescription('Micimackó meme létrehozása')
+                        .addStringOption(option => option.setName('text1').setDescription('Add meg a szöveget').setRequired(true))
+                        .addStringOption(option => option.setName('text2').setDescription('Add meg a szöveget').setRequired(true)),
 
                 )
                 .addSubcommand((subcommand) =>
-                    subcommand.setName('trumptweet').setDescription('Display\'s a custom tweet from Donald Trump with the message provided')
-                        .addStringOption(option => option.setName('text').setDescription('Enter a text').setRequired(true))
+                    subcommand.setName('trumptweet').setDescription('Egyéni Donald Trump tweet megjelenítése a megadott üzenettel')
+                        .addStringOption(option => option.setName('text').setDescription('Add meg a szöveget').setRequired(true))
                 )
                 .addSubcommand((subcommand) =>
-                    subcommand.setName('tweet').setDescription('Tweet something on twitter')
-                        .addStringOption(option => option.setName('text').setDescription('Enter a text').setRequired(true))
+                    subcommand.setName('tweet').setDescription('Egy tweet létrehozása')
+                        .addStringOption(option => option.setName('text').setDescription('Add meg a szöveget').setRequired(true))
                 )
                 .addSubcommand((subcommand) =>
-                    subcommand.setName('wasted').setDescription('GTA wasted overlay'),
+                    subcommand.setName('wasted').setDescription('GTA wasted átfedés'),
                 )
 
         )
@@ -57,41 +57,41 @@ module.exports = {
         .addSubcommandGroup((group) =>
             group
                 .setName('animals')
-                .setDescription('See all the animal images in Bot')
+                .setDescription('A Bot összes állatos képének megtekintése')
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('bird')
-                        .setDescription('Get a random bird'),
+                        .setDescription('Egy véletlenszerű madárkép lekérése'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('cat')
-                        .setDescription("Get a random cat")
+                        .setDescription("Egy véletlenszerű macskakép lekérése")
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('dog')
-                        .setDescription("Get a random dog")
+                        .setDescription("Egy véletlenszerű kutyakép lekérése")
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('fox')
-                        .setDescription("Get a random fox")
+                        .setDescription("Egy véletlenszerű rókakép lekérése")
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('koala')
-                        .setDescription("Get a random koala")
+                        .setDescription("Egy véletlenszerű koalakép lekérése")
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('panda')
-                        .setDescription("Get a random panda")
+                        .setDescription("Egy véletlenszerű pandakép lekérése")
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('redpanda')
-                        .setDescription("Get a random redpanda")
+                        .setDescription("Egy véletlenszerű vörös panda kép lekérése")
                 )
         )
 
@@ -100,140 +100,140 @@ module.exports = {
         .addSubcommandGroup((group) =>
             group
                 .setName('user')
-                .setDescription('See all the user images in Bot')
+                .setDescription('A Bot összes felhasználós képének megtekintése')
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('ad')
-                        .setDescription('Generate a ad image')
+                        .setDescription('Reklámkép generálása')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want the ad from').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akiről a reklámot szeretnéd').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('avatar')
-                        .setDescription('See a users avatar')
+                        .setDescription('Egy felhasználó avatarjának megtekintése')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want the avatar from').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akinek az avatarját szeretnéd').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('banner')
-                        .setDescription('See a users banner')
+                        .setDescription('Egy felhasználó bannerének megtekintése')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want the banner from').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akinek a bannerét szeretnéd').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('bed')
-                        .setDescription('Creates an bed meme')
+                        .setDescription('Ágy meme létrehozása')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want to sleep with').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akivel aludni szeretnél').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('blur')
-                        .setDescription('Gives an blurred image')
+                        .setDescription('Elmosott kép készítése')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want the blurred image from').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akiről az elmosott képet szeretnéd').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('burn')
-                        .setDescription('Gives an burned image')
+                        .setDescription('Égő kép készítése')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want the burned image from').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akiről az égő képet szeretnéd').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('clown')
-                        .setDescription('Generate a clown image')
+                        .setDescription('Bohóckép generálása')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want make a clown').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akit bohóccá szeretnél tenni').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('colorify')
-                        .setDescription('Generate a colorify image')
+                        .setDescription('Színezett kép generálása')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want the colorified image from').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akiről a színezett képet szeretnéd').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('darkness')
-                        .setDescription('Gives an darkness image')
+                        .setDescription('Sötétített kép készítése')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want the darkness image from').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akiről a sötétített képet szeretnéd').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('facepalm')
-                        .setDescription('Generate an facepalm image')
+                        .setDescription('Facepalm kép generálása')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want the facepalm image from').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akiről a facepalm képet szeretnéd').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('greyscale')
-                        .setDescription('Make an image more grey')
+                        .setDescription('Egy kép szürkeárnyalatossá tétele')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want to make more gray').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akit szürkeárnyalatossá szeretnél tenni').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('invert')
-                        .setDescription('Invert a image')
+                        .setDescription('Egy kép színeinek invertálása')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want the inverted image from').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akiről az invertált képet szeretnéd').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('kiss')
-                        .setDescription('Kiss a user')
+                        .setDescription('Egy felhasználó megcsókolása')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want to kiss').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akit meg szeretnél csókolni').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('podium')
-                        .setDescription('Make a user podium')
+                        .setDescription('Felhasználói dobogó készítése')
                         .addUserOption((option) =>
-                            option.setName('user1').setDescription('The first podium user').setRequired(true),
+                            option.setName('user1').setDescription('A dobogó első helyezettje').setRequired(true),
                         )
                         .addUserOption((option) =>
-                            option.setName('user2').setDescription('The second podium user').setRequired(true),
+                            option.setName('user2').setDescription('A dobogó második helyezettje').setRequired(true),
                         )
                         .addUserOption((option) =>
-                            option.setName('user3').setDescription('The third podium user').setRequired(true),
+                            option.setName('user3').setDescription('A dobogó harmadik helyezettje').setRequired(true),
                         )
 
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('spank')
-                        .setDescription('Spank a user')
+                        .setDescription('Egy felhasználó elfenekelése')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want to spank').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akit el szeretnél fenekelni').setRequired(true),
                         )
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('wanted')
-                        .setDescription('Wanted a user')
+                        .setDescription('Körözési plakát készítése egy felhasználóról')
                         .addUserOption((option) =>
-                            option.setName('user').setDescription('The user you want to wanted').setRequired(true),
+                            option.setName('user').setDescription('A felhasználó, akit körözni szeretnél').setRequired(true),
                         )
                 )
         )
@@ -243,30 +243,30 @@ module.exports = {
         .addSubcommandGroup((group) =>
             group
                 .setName('extra')
-                .setDescription('See all the extra images in Bot')
+                .setDescription('A Bot összes egyéb képének megtekintése')
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('car')
-                        .setDescription('Get a random car'),
+                        .setDescription('Egy véletlenszerű autókép lekérése'),
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('glass')
-                        .setDescription('Overlays a glass texture over an image'),
+                        .setDescription('Üvegtextúra ráhelyezése egy képre'),
                 )
                 .addSubcommand((subcommand) =>
-                    subcommand.setName('image').setDescription('Show a image in an embed')
-                        .addChannelOption(option => option.setName('channel').setDescription('Channel where the embed should be').setRequired(true).addChannelTypes(ChannelType.GuildText))
-                        .addStringOption(option => option.setName('image-url').setDescription('Enter a image url').setRequired(true))
+                    subcommand.setName('image').setDescription('Egy kép megjelenítése embedben')
+                        .addChannelOption(option => option.setName('channel').setDescription('A csatorna, ahova az embed kerüljön').setRequired(true).addChannelTypes(ChannelType.GuildText))
+                        .addStringOption(option => option.setName('image-url').setDescription('Add meg a kép URL-jét').setRequired(true))
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
                         .setName('triggered')
-                        .setDescription('Trigger yourself'),
+                        .setDescription('Trigger effektus magadról'),
                 )
                 .addSubcommand((subcommand) =>
-                    subcommand.setName('wallpaper').setDescription('Returns a wallpaper from HDQWalls')
-                        .addStringOption(option => option.setName('name').setDescription('Enter a name').setRequired(true))
+                    subcommand.setName('wallpaper').setDescription('Egy háttérkép visszaadása a HDQWalls-ról')
+                        .addStringOption(option => option.setName('name').setDescription('Add meg a nevet').setRequired(true))
                 )
         ),
 

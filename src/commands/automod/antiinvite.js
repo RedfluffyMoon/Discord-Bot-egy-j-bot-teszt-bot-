@@ -18,7 +18,7 @@ module.exports = async (client, interaction, args) => {
     }
 
     client.succNormal({
-        text: `Anti invite is now **${boolean ? 'enabled' : 'disabled'}** in this guild`,
+        text: `A meghívó-blokkolás mostantól **${boolean ? 'engedélyezve' : 'letiltva'}** ezen a szerveren`,
         type: 'editreply'
     }, interaction);
 }

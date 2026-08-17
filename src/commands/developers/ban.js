@@ -14,7 +14,7 @@ module.exports = async (client, interaction, args) => {
     if (boolean == true) {
         if (member.id === interaction.user.id) { // add the check here
             return client.errNormal({
-                error: `You cannot ban yourself from the bot`,
+                error: `Nem tilthatod ki magad a botból`,
                 type: `editreply`
             }, interaction);
         }
@@ -22,7 +22,7 @@ module.exports = async (client, interaction, args) => {
         Schema.findOne({ User: member.id }, async (err, data) => {
             if (data) {
                 return client.errNormal({
-                    error: `<@!${member.id}> (${member.id}) has already been banned from the bot`,
+                    error: `<@!${member.id}> (${member.id}) már ki van tiltva a botból`,
                     type: `editreply`
                 }, interaction);
             }
@@ -32,15 +32,15 @@ module.exports = async (client, interaction, args) => {
                 }).save();
 
                 client.succNormal({
-                    text: `<@!${member.id}> (${member.id}) banned from the bot`,
+                    text: `<@!${member.id}> (${member.id}) kitiltva a botból`,
                     type: 'editreply'
                 }, interaction)
 
                 let embedLogs = new Discord.EmbedBuilder()
-                    .setTitle(`🔨・Ban added`)
-                    .setDescription(`<@!${member.id}> (${member.id}) banned from the bot`)
+                    .setTitle(`🔨・Kitiltás hozzáadva`)
+                    .setDescription(`<@!${member.id}> (${member.id}) kitiltva a botból`)
                     .addFields(
-                        { name: "👤┆Banned By", value: `${interaction.user} (${interaction.user.tag})`, inline: true },
+                        { name: "👤┆Kitiltotta", value: `${interaction.user} (${interaction.user.tag})`, inline: true },
                     )
                     .setColor(client.config.colors.normal)
                     .setFooter({ text: client.config.discord.footer })
@@ -57,15 +57,15 @@ module.exports = async (client, interaction, args) => {
             if (data) {
                 Schema.findOneAndDelete({ User: member.id }).then(() => {
                     client.succNormal({
-                        text: `<@!${member.id}> (${member.id}) unbanned from the bot`,
+                        text: `<@!${member.id}> (${member.id}) kitiltása feloldva a botból`,
                         type: 'editreply'
                     }, interaction)
 
                     let embedLogs = new Discord.EmbedBuilder()
-                        .setTitle(`🔨・Ban removed`)
-                        .setDescription(`<@!${member.id}> (${member.id}) unbanned from the bot`)
+                        .setTitle(`🔨・Kitiltás feloldva`)
+                        .setDescription(`<@!${member.id}> (${member.id}) kitiltása feloldva a botból`)
                         .addFields(
-                            { name: "👤┆Unbanned By", value: `${interaction.user} (${interaction.user.tag})`, inline: true },
+                            { name: "👤┆Feloldotta", value: `${interaction.user} (${interaction.user.tag})`, inline: true },
                         )
                         .setColor(client.config.colors.normal)
                         .setFooter({ text: client.config.discord.footer })
@@ -78,7 +78,7 @@ module.exports = async (client, interaction, args) => {
             }
             else {
                 return client.errNormal({
-                    error: `<@!${member.id}> (${member.id}) has not been banned from the bot`,
+                    error: `<@!${member.id}> (${member.id}) nincs kitiltva a botból`,
                     type: `editreply`
                 }, interaction);
             }

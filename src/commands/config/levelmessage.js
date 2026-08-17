@@ -14,15 +14,15 @@ module.exports = async (client, interaction, args) => {
 
     if (message.toUpperCase() == "HELP") {
         return client.embed({
-            title: `ℹ️・Level message options`,
-            desc: `These are the level message name options: \n
-            \`{user:username}\` - User's username
-            \`{user:discriminator}\` - User's discriminator
-            \`{user:tag}\` - User's tag
-            \`{user:mention}\` - Mention a user
+            title: `ℹ️・Szintüzenet opciók`,
+            desc: `Ezek a szintüzenet opciók: \n
+            \`{user:username}\` - A felhasználó felhasználóneve
+            \`{user:discriminator}\` - A felhasználó discriminátora
+            \`{user:tag}\` - A felhasználó tagje
+            \`{user:mention}\` - Felhasználó megemlítése
 
-            \`{user:level}\` - Users's level
-            \`{user:xp}\` - Users's xp`,
+            \`{user:level}\` - A felhasználó szintje
+            \`{user:xp}\` - A felhasználó XP-je`,
             type: 'editreply'
         }, interaction)
     }
@@ -32,7 +32,7 @@ module.exports = async (client, interaction, args) => {
             if (data) {
                 Schema.findOneAndDelete({ Guild: interaction.guild.id }).then(() => {
                     client.succNormal({ 
-                        text: `Level message deleted!`,
+                        text: `Szintüzenet törölve!`,
                         type: 'editreply'
                     }, interaction);
                 })
@@ -53,10 +53,10 @@ module.exports = async (client, interaction, args) => {
             }
 
             client.succNormal({
-                text: `The level message has been set successfully`,
+                text: `A szintüzenet sikeresen beállítva`,
                 fields: [
                     {
-                        name: `💬┆Message`,
+                        name: `💬┆Üzenet`,
                         value: `${message}`,
                         inline: true
                     },

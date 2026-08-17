@@ -10,14 +10,14 @@ module.exports = async (client, interaction, args) => {
     if (!day || !month) return client.errUsage({ usage: "setbday [day]/[month]", type: 'editreply' }, interaction);
 
     if (isNaN(day) || isNaN(month)) {
-        return client.errNormal({ error: "The date you gave is not a valid number", type: 'editreply' }, interaction);
+        return client.errNormal({ error: "A megadott dátum nem érvényes szám", type: 'editreply' }, interaction);
     }
 
     day = parseInt(day);
     month = parseInt(month);
 
-    if (!day || day > 31) return client.errNormal({ error: "Wrong day format!", type: 'editreply' }, interaction);
-    if (!month || month > 12) return client.errNormal({ error: "Wrong month format!", type: 'editreply' }, interaction);
+    if (!day || day > 31) return client.errNormal({ error: "Hibás napformátum!", type: 'editreply' }, interaction);
+    if (!month || month > 12) return client.errNormal({ error: "Hibás hónapformátum!", type: 'editreply' }, interaction);
 
     const bday = `${day}/${month}`;
 
@@ -27,9 +27,9 @@ module.exports = async (client, interaction, args) => {
             data.save();
 
             client.succNormal({
-                text: "Your birthday is set",
+                text: "Születésnapod beállítva",
                 fields: [{
-                    name: "🎂┆Bday",
+                    name: "🎂┆Szülinap",
                     value: `\`\`\`${bday}\`\`\``,
                     inline: true,
                 }],
@@ -37,7 +37,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
         else {
-            return client.errNormal({ error: "No profile found! Open a profile with createprofile", type:'editreply' }, interaction);
+            return client.errNormal({ error: "Nem található profil! Nyiss egyet a createprofile paranccsal", type:'editreply' }, interaction);
         }
     })
 }

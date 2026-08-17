@@ -21,13 +21,13 @@ module.exports = async (client, interaction, args) => {
     const day = interaction.options.getNumber('day');
     const month = interaction.options.getNumber('month');
 
-    if (!day || day > 31) return client.errNormal({ 
-        error: "Wrong day format!",
+    if (!day || day > 31) return client.errNormal({
+        error: "Hibás napformátum!",
         type: 'editreply'
     }, interaction);
 
     if (!month || month > 12) return client.errNormal({
-        error: "Wrong month format!",
+        error: "Hibás hónapformátum!",
         type: 'editreply'
     }, interaction);
 
@@ -49,11 +49,11 @@ module.exports = async (client, interaction, args) => {
         }
     })
 
-    client.succNormal({ 
-        text: `Birthday has been set successfully`,
+    client.succNormal({
+        text: `A születésnapod sikeresen beállítva`,
         fields: [
             {
-                name: `${client.emotes.normal.birthday}┆Birthday`,
+                name: `${client.emotes.normal.birthday}┆Születésnap`,
                 value: `${birthdayString}`
             }
         ],

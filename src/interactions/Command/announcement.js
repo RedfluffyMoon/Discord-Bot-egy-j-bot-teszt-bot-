@@ -5,25 +5,25 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('announcement')
-        .setDescription('Manage the server announcements')
+        .setDescription('A szerver bejelentéseinek kezelése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the announcement category commands')
+                .setDescription('Információ az announcement kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('create')
-                .setDescription('Make an announcement')
-                .addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true).addChannelTypes(ChannelType.GuildText).addChannelTypes(ChannelType.GuildNews))
-                .addStringOption(option => option.setName('message').setDescription('Your announcement message').setRequired(true)),
+                .setDescription('Bejelentés készítése')
+                .addChannelOption(option => option.setName('channel').setDescription('Válassz egy csatornát').setRequired(true).addChannelTypes(ChannelType.GuildText).addChannelTypes(ChannelType.GuildNews))
+                .addStringOption(option => option.setName('message').setDescription('A bejelentésed szövege').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('edit')
-                .setDescription('Edit an announcement')
-                .addStringOption(option => option.setName('id').setDescription('ID of the announcement you want to change').setRequired(true))
-                .addStringOption(option => option.setName('message').setDescription('Your announcement message').setRequired(true)),
+                .setDescription('Egy bejelentés szerkesztése')
+                .addStringOption(option => option.setName('id').setDescription('A módosítani kívánt bejelentés azonosítója').setRequired(true))
+                .addStringOption(option => option.setName('message').setDescription('A bejelentésed szövege').setRequired(true)),
         )
     ,
 

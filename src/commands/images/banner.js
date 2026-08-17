@@ -16,7 +16,7 @@ module.exports = async (client, interaction, args) => {
       const url = `https://cdn.discordapp.com/banners/${user.id}/${banner}${extension}?size=1024`;
 
       client.embed({
-        title: `🖼・User Banner`,
+        title: `🖼・Felhasználó bannere`,
         image: url,
         type: 'editreply'
       }, interaction)
@@ -25,16 +25,16 @@ module.exports = async (client, interaction, args) => {
       if (accent_color) {
 
         client.embed({
-          title: `🖼・User Banner`,
-          desc: `${user} doesn't have a banner but they do have a accent color`,
+          title: `🖼・Felhasználó bannere`,
+          desc: `${user}-nak nincs bannere, de van egy dísz színe`,
           color: accent_color,
           type: 'editreply'
         }, interaction)
       }
       else {
         client.embed({
-          title: `🖼・User Banner`,
-          desc: `${user} doesn't have a banner but they do have a accent color`,
+          title: `🖼・Felhasználó bannere`,
+          desc: `${user}-nak nincs bannere, de van egy dísz színe`,
           color: accent_color,
           type: 'editreply'
         }, interaction)

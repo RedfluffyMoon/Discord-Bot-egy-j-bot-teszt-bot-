@@ -13,7 +13,7 @@ module.exports = async (client, interaction, args) => {
             let win = false;
 
             if (!money) return client.errUsage({ usage: "slots [amount]", type: 'editreply' }, interaction);
-            if (money > data.Money) return client.errNormal({ error: `You are betting more than you have!`, type: 'editreply' }, interaction);
+            if (money > data.Money) return client.errNormal({ error: `Többet teszel fel, mint amennyid van!`, type: 'editreply' }, interaction);
 
             let number = []
             for (i = 0; i < 3; i++) { number[i] = Math.floor(Math.random() * slotItems.length); }
@@ -46,10 +46,10 @@ module.exports = async (client, interaction, args) => {
             if (win) {
 
                 client.embed({
-                    title: `🎰・Slots`,
-                    desc: `You won **${client.emotes.economy.coins} $${money}**`,
-                    color: client.config.colors.succes, 
-                    components: [row], 
+                    title: `🎰・Nyerőgép`,
+                    desc: `Nyertél **${client.emotes.economy.coins} $${money}**-t`,
+                    color: client.config.colors.succes,
+                    components: [row],
                     type: 'editreply'
                 }, interaction)
 
@@ -58,10 +58,10 @@ module.exports = async (client, interaction, args) => {
             } else {
 
                 client.embed({
-                    title: `🎰・Slots`,
-                    desc: `You lost **${client.emotes.economy.coins} $${money}**`,
-                    components: [row], 
-                    color: client.config.colors.error, 
+                    title: `🎰・Nyerőgép`,
+                    desc: `Vesztettél **${client.emotes.economy.coins} $${money}**-t`,
+                    components: [row],
+                    color: client.config.colors.error,
                     type: 'editreply'
                 }, interaction)
 
@@ -70,7 +70,7 @@ module.exports = async (client, interaction, args) => {
             }
         }
         else {
-            client.errNormal({ error: `You has no ${client.emotes.economy.coins}!`, type: 'editreply' }, interaction);
+            client.errNormal({ error: `Nincs egy ${client.emotes.economy.coins} sem nálad!`, type: 'editreply' }, interaction);
         }
     })
 }

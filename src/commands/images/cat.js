@@ -9,7 +9,7 @@ module.exports = async (client, interaction, args) => {
         .then((res) => res.json()).catch({})
         .then(async (json) => {
             client.embed({
-                title: `🐱・Random Cat`,
+                title: `🐱・Véletlen macska`,
                 image: json.link,
                 type: 'editreply'
             }, interaction)

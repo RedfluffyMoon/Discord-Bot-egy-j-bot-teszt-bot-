@@ -14,22 +14,22 @@ module.exports = async (client, interaction, args) => {
 
     if (message.toUpperCase() == "HELP") {
         return client.embed({
-            title: `ℹ️・Welcome message options`,
-            desc: `Join message options: \n
-            \`{user:username}\` - User's username
-            \`{user:discriminator}\` - User's discriminator
-            \`{user:tag}\` - User's tag
-            \`{user:mention}\` - Mention a user
+            title: `ℹ️・Üdvözlőüzenet opciók`,
+            desc: `Belépési üzenet opciók: \n
+            \`{user:username}\` - A felhasználó felhasználóneve
+            \`{user:discriminator}\` - A felhasználó discriminátora
+            \`{user:tag}\` - A felhasználó tagje
+            \`{user:mention}\` - Felhasználó megemlítése
 
-            \`{inviter:username}\` - inviter's username
-            \`{inviter:discriminator}\` - inviter's discriminator
-            \`{inviter:tag}\` - inviter's tag
-            \`{inviter:mention}\` - inviter's mention
-            \`{inviter:invites}\` - inviter's invites
-            \`{inviter:invites:left}\` - inviter's left invites
-                    
-            \`{guild:name}\` - Server name
-            \`{guild:members}\` - Server members count`,
+            \`{inviter:username}\` - A meghívó felhasználóneve
+            \`{inviter:discriminator}\` - A meghívó discriminátora
+            \`{inviter:tag}\` - A meghívó tagje
+            \`{inviter:mention}\` - A meghívó megemlítése
+            \`{inviter:invites}\` - A meghívó meghívóinak száma
+            \`{inviter:invites:left}\` - A meghívó elveszett meghívóinak száma
+
+            \`{guild:name}\` - Szerver neve
+            \`{guild:members}\` - Szerver tagjainak száma`,
             type: 'editreply'
         }, interaction)
     }
@@ -41,7 +41,7 @@ module.exports = async (client, interaction, args) => {
                 data.save();
 
                 client.succNormal({
-                    text: `Welcome message deleted!`,
+                    text: `Üdvözlőüzenet törölve!`,
                     type: 'editreply'
                 }, interaction);
             }
@@ -61,10 +61,10 @@ module.exports = async (client, interaction, args) => {
             }
 
             client.succNormal({
-                text: `The welcome message has been set successfully`,
+                text: `Az üdvözlőüzenet sikeresen beállítva`,
                 fields: [
                     {
-                        name: `💬┆Message`,
+                        name: `💬┆Üzenet`,
                         value: `${message}`,
                         inline: true
                     },

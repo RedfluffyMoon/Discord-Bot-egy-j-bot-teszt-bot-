@@ -5,19 +5,19 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('report')
-        .setDescription('Report a bug or user to the developers')
+        .setDescription('Egy hiba vagy felhasználó bejelentése a fejlesztőknek')
         .addStringOption(option =>
             option.setName('type')
-                .setDescription('The type of your report')
+                .setDescription('A bejelentés típusa')
                 .setRequired(true)
                 .addChoices(
-                    { name: 'Bug', value: 'bug' },
-                    { name: 'User', value: 'user' }
+                    { name: 'Hiba', value: 'bug' },
+                    { name: 'Felhasználó', value: 'user' }
                 )
         )
         .addStringOption(option =>
             option.setName('description')
-                .setDescription('Description with your report')
+                .setDescription('A bejelentésed leírása')
                 .setRequired(true)
         )
     ,
@@ -40,10 +40,10 @@ module.exports = {
 
         if (type == "bug") {
             const embed = new Discord.EmbedBuilder()
-                .setTitle(`📣・New bug report!`)
+                .setTitle(`📣・Új hibabejelentés!`)
                 .addFields(
-                    { name: "Report category", value: "Bug", inline: true },
-                    { name: "Submitted by", value: `${interaction.user.tag}`, inline: true },
+                    { name: "Kategória", value: "Hiba", inline: true },
+                    { name: "Beküldte", value: `${interaction.user.tag}`, inline: true },
                 )
                 .setDescription(`${desc}`)
                 .setColor(client.config.colors.normal)
@@ -53,16 +53,16 @@ module.exports = {
             });
 
             client.succNormal({
-                text: `Bug successfully sent to the developers!`,
+                text: `A hiba sikeresen elküldve a fejlesztőknek!`,
                 type: 'ephemeraledit'
             }, interaction);
         }
         else if (type == "user") {
             const embed = new Discord.EmbedBuilder()
-                .setTitle(`📣・New user report!`)
+                .setTitle(`📣・Új felhasználó bejelentés!`)
                 .addFields(
-                    { name: "Report category", value: "User", inline: true },
-                    { name: "Submitted by", value: `${interaction.user.tag}`, inline: true },
+                    { name: "Kategória", value: "Felhasználó", inline: true },
+                    { name: "Beküldte", value: `${interaction.user.tag}`, inline: true },
                 )
                 .setDescription(`${desc}`)
                 .setColor(client.config.colors.normal)
@@ -72,7 +72,7 @@ module.exports = {
             });
 
             client.succNormal({
-                text: `User report successfully sent to the developers!`,
+                text: `A bejelentés sikeresen elküldve a fejlesztőknek!`,
                 type: 'ephemeraledit'
             }, interaction);
         }

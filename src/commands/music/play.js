@@ -2,20 +2,20 @@ const Discord = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     if (!interaction.member.voice.channel) return client.errNormal({
-        error: `You're not in a voice channel!`,
+        error: `Nem vagy hangcsatornában!`,
         type: 'editreply'
     }, interaction);
 
     let channel = interaction.member.voice ? interaction.member.voice.channel : null;
     if (!channel) return client.errNormal({
-        error: `The channel does not exist!`,
+        error: `A csatorna nem létezik!`,
         type: 'editreply'
     }, interaction);
 
     let player = client.player.players.get(interaction.guild.id);
 
     if (player && (channel.id !== player?.voiceChannel)) return client.errNormal({
-        error: `You are not in the same voice channel!`,
+        error: `Nem vagy ugyanabban a hangcsatornában!`,
         type: 'editreply'
     }, interaction);
 
@@ -28,7 +28,7 @@ module.exports = async (client, interaction, args) => {
         });
 
         if (!channel.joinable) return client.errNormal({
-            error: `That channel isn\'t joinable`,
+            error: `Ahhoz a csatornához nem tudok csatlakozni`,
             type: 'editreply'
         }, interaction);
         player.connect()
@@ -46,7 +46,7 @@ module.exports = async (client, interaction, args) => {
     var query = interaction.options.getString('song');
 
     client.simpleEmbed({
-        desc: `🔎┆Searching...`,
+        desc: `🔎┆Keresés...`,
         type: 'editreply'
     }, interaction)
 
@@ -55,7 +55,7 @@ module.exports = async (client, interaction, args) => {
     if (res.loadType === 'LOAD_FAILED') {
         if (!player.queue.current) player.destroy();
         return client.errNormal({
-            error: `Error getting music. Please try again in a few minutes`,
+            error: `Hiba történt a zene lekérése közben. Próbáld újra pár perc múlva`,
             type: 'editreply'
         }, interaction);
     }
@@ -64,7 +64,7 @@ module.exports = async (client, interaction, args) => {
         case 'NO_MATCHES': {
             if (!player.queue.current) player.destroy()
             await client.errNormal({
-                error: `No music was found`,
+                error: `Nem található zene`,
                 type: 'editreply'
             }, interaction);
             break;
@@ -81,21 +81,21 @@ module.exports = async (client, interaction, args) => {
                 client.embed({
                     title: `${client.emotes.normal.music}・${track.title}`,
                     url: track.uri,
-                    desc: `The song has been added to the queue!`,
+                    desc: `A szám hozzá lett adva a lejátszási listához!`,
                     thumbnail: track.thumbnail,
                     fields: [
                         {
-                            name: `👤┆Requested By`,
+                            name: `👤┆Kérte`,
                             value: `${track.requester}`,
                             inline: true
                         },
                         {
-                            name: `${client.emotes.normal.clock}┆Ends at`,
+                            name: `${client.emotes.normal.clock}┆Vége`,
                             value: `<t:${((Date.now() / 1000) + (track.duration / 1000)).toFixed(0)}:f>`,
                             inline: true
                         },
                         {
-                            name: `🎬┆Author`,
+                            name: `🎬┆Előadó`,
                             value: `${track.author}`,
                             inline: true
                         }
@@ -151,7 +151,7 @@ module.exports = async (client, interaction, args) => {
                 .addComponents(
                     new Discord.ButtonBuilder()
                         .setEmoji("🛑")
-                        .setLabel("Cancel")
+                        .setLabel("Mégse")
                         .setCustomId("cancel")
                         .setStyle(Discord.ButtonStyle.Danger),
                 );
@@ -162,12 +162,12 @@ module.exports = async (client, interaction, args) => {
                 .join('\n');
 
             client.embed({
-                title: `🔍・Search Results`,
+                title: `🔍・Keresési találatok`,
                 desc: results,
                 fields: [
                     {
-                        name: `❓┆Cancel search?`,
-                        value: `Press \`cancel\` to stop the search`,
+                        name: `❓┆Mégsem keresel?`,
+                        value: `Nyomd meg a \`cancel\` gombot a keresés leállításához`,
                         inline: true
                     }
                 ],
@@ -182,7 +182,7 @@ module.exports = async (client, interaction, args) => {
                 row.components.forEach((button) => button.setDisabled(true));
                 row2.components.forEach((button) => button.setDisabled(true));
                 return client.errNormal({
-                    error: `You didn't provide a selection`,
+                    error: `Nem választottál semmit`,
                     type: 'editreply',
                     components: [row, row2]
                 }, interaction)
@@ -194,12 +194,12 @@ module.exports = async (client, interaction, args) => {
 
             if (first.toLowerCase() === 'cancel') {
                 if (!player.queue.current) player.destroy();
-                return interaction.channel.send('Cancelled selection.');
+                return interaction.channel.send('Kiválasztás megszakítva.');
             }
 
             const index = Number(first) - 1;
             if (index < 0 || index > max - 1) return client.errNormal({
-                error: `The number you provided too small or too big (1-${max})`,
+                error: `A megadott szám túl kicsi vagy túl nagy (1-${max})`,
                 type: 'editreply'
             }, interaction)
 
@@ -213,21 +213,21 @@ module.exports = async (client, interaction, args) => {
                 client.embed({
                     title: `${client.emotes.normal.music}・${track.title}`,
                     url: track.uri,
-                    desc: `The song has been added to the queue!`,
+                    desc: `A szám hozzá lett adva a lejátszási listához!`,
                     thumbnail: track.thumbnail,
                     fields: [
                         {
-                            name: `👤┆Requested By`,
+                            name: `👤┆Kérte`,
                             value: `${track.requester}`,
                             inline: true
                         },
                         {
-                            name: `${client.emotes.normal.clock}┆Ends at`,
+                            name: `${client.emotes.normal.clock}┆Vége`,
                             value: `<t:${((Date.now() / 1000) + (track.duration / 1000)).toFixed(0)}:f>`,
                             inline: true
                         },
                         {
-                            name: `🎬┆Author`,
+                            name: `🎬┆Előadó`,
                             value: `${track.author}`,
                             inline: true
                         }

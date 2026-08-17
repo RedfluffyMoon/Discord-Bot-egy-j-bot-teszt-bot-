@@ -7,14 +7,14 @@ module.exports = async (client, interaction, args) => {
         if (data) {
             Schema.findOneAndDelete({ Guild: interaction.guild.id, User: interaction.user.id }).then(() => {
                 client.succNormal({
-                    text: "Your profile was deleted!",
+                    text: "Profilod törölve lett!",
                     type: 'editreply'
                 }, interaction);
             })
         }
         else {
             client.errNormal({
-                error: 'No profile found!',
+                error: 'Nem található profil!',
                 type: 'editreply'
             }, interaction)
         }

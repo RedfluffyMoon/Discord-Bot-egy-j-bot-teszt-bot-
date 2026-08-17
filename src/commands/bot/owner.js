@@ -2,11 +2,11 @@ const Discord = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     client.embed({
-        title: `📘・Owner information`,
+        title: `📘・Tulajdonos információ`,
         desc: `____________________________`,
         thumbnail: client.user.avatarURL({ dynamic: true, size: 1024 }),
         fields: [{
-            name: "👑┆Owner name",
+            name: "👑┆Tulajdonos neve",
             value: `Corwin`,
             inline: true,
         },
@@ -16,12 +16,12 @@ module.exports = async (client, interaction, args) => {
             inline: true,
         },
         {
-            name: "🏢┆Organization",
+            name: "🏢┆Szervezet",
             value: `CoreWare`,
             inline: true,
         },
         {
-            name: "🌐┆Website",
+            name: "🌐┆Weboldal",
             value: `[https://corwindev.nl](https://corwindev.nl)`,
             inline: true,
         }],

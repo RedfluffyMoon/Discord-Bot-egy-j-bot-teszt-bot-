@@ -7,65 +7,65 @@ const ms = require('ms');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('giveaway')
-        .setDescription('Host a giveaway in your server')
+        .setDescription('Nyereményjáték indítása a szerveredben')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the giveaway category commands')
+                .setDescription('Információ a giveaway kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('start')
-                .setDescription('Start a giveaway')
-                .addChannelOption(option => option.setName('channel').setDescription('Channel where the giveaway should be').setRequired(true).addChannelTypes(ChannelType.GuildText, ChannelType.GuildAnnouncement))
-                .addStringOption(option => option.setName('duration').setDescription('Duration of the giveaway').setRequired(true))
-                .addNumberOption(option => option.setName('winners').setDescription('The number of giveaway winners').setRequired(true))
-                .addStringOption(option => option.setName('prize').setDescription('The giveaway prize').setRequired(true)),
+                .setDescription('Nyereményjáték indítása')
+                .addChannelOption(option => option.setName('channel').setDescription('A csatorna, ahova a nyereményjáték kerüljön').setRequired(true).addChannelTypes(ChannelType.GuildText, ChannelType.GuildAnnouncement))
+                .addStringOption(option => option.setName('duration').setDescription('A nyereményjáték időtartama').setRequired(true))
+                .addNumberOption(option => option.setName('winners').setDescription('A nyertesek száma').setRequired(true))
+                .addStringOption(option => option.setName('prize').setDescription('A nyeremény').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('drop')
-                .setDescription('Start a drop giveaway')
-                .addChannelOption(option => option.setName('channel').setDescription('Channel where the giveaway should be').setRequired(true).addChannelTypes(ChannelType.GuildText, ChannelType.GuildAnnouncement))
-                .addStringOption(option => option.setName('duration').setDescription('Duration of the giveaway').setRequired(true))
-                .addNumberOption(option => option.setName('winners').setDescription('The number of giveaway winners').setRequired(true))
-                .addStringOption(option => option.setName('prize').setDescription('The giveaway prize').setRequired(true)),
+                .setDescription('Drop nyereményjáték indítása')
+                .addChannelOption(option => option.setName('channel').setDescription('A csatorna, ahova a nyereményjáték kerüljön').setRequired(true).addChannelTypes(ChannelType.GuildText, ChannelType.GuildAnnouncement))
+                .addStringOption(option => option.setName('duration').setDescription('A nyereményjáték időtartama').setRequired(true))
+                .addNumberOption(option => option.setName('winners').setDescription('A nyertesek száma').setRequired(true))
+                .addStringOption(option => option.setName('prize').setDescription('A nyeremény').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('reroll')
-                .setDescription('Reroll a giveaway')
-                .addStringOption(option => option.setName('message').setDescription('Giveaway message ID').setRequired(true)),
+                .setDescription('Egy nyereményjáték újrasorsolása')
+                .addStringOption(option => option.setName('message').setDescription('A nyereményjáték üzenetének azonosítója').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('end')
-                .setDescription('End a giveaway')
-                .addStringOption(option => option.setName('message').setDescription('Giveaway message ID').setRequired(true)),
+                .setDescription('Egy nyereményjáték befejezése')
+                .addStringOption(option => option.setName('message').setDescription('A nyereményjáték üzenetének azonosítója').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('edit')
-                .setDescription('Edit the time of a giveaway')
-                .addStringOption(option => option.setName('message').setDescription('Giveaway message ID').setRequired(true)),
+                .setDescription('Egy nyereményjáték idejének szerkesztése')
+                .addStringOption(option => option.setName('message').setDescription('A nyereményjáték üzenetének azonosítója').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('delete')
-                .setDescription('Delete a giveaway')
-                .addStringOption(option => option.setName('message').setDescription('Giveaway message ID').setRequired(true)),
+                .setDescription('Egy nyereményjáték törlése')
+                .addStringOption(option => option.setName('message').setDescription('A nyereményjáték üzenetének azonosítója').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('pause')
-                .setDescription('Pause a giveaway')
-                .addStringOption(option => option.setName('message').setDescription('Giveaway message ID').setRequired(true)),
+                .setDescription('Egy nyereményjáték szüneteltetése')
+                .addStringOption(option => option.setName('message').setDescription('A nyereményjáték üzenetének azonosítója').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('unpause')
-                .setDescription('Unpause a giveaway')
-                .addStringOption(option => option.setName('message').setDescription('Giveaway message ID').setRequired(true)),
+                .setDescription('Egy nyereményjáték folytatása')
+                .addStringOption(option => option.setName('message').setDescription('A nyereményjáték üzenetének azonosítója').setRequired(true)),
         ),
 
     /** 

@@ -6,132 +6,132 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('setup')
-        .setDescription('Manage the Bot setups')
+        .setDescription('A Bot beállításainak kezelése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the setup category commands')
+                .setDescription('Információ a setup kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('tickets')
-                .setDescription('Setup the tickets')
-                .addChannelOption(option => option.setName('category').setDescription('Select a category where the tickets should come in').setRequired(true).addChannelTypes(ChannelType.GuildCategory))
-                .addRoleOption(option => option.setName('role').setDescription('Select the support role').setRequired(true))
-                .addChannelOption(option => option.setName('channel').setDescription('The channel for the ticket panel').setRequired(true).addChannelTypes(ChannelType.GuildText))
-                .addChannelOption(option => option.setName('logs').setDescription('The channel for the ticket logs').setRequired(true).addChannelTypes(ChannelType.GuildText))
+                .setDescription('A ticketrendszer beállítása')
+                .addChannelOption(option => option.setName('category').setDescription('Válaszd ki a kategóriát, ahova a ticketek kerüljenek').setRequired(true).addChannelTypes(ChannelType.GuildCategory))
+                .addRoleOption(option => option.setName('role').setDescription('Válaszd ki a támogatói szerepkört').setRequired(true))
+                .addChannelOption(option => option.setName('channel').setDescription('A ticket panel csatornája').setRequired(true).addChannelTypes(ChannelType.GuildText))
+                .addChannelOption(option => option.setName('logs').setDescription('A ticket naplók csatornája').setRequired(true).addChannelTypes(ChannelType.GuildText))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('customvoice')
-                .setDescription('Setup the custom voice channels')
-                .addChannelOption(option => option.setName('category').setDescription('Select a category where the channels come in').setRequired(true).addChannelTypes(ChannelType.GuildCategory))
-                .addStringOption(option => option.setName('channelname').setDescription('The template for the channel names').setRequired(true))
+                .setDescription('Az egyéni hangcsatornák beállítása')
+                .addChannelOption(option => option.setName('category').setDescription('Válaszd ki a kategóriát, ahova a csatornák kerüljenek').setRequired(true).addChannelTypes(ChannelType.GuildCategory))
+                .addStringOption(option => option.setName('channelname').setDescription('A csatornanevek sablonja').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('logs')
-                .setDescription('Set the logs from the server')
+                .setDescription('A szerver naplózásának beállítása')
                 .addStringOption(option =>
                     option.setName('setup')
-                        .setDescription('The setup that you want')
+                        .setDescription('A kívánt beállítás')
                         .setRequired(true)
                         .addChoices(
-                            { name: 'Server logs', value: 'serverLogs' },
-                            { name: 'Level logs', value: 'levelLogs' },
-                            { name: 'Boost logs', value: 'boostLogs' }
+                            { name: 'Szerver naplók', value: 'serverLogs' },
+                            { name: 'Szint naplók', value: 'levelLogs' },
+                            { name: 'Boost naplók', value: 'boostLogs' }
                         )
                 )
-                .addChannelOption(option => option.setName('channel').setDescription('The channel for the logs').setRequired(true).addChannelTypes(ChannelType.GuildText))
+                .addChannelOption(option => option.setName('channel').setDescription('A naplózás csatornája').setRequired(true).addChannelTypes(ChannelType.GuildText))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('fun')
-                .setDescription('Set the fun channels from the server')
+                .setDescription('A szerver szórakoztató csatornáinak beállítása')
                 .addStringOption(option =>
                     option.setName('setup')
-                        .setDescription('The setup that you want')
+                        .setDescription('A kívánt beállítás')
                         .setRequired(true)
                         .addChoices(
-                            { name: 'Birthdays', value: 'birthdays' },
+                            { name: 'Születésnapok', value: 'birthdays' },
                             { name: 'Chatbot', value: 'chatbot' },
-                            { name: 'Reviews', value: 'reviews' },
-                            { name: 'Suggestions', value: 'suggestions' },
+                            { name: 'Vélemények', value: 'reviews' },
+                            { name: 'Javaslatok', value: 'suggestions' },
                             { name: 'Starboard', value: 'starboard' }
                         )
                 )
-                .addChannelOption(option => option.setName('channel').setDescription('The channel for the fun').setRequired(true).addChannelTypes(ChannelType.GuildText))
+                .addChannelOption(option => option.setName('channel').setDescription('A szórakoztató funkció csatornája').setRequired(true).addChannelTypes(ChannelType.GuildText))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('games')
-                .setDescription('Set the game channels from the server')
+                .setDescription('A szerver játék csatornáinak beállítása')
                 .addStringOption(option =>
                     option.setName('setup')
-                        .setDescription('The setup that you want')
+                        .setDescription('A kívánt beállítás')
                         .setRequired(true)
                         .addChoices(
-                            { name: 'Counting', value: 'counting' },
-                            { name: 'Guess the number', value: 'gtn' },
-                            { name: 'Guess the word', value: 'gtw' },
-                            { name: 'Word snake', value: 'wordsnake' }
+                            { name: 'Számolás', value: 'counting' },
+                            { name: 'Találd ki a számot', value: 'gtn' },
+                            { name: 'Találd ki a szót', value: 'gtw' },
+                            { name: 'Szó kígyó', value: 'wordsnake' }
                         )
                 )
-                .addChannelOption(option => option.setName('channel').setDescription('The channel for the game').setRequired(true).addChannelTypes(ChannelType.GuildText))
+                .addChannelOption(option => option.setName('channel').setDescription('A játék csatornája').setRequired(true).addChannelTypes(ChannelType.GuildText))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('welcomechannels')
-                .setDescription('Setup the welcome channels')
+                .setDescription('Az üdvözlő csatornák beállítása')
                 .addStringOption(option =>
                     option.setName('setup')
-                        .setDescription('The setup that you want')
+                        .setDescription('A kívánt beállítás')
                         .setRequired(true)
                         .addChoices(
-                            { name: 'Welcome channel', value: 'welcomechannel' },
-                            { name: 'Leave channnel', value: 'leavechannel' }
+                            { name: 'Üdvözlő csatorna', value: 'welcomechannel' },
+                            { name: 'Kilépési csatorna', value: 'leavechannel' }
                         )
                 )
-                .addChannelOption(option => option.setName('channel').setDescription('The channel that you want').setRequired(true).addChannelTypes(ChannelType.GuildText))
+                .addChannelOption(option => option.setName('channel').setDescription('A kívánt csatorna').setRequired(true).addChannelTypes(ChannelType.GuildText))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('welcomerole')
-                .setDescription('Setup the welcome role')
-                .addRoleOption(option => option.setName('role').setDescription('The role that you want').setRequired(true))
+                .setDescription('Az üdvözlő szerepkör beállítása')
+                .addRoleOption(option => option.setName('role').setDescription('A kívánt szerepkör').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('ticketpanel')
-                .setDescription('Setup the ticket panel')
-                .addStringOption(option => option.setName('name').setDescription('The name of the ticket panel').setRequired(true))
-                .addStringOption(option => option.setName('description').setDescription('The description of the ticket panel').setRequired(true))
+                .setDescription('A ticket panel beállítása')
+                .addStringOption(option => option.setName('name').setDescription('A ticket panel neve').setRequired(true))
+                .addStringOption(option => option.setName('description').setDescription('A ticket panel leírása').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('deletesetup')
-                .setDescription('Delete a Bot setup')
+                .setDescription('Egy Bot beállítás törlése')
                 .addStringOption(option =>
                     option.setName('setup')
-                        .setDescription('The setup that you want')
+                        .setDescription('A kívánt beállítás')
                         .setRequired(true)
                         .addChoices(
-                            { name: 'Tickets', value: 'tickets' },
-                            { name: 'Custom voice', value: 'customvoice' },
-                            { name: 'Server logs', value: 'serverlogs' },
-                            { name: 'Level logs', value: 'levellogs' },
-                            { name: 'Boost logs', value: 'boostlogs' },
-                            { name: 'Birthdays', value: 'birthdays' },
+                            { name: 'Ticketek', value: 'tickets' },
+                            { name: 'Egyéni hangcsatorna', value: 'customvoice' },
+                            { name: 'Szerver naplók', value: 'serverlogs' },
+                            { name: 'Szint naplók', value: 'levellogs' },
+                            { name: 'Boost naplók', value: 'boostlogs' },
+                            { name: 'Születésnapok', value: 'birthdays' },
                             { name: 'Chatbot', value: 'chatbot' },
-                            { name: 'Reviews', value: 'reviews' },
-                            { name: 'Suggestions', value: 'suggestions' },
-                            { name: 'Counting', value: 'counting' },
-                            { name: 'Guess the number', value: 'gtn' },
-                            { name: 'Guess the word', value: 'gtw' },
-                            { name: 'Welcome channel', value: 'welcomechannel' },
-                            { name: 'Leave channel', value: 'leavechannel' },
-                            { name: 'Welcome role', value: 'welcomerole' },
-                            { name: 'Word snake', value: 'wordsnake' }
+                            { name: 'Vélemények', value: 'reviews' },
+                            { name: 'Javaslatok', value: 'suggestions' },
+                            { name: 'Számolás', value: 'counting' },
+                            { name: 'Találd ki a számot', value: 'gtn' },
+                            { name: 'Találd ki a szót', value: 'gtw' },
+                            { name: 'Üdvözlő csatorna', value: 'welcomechannel' },
+                            { name: 'Kilépési csatorna', value: 'leavechannel' },
+                            { name: 'Üdvözlő szerepkör', value: 'welcomerole' },
+                            { name: 'Szó kígyó', value: 'wordsnake' }
                         )
                 )
         )

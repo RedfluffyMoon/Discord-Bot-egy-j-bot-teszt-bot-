@@ -5,7 +5,7 @@ const Schema = require("../../database/models/stats");
 module.exports = async (client, interaction, args) => {
     var channelName = await client.getTemplate(interaction.guild);
     channelName = channelName.replace(`{emoji}`, "😛")
-    channelName = channelName.replace(`{name}`, `Emojis: ${interaction.guild.emojis.cache.size || '0'}`)
+    channelName = channelName.replace(`{name}`, `Emojik: ${interaction.guild.emojis.cache.size || '0'}`)
 
     await interaction.guild.channels.create({
         name: channelName,
@@ -30,10 +30,10 @@ module.exports = async (client, interaction, args) => {
         })
 
         client.succNormal({
-            text: `Emoji's count created!`,
+            text: `Emoji számláló létrehozva!`,
             fields: [
                 {
-                    name: `📘┆Channel`,
+                    name: `📘┆Csatorna`,
                     value: `${channel}`
                 }
             ],

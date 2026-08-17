@@ -5,27 +5,27 @@ module.exports = async (client, interaction, args) => {
   const perms = role.permissions.toArray();
 
   client.embed({
-    title: `ℹ️・Role information`,
+    title: `ℹ️・Rang információ`,
     thumbnail: interaction.guild.iconURL({ dynamic: true, size: 1024 }),
-    desc: `Information about the role ${role}`,
+    desc: `Információ a rangról: ${role}`,
     fields: [
       {
-        name: 'Role ID:',
+        name: 'Rang ID:',
         value: `${role.id}`,
         inline: true
       },
       {
-        name: 'Role Name:',
+        name: 'Rang neve:',
         value: `${role.name}`,
         inline: true
       },
       {
-        name: 'Mentionable:',
-        value: `${role.mentionable ? 'Yes' : 'No'}`,
+        name: 'Megemlíthető:',
+        value: `${role.mentionable ? 'Igen' : 'Nem'}`,
         inline: true
       },
       {
-        name: 'Role Permissions:',
+        name: 'Rang jogosultságai:',
         value: `${perms.join(', ')}`
       }
     ],

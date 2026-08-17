@@ -6,54 +6,54 @@ const Schema = require("../../database/models/functions");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('levels')
-        .setDescription('View the level system')
+        .setDescription('A szintrendszer megtekintése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the levels category commands')
+                .setDescription('Információ a levels kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('setlevel')
-                .setDescription('Set a new level for a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('level').setDescription('Enter a new level').setRequired(true))
+                .setDescription('Egy felhasználó szintjének beállítása')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addNumberOption(option => option.setName('level').setDescription('Add meg az új szintet').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('deletereward')
-                .setDescription('Delete a level reward')
-                .addNumberOption(option => option.setName('level').setDescription('Enter a level').setRequired(true))
+                .setDescription('Egy szint-jutalom törlése')
+                .addNumberOption(option => option.setName('level').setDescription('Add meg a szintet').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('createreward')
-                .setDescription('Create a level reward')
-                .addNumberOption(option => option.setName('level').setDescription('Enter a level').setRequired(true))
-                .addRoleOption(option => option.setName('role').setDescription('The role for this reward').setRequired(true))
+                .setDescription('Szint-jutalom létrehozása')
+                .addNumberOption(option => option.setName('level').setDescription('Add meg a szintet').setRequired(true))
+                .addRoleOption(option => option.setName('role').setDescription('A jutalomhoz tartozó szerepkör').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('setxp')
-                .setDescription('Set a new xp for a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount of xp').setRequired(true))
+                .setDescription('Egy felhasználó XP-jének beállítása')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az XP mennyiségét').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('rank')
-                .setDescription('See your current rank')
-                .addUserOption(option => option.setName('user').setDescription('Select a user'))
+                .setDescription('Jelenlegi ranglistahelyezésed megtekintése')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót'))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('rewards')
-                .setDescription('Show all level rewards')
+                .setDescription('Az összes szint-jutalom megjelenítése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('leaderboard')
-                .setDescription('See the level leaderboard')
+                .setDescription('A szint toplista megtekintése')
         )
     ,
 
@@ -66,7 +66,7 @@ module.exports = {
     run: async (client, interaction, args) => {
         const guild = await Schema.findOne({ Guild: interaction.guild.id });
         if (!guild.Levels) return client.errNormal({
-            error: `The level system is disabled!`,
+            error: `A szintrendszer ki van kapcsolva!`,
             type: 'ephemeral'
         }, interaction);
 

@@ -15,8 +15,8 @@ module.exports = async (client, interaction, args) => {
 
     Schema.findOne({ Guild: interaction.guild.id, Level: level }, async (err, data) => {
         if (data) {
-            return client.errNormal({ 
-                error: "This level already has a reward!",
+            return client.errNormal({
+                error: "Ennek a szintnek már van jutalma!",
                 type: 'editreply'
             }, interaction);
         }
@@ -27,11 +27,11 @@ module.exports = async (client, interaction, args) => {
                 Role: role.id
             }).save();
 
-            client.succNormal({ 
-                text: `Level reward created`,
+            client.succNormal({
+                text: `Szint jutalom létrehozva`,
                 fields: [
                     {
-                        name: "📘┆Role",
+                        name: "📘┆Szerepkör",
                         value: `${role}`,
                         inline: true,
                     }

@@ -15,19 +15,19 @@ module.exports = async (client, interaction, args) => {
 
     let timeout = 60000;
     let fish =
-        ["Yellow Fish :tropical_fish:",
-            "Fat Fish :blowfish:",
-            "Blue Fish :fish:",
-            "Coconut :coconut:",
-            "Dolphin :dolphin:",
-            "Lobster :lobster:",
-            "Shark :shark:",
-            "Crab :crab:",
-            "Squid :squid:",
-            "Whale :whale2:",
-            "Shrimp :shrimp:",
-            "Octopus :octopus:",
-            "Diamond :gem:"];
+        ["Sárga hal :tropical_fish:",
+            "Kövér hal :blowfish:",
+            "Kék hal :fish:",
+            "Kókusz :coconut:",
+            "Delfin :dolphin:",
+            "Homár :lobster:",
+            "Cápa :shark:",
+            "Rák :crab:",
+            "Tintahal :squid:",
+            "Bálna :whale2:",
+            "Garnélarák :shrimp:",
+            "Polip :octopus:",
+            "Gyémánt :gem:"];
 
     let randn = rand(0, parseInt(fish.length));
     let randrod = rand(15, 30);
@@ -36,14 +36,14 @@ module.exports = async (client, interaction, args) => {
 
     const userItems = await itemSchema.findOne({ Guild: interaction.guild.id, User: user.id });
 
-    if (!userItems || userItems.FishingRod == false) return client.errNormal({ error: "You have to buy a fishing rod!", type: 'editreply' }, interaction);
+    if (!userItems || userItems.FishingRod == false) return client.errNormal({ error: "Előbb vegyél egy horgászbotot!", type: 'editreply' }, interaction);
 
     if (userItems) {
         if (userItems.FishingRodUsage >= randrod) {
             userItems.FishingRod = false;
             userItems.save();
 
-            return client.errNormal({ error: "Your fishing rod has broken! Go buy a new one!", type: 'editreply' }, interaction);
+            return client.errNormal({ error: "Eltört a horgászbotod! Menj, vegyél egy újat!", type: 'editreply' }, interaction);
         }
     }
 
@@ -54,7 +54,7 @@ module.exports = async (client, interaction, args) => {
             return client.errWait({ time: time, type: 'editreply' }, interaction);
         }
         else {
-            client.succNormal({ text: `You've fished and gotten a ${fishToWin}`, type: 'editreply' }, interaction);
+            client.succNormal({ text: `Horgásztál, és fogtál egy: ${fishToWin}`, type: 'editreply' }, interaction);
 
             if (userItems) {
                 userItems.FishingRodUsage += 1;

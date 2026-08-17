@@ -4,7 +4,7 @@ module.exports = async (client, interaction, args) => {
 
     const aboutme = interaction.options.getString('text');
 
-    if (aboutme.length > 1024) return client.errNormal({ error: "Your about me cannot be longer than 1024 characters", type: 'editreply' }, interaction);
+    if (aboutme.length > 1024) return client.errNormal({ error: "A magamról szöveg nem lehet hosszabb 1024 karakternél", type: 'editreply' }, interaction);
 
     Schema.findOne({ User: interaction.user.id }, async (err, data) => {
         if (data) {
@@ -12,9 +12,9 @@ module.exports = async (client, interaction, args) => {
             data.save();
 
             client.succNormal({
-                text: "Your about me is set",
+                text: "A magamról szöveg beállítva",
                 fields: [{
-                    name: "📘┆About Me",
+                    name: "📘┆Rólam",
                     value: `\`\`\`${aboutme}\`\`\``,
                     inline: true,
                 }],
@@ -22,7 +22,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
         else {
-            return client.errNormal({ error: "No profile found! Open a profile with createprofile", type:'editreply' }, interaction);
+            return client.errNormal({ error: "Nem található profil! Nyiss egyet a createprofile paranccsal", type:'editreply' }, interaction);
         }
     })
 }

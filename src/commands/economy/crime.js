@@ -18,7 +18,7 @@ module.exports = async (client, interaction, args) => {
         }
         else {
 
-            let replies = ['Hacking', 'Burglary', 'Roberry', 'Murder', 'Dealing drugs', 'Child abuse', 'Arms trade', 'Street robbery'];
+            let replies = ['Hackelés', 'Betörés', 'Rablás', 'Gyilkosság', 'Drogkereskedelem', 'Gyermekbántalmazás', 'Fegyverkereskedelem', 'Utcai rablás'];
 
             let result = Math.floor((Math.random() * replies.length));
             let result2 = Math.floor((Math.random() * 10));
@@ -27,15 +27,15 @@ module.exports = async (client, interaction, args) => {
             if (result2 > 7) {
 
                 client.succNormal({
-                    text: `Your crime went successfully!`,
+                    text: `A bűntényed sikeresen sikerült!`,
                     fields: [
                         {
-                            name: `🦹‍♂️┆Crime`,
+                            name: `🦹‍♂️┆Bűntény`,
                             value: `${replies[result]}`,
                             inline: true
                         },
                         {
-                            name: `${client.emotes.economy.coins}┆Earned`,
+                            name: `${client.emotes.economy.coins}┆Szerzett`,
                             value: `$${amount}`,
                             inline: true
                         }
@@ -59,7 +59,7 @@ module.exports = async (client, interaction, args) => {
                 }
             }
             else {
-                client.errNormal({ error: `You were caught carrying out the crime ${replies[result]}`, type: 'editreply' }, interaction);
+                client.errNormal({ error: `Lebuktál, miközben elkövetted a következő bűntényt: ${replies[result]}`, type: 'editreply' }, interaction);
 
                 if (dataTime) {
                     dataTime.Crime = Date.now();

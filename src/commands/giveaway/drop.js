@@ -12,13 +12,13 @@ module.exports = async (client, interaction, args) => {
         prize: `${client.emotes.normal.gift} - ${prize}`,
         lastChance: {
             enabled: true,
-            content: `${client.emotes.normal.error} **LAST CHANCE TO ENTER !** ${client.emotes.normal.error}`,
+            content: `${client.emotes.normal.error} **UTOLSÓ ESÉLY A JELENTKEZÉSRE!** ${client.emotes.normal.error}`,
             threshold: 5000,
             embedColor: '#FF0000'
         },
         pauseOptions: {
             isPaused: true,
-            content: '⚠️ **THIS GIVEAWAY IS PAUSED !** ⚠️',
+            content: '⚠️ **EZ A NYEREMÉNYJÁTÉK SZÜNETEL!** ⚠️',
             unPauseAfter: null,
             embedColor: '#FFFF00'
         },
@@ -27,29 +27,29 @@ module.exports = async (client, interaction, args) => {
         thumbnail: interaction.guild.iconURL({ dynamic: true, size: 1024 }),
         isDrop: true,
         messages: {
-            giveaway: `${client.emotes.normal.party} **GIVEAWAY** ${client.emotes.normal.party}`,
-            giveawayEnded: `${client.emotes.normal.party} **GIVEAWAY ENDED** ${client.emotes.normal.party}`,
-            drawing: `${client.emotes.normal.clock} - Ends at: **{timestamp}**!`,
-            dropMessage: `Be the first to react with 🥳`,
-            winMessage: "Congratulations {winners}! You just won the **{this.prize}** !",
-            embedFooter: "Giveaway!",
+            giveaway: `${client.emotes.normal.party} **NYEREMÉNYJÁTÉK** ${client.emotes.normal.party}`,
+            giveawayEnded: `${client.emotes.normal.party} **NYEREMÉNYJÁTÉK VÉGET ÉRT** ${client.emotes.normal.party}`,
+            drawing: `${client.emotes.normal.clock} - Vége: **{timestamp}**!`,
+            dropMessage: `Légy az első, aki 🥳 emojival reagál`,
+            winMessage: "Gratulálunk {winners}! Megnyerted a **{this.prize}** nyereményt!",
+            embedFooter: "Nyereményjáték!",
             embedColor: client.config.colors.normal,
-            noWinner: "Giveaway canceled, not enough participants. \n",
-            hostedBy: `${client.emotes.normal.party} - Hosted by: {this.hostedBy}`,
-            winners: `🏆 - Winner(s)`,
-            endedAt: "Ends at:",
+            noWinner: "A nyereményjáték törölve, nincs elég résztvevő. \n",
+            hostedBy: `${client.emotes.normal.party} - Szervezte: {this.hostedBy}`,
+            winners: `🏆 - Nyertes(ek)`,
+            endedAt: "Vége:",
             units: {
-                seconds: "seconds",
-                minutes: "minutes",
-                hours: "hours",
-                days: "days",
+                seconds: "másodperc",
+                minutes: "perc",
+                hours: "óra",
+                days: "nap",
                 pluralS: false
             },
         },
 
     }).then((gData) => {
-        client.succNormal({ 
-            text: `Giveaway started in ${gchannel}`,
+        client.succNormal({
+            text: `Nyereményjáték elindítva itt: ${gchannel}`,
             type: 'ephemeraledit'
         }, interaction);
     });

@@ -8,7 +8,7 @@ module.exports = async (client, interaction, args) => {
             const channel = interaction.guild.channels.cache.get(ticketData.Channel);
             const button = new Discord.ButtonBuilder()
                 .setCustomId('Bot_openticket')
-                .setLabel("Tickets")
+                .setLabel("Jegyek")
                 .setStyle(Discord.ButtonStyle.Primary)
                 .setEmoji('🎫')
 
@@ -16,19 +16,19 @@ module.exports = async (client, interaction, args) => {
                 .addComponents(button)
 
             client.embed({
-                title: "Tickets",
-                desc: "Click on 🎫 to open a ticket",
+                title: "Jegyek",
+                desc: "Kattints a 🎫 gombra egy jegy megnyitásához",
                 components: [row]
             }, channel)
 
             client.succNormal({
-                text: `Ticket panel has been set up successfully!`,
+                text: `A jegypanel sikeresen beállítva!`,
                 type: 'editreply'
             }, interaction);
         }
         else {
             client.errNormal({
-                error: `Run the ticket setup first!`,
+                error: `Futtasd le előbb a jegyrendszer beállítását!`,
                 type: 'editreply'
             }, interaction);
         }

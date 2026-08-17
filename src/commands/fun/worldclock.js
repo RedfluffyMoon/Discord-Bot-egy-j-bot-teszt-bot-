@@ -24,7 +24,7 @@ module.exports = async (client, interaction, args) => {
     });
 
     client.embed({
-        title: `⏰・World clock`,
+        title: `⏰・Világóra`,
         fields: [
             {
                 name: ":flag_eu:┇London (GMT)",
@@ -37,12 +37,12 @@ module.exports = async (client, interaction, args) => {
                 inline: true,
             },
             {
-                name: ":flag_us:┇Los Angles (PST)",
+                name: ":flag_us:┇Los Angeles (PST)",
                 value: `${pst}\n(GMT-8)`,
                 inline: true,
             },
             {
-                name: ":flag_us:┇Mexico City (CST)",
+                name: ":flag_us:┇Mexikóváros (CST)",
                 value: `${cst}\n(GMT-7)`,
                 inline: true,
             },
@@ -57,7 +57,7 @@ module.exports = async (client, interaction, args) => {
                 inline: true,
             },
             {
-                name: ":flag_kr:┇Korean (KST)",
+                name: ":flag_kr:┇Dél-Korea (KST)",
                 value: `${kst}\n(GMT+9)`,
                 inline: true,
             },

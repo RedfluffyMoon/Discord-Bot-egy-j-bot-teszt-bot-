@@ -6,27 +6,27 @@ module.exports = async (client, interaction, args) => {
 
     if (!user1 || !user2) return client.errUsage({ usage: "lovemeter [user1]", type: 'editreply' }, interaction);
 
-    if (user1 == user2) return client.errNormal({ error: "You cannot give 2 of the same names!", type: 'editreply' }, interaction);
+    if (user1 == user2) return client.errNormal({ error: "Nem adhatod meg ugyanazt a nevet kétszer!", type: 'editreply' }, interaction);
 
     var result = Math.ceil(Math.random() * 100);
 
     client.embed({
-        title: `${client.emotes.normal.heart}・Love meter`,
-        desc: "See how much you match!",
+        title: `${client.emotes.normal.heart}・Szerelem Mérő`,
+        desc: "Nézd meg, mennyire illetek össze!",
         fields: [
             {
-                name: "Name 1",
+                name: "1. Név",
                 value: `${user1}`,
                 inline: true,
             },
             {
-                name: "Name 2",
+                name: "2. Név",
                 value: `${user2}`,
                 inline: true,
             },
             {
-                name: "Result",
-                value: `**${user2}** and **${user2}** match **${result}%**`,
+                name: "Eredmény",
+                value: `**${user2}** és **${user2}** egyezése **${result}%**`,
                 inline: false,
             },
         ],

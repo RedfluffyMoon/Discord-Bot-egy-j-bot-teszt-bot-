@@ -18,7 +18,7 @@ module.exports = async (client, interaction, args) => {
             var warn = data.Warnings.find(x => x.Case == Case);
             if (!warn) {
                 client.errNormal({
-                    error: "This user doesn't have a warning with this case number!",
+                    error: "Ennek a felhasználónak nincs ilyen esetszámú figyelmeztetése!",
                     type: 'editreply'
                 }, interaction);
                 return;
@@ -27,19 +27,19 @@ module.exports = async (client, interaction, args) => {
             data.save();
         }
         else {
-            client.errNormal({ 
-                error: "User has no warnings!", 
+            client.errNormal({
+                error: "A felhasználónak nincs figyelmeztetése!",
                 type: 'editreply'
             }, interaction);
         }
     })
 
     client.embed({
-        title: `🔨・Unwarn`,
-        desc: `You've been unwarned in **${interaction.guild.name}**`,
+        title: `🔨・Figyelmeztetés visszavonása`,
+        desc: `Az egyik figyelmeztetésed vissza lett vonva itt: **${interaction.guild.name}**`,
         fields: [
             {
-                name: "👤┆Moderator",
+                name: "👤┆Moderátor",
                 value: interaction.user.tag,
                 inline: true
             },
@@ -48,10 +48,10 @@ module.exports = async (client, interaction, args) => {
 
     client.emit('warnRemove', member, interaction.user)
     client.succNormal({
-        text: `The user's warning has been successfully removed`,
+        text: `A felhasználó figyelmeztetése sikeresen eltávolítva`,
         fields: [
             {
-                name: "👤┆User",
+                name: "👤┆Felhasználó",
                 value: `${member}`,
                 inline: true
             }

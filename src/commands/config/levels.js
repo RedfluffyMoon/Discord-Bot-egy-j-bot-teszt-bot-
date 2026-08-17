@@ -25,7 +25,7 @@ module.exports = async (client, interaction, args) => {
     }
 
     client.succNormal({
-        text: `Levels is now **${boolean ? 'enabled' : 'disabled'}** in this guild`,
+        text: `A szintrendszer mostantól **${boolean ? 'engedélyezve' : 'letiltva'}** van ezen a szerveren`,
         type: 'editreply'
     }, interaction);
 }

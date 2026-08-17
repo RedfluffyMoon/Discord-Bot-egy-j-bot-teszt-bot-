@@ -11,18 +11,18 @@ module.exports = async (client, interaction, args) => {
 
     Schema.findOne({ Text: text, User: interaction.user.id, endTime: endtime }, async (err, data) => {
         if (data) {
-            return client.errNormal({ error: `You already made this reminder!`, type: 'editreply' }, interaction);
+            return client.errNormal({ error: `Már beállítottad ezt az emlékeztetőt!`, type: 'editreply' }, interaction);
         }
         else {
             return client.succNormal({
-                text: `Your reminder is set!`,
+                text: `Az emlékeztetőd be van állítva!`,
                 fields: [{
-                    name: `${client.emotes.normal.clock}┇End Time`,
+                    name: `${client.emotes.normal.clock}┇Lejárat`,
                     value: `${new Date(endtime).toLocaleTimeString()}`,
                     inline: true,
                 },
                 {
-                    name: `💭┇Reminder`,
+                    name: `💭┇Emlékeztető`,
                     value: `${text}`,
                     inline: true,
                 }
@@ -35,11 +35,11 @@ module.exports = async (client, interaction, args) => {
     setTimeout(async () => {
 
         client.embed({
-            title: `🔔・Reminder`,
-            desc: `Your reminder just ended!`,
+            title: `🔔・Emlékeztető`,
+            desc: `Az emlékeztetőd most járt le!`,
             fields: [
                 {
-                    name: `💭┇Reminder`,
+                    name: `💭┇Emlékeztető`,
                     value: `${text}`,
                     inline: true,
                 }

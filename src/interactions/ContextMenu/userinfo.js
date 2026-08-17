@@ -7,7 +7,7 @@ const model = require('../../database/models/badge');
 
 module.exports = {
     data: new ContextMenuCommandBuilder()
-        .setName('Userinfo')
+        .setName('Felhasználói adatok')
         .setType(2),
 
     /** 
@@ -20,7 +20,7 @@ module.exports = {
         await interaction.deferReply({ ephemeral: false });
         const member = await interaction.guild.members.fetch(interaction.options.getUser('user').id);
         if (!member) return client.errNormal({
-            error: "This user is not in this guild!",
+            error: "Ez a felhasználó nincs ezen a szerveren!",
             type: 'editreply'
         }, interaction);
         const badgeFlags = {
@@ -67,54 +67,54 @@ module.exports = {
         const userFlags = member.user.flags ? member.user.flags.toArray() : [];
 
         return client.embed({
-            title: `👤・User information`,
-            desc: `Information about ${member.user.username}`,
+            title: `👤・Felhasználói adatok`,
+            desc: `Információk erről: ${member.user.username}`,
             thumbnail: member.user.displayAvatarURL({ dynamic: true, size: 1024 }),
             image: member.user.bannerURL({ dynamic: true, size: 1024 }),
             fields: [
                 {
-                    name: "Username",
+                    name: "Felhasználónév",
                     value: `${member.user.username}`,
                     inline: true,
                 },
                 {
-                    name: "Discriminator",
+                    name: "Diszkriminátor",
                     value: `${member.user.discriminator}`,
                     inline: true,
                 },
                 {
-                    name: "Nickname",
-                    value: `${member.nickname || 'No nickname'}`,
+                    name: "Becenév",
+                    value: `${member.nickname || 'Nincs becenév'}`,
                     inline: true,
                 },
                 {
-                    name: "Id",
+                    name: "Azonosító",
                     value: `${member.user.id}`,
                     inline: true,
                 },
                 {
-                    name: "Flags",
-                    value: `${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None'}`,
+                    name: "Jelölők",
+                    value: `${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'Nincs'}`,
                     inline: true,
                 },
                 {
-                    name: "Badges",
-                    value: `${Badges.FLAGS ? Badges.FLAGS.map(flag => badgeFlags[flag]).join(' ') : 'None'}`,
+                    name: "Jelvények",
+                    value: `${Badges.FLAGS ? Badges.FLAGS.map(flag => badgeFlags[flag]).join(' ') : 'Nincs'}`,
                     inline: true,
                 },
                 {
-                    name: "Discord joined at",
+                    name: "Discordra csatlakozott",
                     value: `<t:${Math.round(member.user.createdTimestamp / 1000)}>`,
                     inline: true,
                 },
                 {
-                    name: "Server joined at",
+                    name: "Szerverre csatlakozott",
                     value: `<t:${Math.round(member.joinedAt / 1000)}>`,
                     inline: true,
                 },
                 {
-                    name: `Roles [${roles.length}]`,
-                    value: `${roles.length ? roles.join(', ') : 'None'}`,
+                    name: `Szerepkörök [${roles.length}]`,
+                    value: `${roles.length ? roles.join(', ') : 'Nincs'}`,
                     inline: false,
                 }
             ],

@@ -5,97 +5,97 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('search')
-        .setDescription('Search something on the internet')
+        .setDescription('Keresés az interneten')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the search category commands')
+                .setDescription('Információ a search kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('bing')
-                .setDescription('Find something on Bing')
-                .addStringOption(option => option.setName('name').setDescription('Your search name').setRequired(true))
+                .setDescription('Keresés a Bingen')
+                .addStringOption(option => option.setName('name').setDescription('A keresett kifejezés').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('ddg')
-                .setDescription('Find something on DuckDuckGo')
-                .addStringOption(option => option.setName('name').setDescription('Your search name').setRequired(true))
+                .setDescription('Keresés a DuckDuckGón')
+                .addStringOption(option => option.setName('name').setDescription('A keresett kifejezés').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('google')
-                .setDescription('Find something on Google')
-                .addStringOption(option => option.setName('name').setDescription('Your search name').setRequired(true))
+                .setDescription('Keresés a Google-ön')
+                .addStringOption(option => option.setName('name').setDescription('A keresett kifejezés').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('youtube')
-                .setDescription('Find something on YouTube')
-                .addStringOption(option => option.setName('name').setDescription('Your search name').setRequired(true))
+                .setDescription('Keresés a YouTube-on')
+                .addStringOption(option => option.setName('name').setDescription('A keresett kifejezés').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('corona')
-                .setDescription('See the corona stats')
-                .addStringOption(option => option.setName('country').setDescription('Enter a country').setRequired(true))
+                .setDescription('A koronavírus-statisztikák megtekintése')
+                .addStringOption(option => option.setName('country').setDescription('Add meg az országot').setRequired(true))
         )
         .addSubcommand(subcommand =>
-            subcommand 
+            subcommand
                 .setName('crypto')
-                .setDescription('See the value of the crypto coin')
-                .addStringOption(option => option.setName('coin').setDescription('Enter a coin').setRequired(true))
-                .addStringOption(option => option.setName('currency').setDescription('Enter a currency').setRequired(true))
+                .setDescription('Egy kriptovaluta árfolyamának megtekintése')
+                .addStringOption(option => option.setName('coin').setDescription('Add meg a kriptovalutát').setRequired(true))
+                .addStringOption(option => option.setName('currency').setDescription('Add meg a pénznemet').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('docs')
-                .setDescription('See the discord.js docs')
-                .addStringOption(option => option.setName('name').setDescription('Your search name').setRequired(true))
+                .setDescription('A discord.js dokumentáció megtekintése')
+                .addStringOption(option => option.setName('name').setDescription('A keresett kifejezés').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('github')
-                .setDescription('Get info on a github user just by entering their username')
-                .addStringOption(option => option.setName('name').setDescription('Enter a github name').setRequired(true))
+                .setDescription('GitHub-felhasználó adatainak lekérése a felhasználónév alapján')
+                .addStringOption(option => option.setName('name').setDescription('Add meg a GitHub felhasználónevet').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('hexcolour')
-                .setDescription('Get info from a color')
-                .addStringOption(option => option.setName('color').setDescription('Enter a hex color').setRequired(true))
+                .setDescription('Információ egy színről')
+                .addStringOption(option => option.setName('color').setDescription('Add meg a hex színkódot').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('itunes')
-                .setDescription('Search on iTunes for any song')
-                .addStringOption(option => option.setName('song').setDescription('Enter a song name').setRequired(true))
+                .setDescription('Keresés az iTunes-on egy dal után')
+                .addStringOption(option => option.setName('song').setDescription('Add meg a dal nevét').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('npm')
-                .setDescription('Get info on an NPM package')
-                .addStringOption(option => option.setName('name').setDescription('Enter a package name').setRequired(true))
+                .setDescription('Információ egy NPM csomagról')
+                .addStringOption(option => option.setName('name').setDescription('Add meg a csomag nevét').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('steam')
-                .setDescription('Get info on an application on Steam')
-                .addStringOption(option => option.setName('name').setDescription('Enter a Steam application name').setRequired(true))
+                .setDescription('Információ egy Steam alkalmazásról')
+                .addStringOption(option => option.setName('name').setDescription('Add meg a Steam alkalmazás nevét').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('translate')
-                .setDescription('Translate some text')
-                .addStringOption(option => option.setName('language').setDescription('Enter a language').setRequired(true))
-                .addStringOption(option => option.setName('text').setDescription('Enter some text').setRequired(true))
+                .setDescription('Szöveg fordítása')
+                .addStringOption(option => option.setName('language').setDescription('Add meg a célnyelvet').setRequired(true))
+                .addStringOption(option => option.setName('text').setDescription('Add meg a fordítandó szöveget').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('weather')
-                .setDescription('See the current weather')
-                .addStringOption(option => option.setName('location').setDescription('Enter a location name').setRequired(true))
+                .setDescription('Az aktuális időjárás megtekintése')
+                .addStringOption(option => option.setName('location').setDescription('Add meg a helyszín nevét').setRequired(true))
         )
     ,
 

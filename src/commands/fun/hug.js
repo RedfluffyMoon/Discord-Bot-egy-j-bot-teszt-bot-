@@ -12,11 +12,11 @@ module.exports = async (client, interaction, args) => {
         response = await axios.get(url);
         data = response.data;
     } catch (e) {
-        return client.errNormal({ error: "An error occured!", type: 'editreply' }, interaction);
+        return client.errNormal({ error: "Hiba történt!", type: 'editreply' }, interaction);
     }
 
     client.embed({
-        title: `${interaction.user.tag} hugs ${user.tag}`,
+        title: `${interaction.user.tag} megöleli ${user.tag} felhasználót`,
         image: `${data.link}`,
         type: 'editreply'
     }, interaction);

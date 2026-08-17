@@ -6,44 +6,44 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('reactionroles')
-        .setDescription('Manage the server reaction roles')
+        .setDescription('A szerver reakció szerepkörök kezelése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the reaction roles category commands')
+                .setDescription('Információ a reactionroles kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('add')
-                .setDescription('Add a reaction role')
-                .addStringOption(option => option.setName('category').setDescription('category name for your reaction roles group').setRequired(true))
-                .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true))
-                .addStringOption(option => option.setName('emoji').setDescription('Enter a emoji').setRequired(true))
+                .setDescription('Egy reakció szerepkör hozzáadása')
+                .addStringOption(option => option.setName('category').setDescription('A reakció szerepkör csoport neve').setRequired(true))
+                .addRoleOption(option => option.setName('role').setDescription('Válassz egy szerepkört').setRequired(true))
+                .addStringOption(option => option.setName('emoji').setDescription('Add meg az emojit').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('delete')
-                .setDescription('Delete a reaction roles category')
-                .addStringOption(option => option.setName('category').setDescription('category name for your reaction roles group').setRequired(true))
+                .setDescription('Egy reakció szerepkör kategória törlése')
+                .addStringOption(option => option.setName('category').setDescription('A reakció szerepkör csoport neve').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('list')
-                .setDescription('Show all reaction roles categories from this guild')
+                .setDescription('A szerver összes reakció szerepkör kategóriájának megjelenítése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('button')
-                .setDescription('Show all reaction roles with buttons')
-                .addStringOption(option => option.setName('category').setDescription('Category name for your reaction roles group').setRequired(true))
-                .addChannelOption(option => option.setName('channel').setDescription('Channel where the reaction roles should come').addChannelTypes(ChannelType.GuildText))
+                .setDescription('Az összes reakció szerepkör megjelenítése gombokkal')
+                .addStringOption(option => option.setName('category').setDescription('A reakció szerepkör csoport neve').setRequired(true))
+                .addChannelOption(option => option.setName('channel').setDescription('A csatorna, ahova a reakció szerepkörök kerüljenek').addChannelTypes(ChannelType.GuildText))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('menu')
-                .setDescription('Show all reaction roles in a menu')
-                .addStringOption(option => option.setName('category').setDescription('Category name for your reaction roles group').setRequired(true))
-                .addChannelOption(option => option.setName('channel').setDescription('Channel where the reaction roles should come').addChannelTypes(ChannelType.GuildText))
+                .setDescription('Az összes reakció szerepkör megjelenítése egy menüben')
+                .addStringOption(option => option.setName('category').setDescription('A reakció szerepkör csoport neve').setRequired(true))
+                .addChannelOption(option => option.setName('channel').setDescription('A csatorna, ahova a reakció szerepkörök kerüljenek').addChannelTypes(ChannelType.GuildText))
         )
     ,
 

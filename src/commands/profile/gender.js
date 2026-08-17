@@ -7,22 +7,22 @@ module.exports = async (client, interaction, args) => {
         if (data) {
             const menu = new Discord.StringSelectMenuBuilder()
                 .setCustomId('gender-setup')
-                .setPlaceholder('❌┆Nothing selected')
+                .setPlaceholder('❌┆Nincs kiválasztva')
                 .addOptions(
                     {
                         emoji: "👨",
-                        label: `Male`,
-                        value: `Male`,
+                        label: `Férfi`,
+                        value: `Férfi`,
                     },
                     {
                         emoji: "👩",
-                        label: `Female`,
-                        value: `Female`,
+                        label: `Nő`,
+                        value: `Nő`,
                     },
                     {
                         emoji: "👪",
-                        label: `Other`,
-                        value: `Other`,
+                        label: `Egyéb`,
+                        value: `Egyéb`,
                     }
                 );
 
@@ -30,7 +30,7 @@ module.exports = async (client, interaction, args) => {
                 .addComponents(menu)
 
             client.embed({
-                desc: `Select a gender`,
+                desc: `Válassz nemet`,
                 type: 'editreply',
                 components: [row],
             }, interaction).then(msg => {
@@ -42,7 +42,7 @@ module.exports = async (client, interaction, args) => {
                         data.save();
 
                         client.succNormal({
-                            text: "Set your gender to " + i.values[0],
+                            text: "Nemed beállítva: " + i.values[0],
                             type: 'editreply',
                             components: [],
                         }, interaction);
@@ -51,7 +51,7 @@ module.exports = async (client, interaction, args) => {
             })
         }
         else {
-            return client.errNormal({ error: "No profile found! Open a profile with createprofile", type: 'editreply' }, interaction);
+            return client.errNormal({ error: "Nem található profil! Nyiss egyet a createprofile paranccsal", type: 'editreply' }, interaction);
         }
     })
 }

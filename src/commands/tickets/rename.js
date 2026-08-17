@@ -16,7 +16,7 @@ module.exports = async (client, interaction, args) => {
         const ticketCategory = interaction.guild.channels.cache.get(data.Category);
         if (ticketCategory == undefined) {
             return client.errNormal({
-                error: "Do the ticket setup!",
+                error: "Végezd el a ticket beállítását!",
                 type: 'editreply'
             }, interaction)
         }
@@ -26,13 +26,13 @@ module.exports = async (client, interaction, args) => {
             interaction.channel.edit({ name: name });
 
             return client.simpleEmbed({
-                desc: `Channel name has changed to ${name}`,
+                desc: `A csatorna neve megváltozott erre: ${name}`,
                 type: 'editreply'
             }, interaction)
         }
         else {
             client.errNormal({
-                error: "This is not a ticket!",
+                error: "Ez nem egy ticket!",
                 type: 'editreply'
             }, interaction)
         }

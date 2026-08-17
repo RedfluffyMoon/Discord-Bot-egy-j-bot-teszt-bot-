@@ -17,7 +17,7 @@ module.exports = async (client, interaction, args) => {
     ticketChannels.findOne({ Guild: interaction.guild.id, channelID: interaction.channel.id }, async (err, ticketData) => {
         if (ticketData) {
             if (ticketData.resolved == false) return client.errNormal({
-                error: "Ticket is already open!",
+                error: "A ticket már nyitva van!",
                 type: 'ephemeraledit'
             }, interaction);
 
@@ -27,7 +27,7 @@ module.exports = async (client, interaction, args) => {
 
                     if (ticketCategory == undefined) {
                         return client.errNormal({
-                            error: "Do the setup!",
+                            error: "Végezd el a beállítást!",
                             type: type
                         }, interaction);
                     }
@@ -50,13 +50,13 @@ module.exports = async (client, interaction, args) => {
                         ticketData.save();
 
                         return client.simpleEmbed({
-                            desc: `Ticket opened by <@!${interaction.user.id}>`,
+                            desc: `A ticketet <@!${interaction.user.id}> nyitotta meg`,
                             type: type
                         }, interaction)
                     }
                     else {
                         client.errNormal({
-                            error: "This is not a ticket!",
+                            error: "Ez nem egy ticket!",
                             type: type
                         }, interaction);
 
@@ -64,7 +64,7 @@ module.exports = async (client, interaction, args) => {
                 }
                 else {
                     return client.errNormal({
-                        error: "Do the setup!",
+                        error: "Végezd el a beállítást!",
                         type: type
                     }, interaction);
                 }

@@ -12,13 +12,13 @@ module.exports = async (client, interaction, args) => {
 
     const channel = interaction.member.voice.channel;
     if (!channel) return client.errNormal({
-        error: `You're not in a voice channel!`,
+        error: `Nem vagy hangcsatornában!`,
         type: 'editreply'
     }, interaction);
     var checkVoice = await client.checkVoice(interaction.guild, channel);
     if (!checkVoice) {
         return client.errNormal({
-            error: `You cannot edit this channel!`,
+            error: `Nem szerkesztheted ezt a csatornát!`,
             type: 'editreply'
         }, interaction);
     } else {
@@ -26,10 +26,10 @@ module.exports = async (client, interaction, args) => {
         channel.edit({ name: name });
 
         client.succNormal({
-            text: `The channel was renamed to \`${name}\``,
+            text: `A csatorna átnevezve erre: \`${name}\``,
             fields: [
                 {
-                    name: `📘┆Channel`,
+                    name: `📘┆Csatorna`,
                     value: `${channel} (${channel.name})`
                 }
             ],

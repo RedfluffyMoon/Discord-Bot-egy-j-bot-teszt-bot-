@@ -13,7 +13,7 @@ module.exports = async (client, interaction, args) => {
         }, interaction)
 
         client.succNormal({
-            text: `Your shortened url has been created!`,
+            text: `A rövidített URL-ed elkészült!`,
             fields: [
                 {
                     name: `🔗┇Link`,

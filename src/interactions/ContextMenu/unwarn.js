@@ -6,7 +6,7 @@ const Schema = require("../../database/models/warnings");
 
 module.exports = {
     data: new ContextMenuCommandBuilder()
-        .setName('Unwarn')
+        .setName('Figyelmeztetés visszavonása')
         .setType(2),
 
     /** 
@@ -23,7 +23,7 @@ module.exports = {
 
         if (perms == false) {
             client.errNormal({
-                error: "You don't have the required permissions to use this command!",
+                error: "Nincs jogosultságod ehhez a parancshoz!",
                 type: 'ephemeral'
             }, interaction);
             return;
@@ -36,19 +36,19 @@ module.exports = {
             if (data) {
                 const menu = new Discord.StringSelectMenuBuilder()
                     .setCustomId('unwarn')
-                    .setPlaceholder('Select a warning to remove');
-                // Get all warnings and add them to a stringselectmenu 
+                    .setPlaceholder('Válaszd ki a törlendő figyelmeztetést');
+                // Get all warnings and add them to a stringselectmenu
                 data.Warnings.forEach(element => {
                     menu.addOptions({
-                        label: `Case ${element.Case}`,
+                        label: `${element.Case}. eset`,
                         value: element.Case.toString(),
-                        description: "Reason: " + element.Reason
+                        description: "Indok: " + element.Reason
                     })
                 });
                 // Create a new message with the menu
                 client.embed({
-                    title: `🔨・Unwarn`,
-                    desc: `Select a warning to remove from **${member.user.tag}**`,
+                    title: `🔨・Figyelmeztetés visszavonása`,
+                    desc: `Válaszd ki a törlendő figyelmeztetést innen: **${member.user.tag}**`,
                     components: [new Discord.ActionRowBuilder().addComponents(menu)],
                     type: 'ephemeraledit'
                 }, interaction);
@@ -68,10 +68,10 @@ module.exports = {
                         });
                         // Send a success message
                         client.succNormal({
-                            text: `The warning has been successfully removed`,
+                            text: `A figyelmeztetés sikeresen eltávolítva`,
                             fields: [
                                 {
-                                    name: "👤┆User",
+                                    name: "👤┆Felhasználó",
                                     value: `${member}`,
                                     inline: true
                                 }
@@ -80,11 +80,11 @@ module.exports = {
                         }, interaction);
                         client.emit('warnRemove', member, interaction.user)
                         client.embed({
-                            title: `🔨・Unwarn`,
-                            desc: `You've been unwarned in **${interaction.guild.name}**`,
+                            title: `🔨・Figyelmeztetés visszavonása`,
+                            desc: `Egy figyelmeztetésed visszavonásra került itt: **${interaction.guild.name}**`,
                             fields: [
                                 {
-                                    name: "👤┆Moderator",
+                                    name: "👤┆Moderátor",
                                     value: interaction.user.tag,
                                     inline: true
                                 },
@@ -94,7 +94,7 @@ module.exports = {
                 });
             } else {
                 client.errNormal({
-                    error: "User has no warnings!",
+                    error: "A felhasználónak nincs figyelmeztetése!",
                     type: 'ephemeraledit'
                 }, interaction);
             }

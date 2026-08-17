@@ -5,152 +5,152 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('economy')
-        .setDescription('Play the economy game in your server')
+        .setDescription('A gazdasági rendszer használata a szervereden')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the economy category commands')
+                .setDescription('Információ az economy kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('additem')
-                .setDescription('Add a role item to the economy store')
-                .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true))
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount').setRequired(true))
+                .setDescription('Egy szerepkör-tétel hozzáadása a gazdasági bolthoz')
+                .addRoleOption(option => option.setName('role').setDescription('Válassz egy szerepkört').setRequired(true))
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az összeget').setRequired(true))
 
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('addmoney')
-                .setDescription('Add money to a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount').setRequired(true))
+                .setDescription('Pénz hozzáadása egy felhasználóhoz')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az összeget').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('balance')
-                .setDescription('See your balance')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(false))
+                .setDescription('Egyenleged megtekintése')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(false))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('beg')
-                .setDescription('Beg for money')
+                .setDescription('Kéregess pénzért')
         )
         .addSubcommand((subcommand) =>
             subcommand
                 .setName('buy')
-                .setDescription('Buy items in the Bot store')
+                .setDescription('Tételek vásárlása a Bot boltjában')
 
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('clear')
-                .setDescription('Clear the economy')
+                .setDescription('A gazdasági adatok törlése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('crime')
-                .setDescription('Commit a crime')
+                .setDescription('Kövess el egy bűncselekményt')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('daily')
-                .setDescription('Claim your daily money')
+                .setDescription('Napi pénzed felvétele')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('deleteitem')
-                .setDescription('Delete a role item from the economy store')
-                .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true))
+                .setDescription('Egy szerepkör-tétel törlése a gazdasági boltból')
+                .addRoleOption(option => option.setName('role').setDescription('Válassz egy szerepkört').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('deposit')
-                .setDescription('Deposit money to the bank')
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount').setRequired(true))
+                .setDescription('Pénz befizetése a bankba')
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az összeget').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('fish')
-                .setDescription('Fish some fish')
+                .setDescription('Menj halászni')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('hourly')
-                .setDescription('Claim your hourly money')
+                .setDescription('Óránkénti pénzed felvétele')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('hunt')
-                .setDescription('Hunt some animals')
+                .setDescription('Menj vadászni')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('monthly')
-                .setDescription('Claim your monthly money')
+                .setDescription('Havi pénzed felvétele')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('pay')
-                .setDescription('Pay a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount').setRequired(true))
+                .setDescription('Fizess egy felhasználónak')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az összeget').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('present')
-                .setDescription('Get a weekly present')
+                .setDescription('Heti ajándékod átvétele')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('removemoney')
-                .setDescription('Remove money from a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount').setRequired(true))
+                .setDescription('Pénz elvétele egy felhasználótól')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az összeget').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('rob')
-                .setDescription('Rob a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                .setDescription('Rabolj ki egy felhasználót')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('store')
-                .setDescription('Show the store of this guild')
+                .setDescription('A szerver boltjának megjelenítése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('weekly')
-                .setDescription('Claim your weekly money')
+                .setDescription('Heti pénzed felvétele')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('withdraw')
-                .setDescription('Withdraw your money')
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount').setRequired(true))
+                .setDescription('Pénzed kivétele a bankból')
+                .addNumberOption(option => option.setName('amount').setDescription('Add meg az összeget').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('work')
-                .setDescription('Go to work')
+                .setDescription('Menj dolgozni')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('yearly')
-                .setDescription('Claim your yearly money')
+                .setDescription('Éves pénzed felvétele')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('leaderboard')
-                .setDescription('See the economy leaderboard')
+                .setDescription('A gazdasági toplista megtekintése')
                 .addStringOption(option =>
                     option.setName('type')
-                        .setDescription('The leaderboard type that you want')
+                        .setDescription('A kívánt toplista típusa')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'Money', value: 'money'},
+                            {name: 'Pénz', value: 'money'},
                             {name: 'Bank', value: 'bank'}
                         )
                 )

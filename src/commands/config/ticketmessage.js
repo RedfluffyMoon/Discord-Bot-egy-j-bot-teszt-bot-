@@ -18,19 +18,19 @@ module.exports = async (client, interaction, args) => {
             const data = await Schema.findOne({ Guild: interaction.guild.id })
 
             if (data) {
-                data.openTicket = "Thanks for creating a ticket! \nSupport will be with you shortly \n\n🔒 - Close ticket \n✋ - Claim ticket \n📝 - Save transcript \n🔔 - Send a notification";
+                data.openTicket = "Köszönjük, hogy jegyet nyitottál! \nA support hamarosan jelentkezik nálad \n\n🔒 - Jegy bezárása \n✋ - Jegy átvétele \n📝 - Átirat mentése \n🔔 - Értesítés küldése";
                 data.save();
 
                 client.succNormal({
-                    text: `The ticket message has been set successfully`,
+                    text: `A jegyüzenet sikeresen beállítva`,
                     fields: [
                         {
-                            name: `📘┆Message type`,
+                            name: `📘┆Üzenet típusa`,
                             value: `${type}`,
                             inline: true
                         },
                         {
-                            name: `💬┆Message`,
+                            name: `💬┆Üzenet`,
                             value: `${data.openTicket}`,
                             inline: true
                         },
@@ -40,7 +40,7 @@ module.exports = async (client, interaction, args) => {
             }
             else {
                 client.errNormal({
-                    error: `No ticket message data found!`,
+                    error: `Nem található jegyüzenet adat!`,
                     type: 'editreply'
                 }, interaction)
             }
@@ -62,15 +62,15 @@ module.exports = async (client, interaction, args) => {
         })
 
         client.succNormal({
-            text: `The ticket message has been set successfully`,
+            text: `A jegyüzenet sikeresen beállítva`,
             fields: [
                 {
-                    name: `📘┆Message type`,
+                    name: `📘┆Üzenet típusa`,
                     value: `${type}`,
                     inline: true
                 },
                 {
-                    name: `💬┆Message`,
+                    name: `💬┆Üzenet`,
                     value: `${message}`,
                     inline: true
                 },
@@ -83,19 +83,19 @@ module.exports = async (client, interaction, args) => {
             const data = await Schema.findOne({ Guild: interaction.guild.id })
 
             if (data) {
-                data.dmMessage = "Here is the transcript for your ticket, please keep this if you ever want to refer to it!";
+                data.dmMessage = "Itt van a jegyed átirata, tartsd meg, ha valaha vissza szeretnél rá nézni!";
                 data.save();
 
                 client.succNormal({
-                    text: `The ticket message has been set successfully`,
+                    text: `A jegyüzenet sikeresen beállítva`,
                     fields: [
                         {
-                            name: `📘┆Message type`,
+                            name: `📘┆Üzenet típusa`,
                             value: `${type}`,
                             inline: true
                         },
                         {
-                            name: `💬┆Message`,
+                            name: `💬┆Üzenet`,
                             value: `${data.dmMessage}`,
                             inline: true
                         },
@@ -105,7 +105,7 @@ module.exports = async (client, interaction, args) => {
             }
             else {
                 client.errNormal({
-                    error: `No ticket message data found!`,
+                    error: `Nem található jegyüzenet adat!`,
                     type: 'editreply'
                 }, interaction)
             }
@@ -127,15 +127,15 @@ module.exports = async (client, interaction, args) => {
         })
 
         client.succNormal({
-            text: `The ticket message has been set successfully`,
+            text: `A jegyüzenet sikeresen beállítva`,
             fields: [
                 {
-                    name: `📘┆Message type`,
+                    name: `📘┆Üzenet típusa`,
                     value: `${type}`,
                     inline: true
                 },
                 {
-                    name: `💬┆Message`,
+                    name: `💬┆Üzenet`,
                     value: `${message}`,
                     inline: true
                 },

@@ -9,7 +9,7 @@ module.exports = async (client, interaction, args) => {
 
             if (data && data.Food) {
                 if (data.Food.includes(food)) {
-                    return client.errNormal({ error: `That food is already exists in your database!`, type: 'editreply' }, interaction);
+                    return client.errNormal({ error: `Ez az étel már szerepel az adatbázisodban!`, type: 'editreply' }, interaction);
                 }
                 data.Food.push(food);
                 data.save();
@@ -19,9 +19,9 @@ module.exports = async (client, interaction, args) => {
                 data.save();
             }
             client.succNormal({
-                text: "Added your food",
+                text: "Étel hozzáadva",
                 fields: [{
-                    name: "🥐┆Food",
+                    name: "🥐┆Étel",
                     value: `\`\`\`${food}\`\`\``,
                     inline: true,
                 }],
@@ -29,7 +29,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
         else {
-            return client.errNormal({ error: "No profile found! Open a profile with createprofile", type:'editreply' }, interaction);
+            return client.errNormal({ error: "Nem található profil! Nyiss egyet a createprofile paranccsal", type:'editreply' }, interaction);
         }
     })
 

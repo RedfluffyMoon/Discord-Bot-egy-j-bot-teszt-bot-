@@ -7,16 +7,16 @@ module.exports = async (client, interaction, args) => {
     let encode = text.split("").map(x => x.charCodeAt(0).toString(2)).join(" ");
 
     client.embed({
-        title: `${client.emotes.normal.check}・Success!`,
-        desc: `I converted text to binary text`,
+        title: `${client.emotes.normal.check}・Siker!`,
+        desc: `Átalakítottam a szöveget bináris szöveggé`,
         fields: [
             {
-                name: "📥┇Input",
+                name: "📥┇Bemenet",
                 value: `\`\`\`${text}\`\`\``,
                 inline: false,
             },
             {
-                name: "📤┇Output",
+                name: "📤┇Kimenet",
                 value: `\`\`\`${encode}\`\`\``,
                 inline: false,
             },

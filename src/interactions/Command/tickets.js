@@ -8,85 +8,85 @@ const ticketChannels = require("../../database/models/ticketChannels");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('tickets')
-        .setDescription('Manage tickets in your server')
+        .setDescription('A ticketek kezelése a szervereden')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the tickets category commands')
+                .setDescription('Információ a tickets kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('add')
-                .setDescription('Add a user to a ticket')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                .setDescription('Egy felhasználó hozzáadása egy tickethez')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('claim')
-                .setDescription('Claim a ticket')
+                .setDescription('Egy ticket lefoglalása')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('close')
-                .setDescription('Close a ticket')
+                .setDescription('Egy ticket lezárása')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('delete')
-                .setDescription('Delete a ticket')
+                .setDescription('Egy ticket törlése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('information')
-                .setDescription('Information about a ticket')
+                .setDescription('Információ egy ticketről')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('lower')
-                .setDescription('Lower a ticket')
+                .setDescription('Egy ticket lejjebb helyezése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('create')
-                .setDescription('Create a ticket')
-                .addStringOption(option => option.setName('reason').setDescription('Reason to open a ticket'))
+                .setDescription('Ticket létrehozása')
+                .addStringOption(option => option.setName('reason').setDescription('A ticket megnyitásának indoka'))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('notice')
-                .setDescription('Send a notice to a ticket')
+                .setDescription('Értesítés küldése egy tickethez')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('open')
-                .setDescription('Reopen a ticket')
+                .setDescription('Egy ticket újranyitása')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('raise')
-                .setDescription('Raise a ticket')
+                .setDescription('Egy ticket feljebb helyezése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('remove')
-                .setDescription('Remove a user from a ticket')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                .setDescription('Egy felhasználó eltávolítása egy ticketből')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('rename')
-                .setDescription('Rename a ticket')
-                .addStringOption(option => option.setName('name').setDescription('New ticket name').setRequired(true))
+                .setDescription('Egy ticket átnevezése')
+                .addStringOption(option => option.setName('name').setDescription('Az új ticket név').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('transcript')
-                .setDescription('Transcript a ticket')
+                .setDescription('Egy ticket átiratának mentése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('unclaim')
-                .setDescription('Unclaim a ticket')
+                .setDescription('Egy ticket lefoglalásának visszavonása')
         )
     ,
 

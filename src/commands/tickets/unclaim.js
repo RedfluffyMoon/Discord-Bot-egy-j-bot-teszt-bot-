@@ -19,7 +19,7 @@ module.exports = async (client, interaction, args) => {
             if (data) {
                 if (ticketData.claimed == "" || ticketData.claimed == undefined || ticketData.claimed == "None") {
                     client.errNormal({
-                        text: "Ticket not claimed!",
+                        text: "A ticket nincs lefoglalva!",
                         type: 'ephemeral'
                     }, interaction)
                 }
@@ -29,7 +29,7 @@ module.exports = async (client, interaction, args) => {
 
                         if (ticketCategory == undefined) {
                             return client.errNormal({
-                                error: "Do the setup!",
+                                error: "Végezd el a beállítást!",
                                 type: 'editreply'
                             }, interaction);
                         }
@@ -40,21 +40,21 @@ module.exports = async (client, interaction, args) => {
                             ticketData.save();
 
                             return client.simpleEmbed({
-                                desc: `This ticket can now be claimed again!`,
+                                desc: `Ezt a ticketet most már újra le lehet foglalni!`,
                                 type: 'editreply'
                             }, interaction)
 
                         }
                         else {
                             client.errNormal({
-                                error: "This is not a ticket!",
+                                error: "Ez nem egy ticket!",
                                 type: 'editreply'
                             }, interaction)
                         }
                     }
                     else {
                         client.errNormal({
-                            error: "You have not claimed this ticket!",
+                            error: "Nem te foglaltad le ezt a ticketet!",
                             type: 'editreply'
                         }, interaction)
                     }
@@ -62,7 +62,7 @@ module.exports = async (client, interaction, args) => {
             }
             else {
                 return client.errNormal({
-                    error: "Do the ticket setup!",
+                    error: "Végezd el a ticket beállítását!",
                     type: 'editreply'
                 }, interaction)
             }

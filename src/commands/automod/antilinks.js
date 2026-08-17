@@ -18,7 +18,7 @@ module.exports = async (client, interaction, args) => {
     }
 
     client.succNormal({
-        text: `Anti links is now **${boolean ? 'enabled' : 'disabled'}** in this guild`,
+        text: `A link-blokkolás mostantól **${boolean ? 'engedélyezve' : 'letiltva'}** ezen a szerveren`,
         type: 'editreply'
     }, interaction);
 }

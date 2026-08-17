@@ -9,13 +9,13 @@ module.exports = async (client, interaction, args) => {
             Schema.findOneAndDelete({ Guild: interaction.guild.id, Name: cmdname.toLowerCase() }).then(async () => {
                 var commands = await interaction.guild.commands.fetch()
                 var command = await commands.find((cmd => cmd.name == cmdname.toLowerCase()))
-                if(!command) return client.errNormal({ error: "Unable to find this command!", type: 'editreply' }, interaction );
+                if(!command) return client.errNormal({ error: "Nem található ez a parancs!", type: 'editreply' }, interaction );
                 await interaction.guild.commands.delete(command.id);
 
                 client.succNormal({
-                    text: `The command has been deleted successfully`,
+                    text: `A parancs sikeresen törölve`,
                     fields: [{
-                        name: "🔧┆Command",
+                        name: "🔧┆Parancs",
                         value: `\`\`\`${cmdname}\`\`\``,
                         inline: true,
                     }],
@@ -24,7 +24,7 @@ module.exports = async (client, interaction, args) => {
             })
         }
         else {
-            client.errNormal({ error: "Unable to find this command!", type: 'editreply' }, interaction);
+            client.errNormal({ error: "Nem található ez a parancs!", type: 'editreply' }, interaction);
         }
     })
 

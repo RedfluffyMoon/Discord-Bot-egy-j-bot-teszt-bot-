@@ -35,14 +35,14 @@ module.exports = async (client, interaction, args) => {
     let Badges = await model.findOne({ User: member.id });
 
     if (!badgeFlags[badge.toUpperCase()]) return client.errNormal({
-        error: `I can't find that badge`,
+        error: `Nem található ez a jelvény`,
         type: `editreply`
     }, interaction);
 
     if (boolean == true) {
         if (Badges) {
             if (Badges.FLAGS.includes(badge.toUpperCase())) return client.errNormal({
-                error: `This users already has that badge!`,
+                error: `Ennek a felhasználónak már megvan ez a jelvénye!`,
                 type: `editreply`
             }, interaction);
 
@@ -58,7 +58,7 @@ module.exports = async (client, interaction, args) => {
             });
 
             client.succNormal({
-                text: `Added the ${badgeFlags[badge.toUpperCase()]} (${badge.toUpperCase()}) badge!`,
+                text: `Hozzáadva a(z) ${badgeFlags[badge.toUpperCase()]} (${badge.toUpperCase()}) jelvény!`,
                 type: `editreply`
             }, interaction);
         } else {
@@ -66,17 +66,17 @@ module.exports = async (client, interaction, args) => {
             await newSettings.save().catch(() => { });
 
             client.succNormal({
-                text: `Added the ${badgeFlags[badge.toUpperCase()]} (${badge.toUpperCase()}) badge!`,
+                text: `Hozzáadva a(z) ${badgeFlags[badge.toUpperCase()]} (${badge.toUpperCase()}) jelvény!`,
                 type: `editreply`
             }, interaction)
         }
 
         let embedLogs = new Discord.EmbedBuilder()
-            .setTitle(`📛・Badge added`)
-            .setDescription(`Added a new badge to ${member} (${member.id})`)
+            .setTitle(`📛・Jelvény hozzáadva`)
+            .setDescription(`Új jelvény hozzáadva ${member} (${member.id}) felhasználóhoz`)
             .addFields(
-                { name: "👤┆Added By", value: `${interaction.user} (${interaction.user.tag})`, inline: true },
-                { name: `📛┆Badge`, value: `${badgeFlags[badge.toUpperCase()]} (${badge.toUpperCase()})`, inline: true },
+                { name: "👤┆Hozzáadta", value: `${interaction.user} (${interaction.user.tag})`, inline: true },
+                { name: `📛┆Jelvény`, value: `${badgeFlags[badge.toUpperCase()]} (${badge.toUpperCase()})`, inline: true },
             )
             .setColor(client.config.colors.normal)
             .setFooter({ text: client.config.discord.footer})
@@ -88,7 +88,7 @@ module.exports = async (client, interaction, args) => {
     }
     else if (boolean == false) {
         if (!Badges.FLAGS.includes(badge.toUpperCase())) return client.errNormal({
-            error: `The user doesn't have that badge`,
+            error: `Ennek a felhasználónak nincs meg ez a jelvénye`,
             type: `editreply`
         }, interaction);
 
@@ -106,7 +106,7 @@ module.exports = async (client, interaction, args) => {
         if (!array[0]) {
             let deleted = await model.deleteMany({ User: member.id });
             client.succNormal({
-                text: `Removed the ${badgeFlags[badge.toUpperCase()]} (${badge.toUpperCase()}) badge, the user have been removed from the badge system, he has no badges left!`,
+                text: `Eltávolítva a(z) ${badgeFlags[badge.toUpperCase()]} (${badge.toUpperCase()}) jelvény, a felhasználó eltávolításra került a jelvényrendszerből, nincs több jelvénye!`,
                 type: 'editreply'
             }, interaction);
 
@@ -120,17 +120,17 @@ module.exports = async (client, interaction, args) => {
                 }
             );
             client.succNormal({
-                text: `Removed the ${badgeFlags[badge.toUpperCase()]} (${badge.toUpperCase()}) badge!`,
+                text: `Eltávolítva a(z) ${badgeFlags[badge.toUpperCase()]} (${badge.toUpperCase()}) jelvény!`,
                 type: 'editreply'
             }, interaction);
         }
 
         let embedLogs = new Discord.EmbedBuilder()
-            .setTitle(`📛・Badge removed`)
-            .setDescription(`Removed a badge from ${member} (${member.id})`)
+            .setTitle(`📛・Jelvény eltávolítva`)
+            .setDescription(`Jelvény eltávolítva ${member} (${member.id}) felhasználótól`)
             .addFields(
-                { name: "👤┆Removed By", value: `${interaction.user} (${interaction.user.tag})`, inline: true },
-                { name: `📛┆Badge`, value: `${badgeFlags[badge.toUpperCase()]} (${badge.toUpperCase()})`, inline: true },
+                { name: "👤┆Eltávolította", value: `${interaction.user} (${interaction.user.tag})`, inline: true },
+                { name: `📛┆Jelvény`, value: `${badgeFlags[badge.toUpperCase()]} (${badge.toUpperCase()})`, inline: true },
             )
             .setColor(client.config.colors.normal)
             .setFooter({ text: client.config.discord.footer })

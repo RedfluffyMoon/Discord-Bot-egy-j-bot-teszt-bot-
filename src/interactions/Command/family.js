@@ -7,46 +7,46 @@ const Schema = require("../../database/models/music");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('family')
-        .setDescription('Create a family in Bot')
+        .setDescription('Család létrehozása a Botban')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the family category commands')
+                .setDescription('Információ a family kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('adopt')
-                .setDescription('Adopt a member')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                .setDescription('Egy tag örökbefogadása')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('delete')
-                .setDescription('Delete your family!'),
+                .setDescription('Családod törlése!'),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('disown')
-                .setDescription('Disown one of your children or a parent')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
+                .setDescription('Egy gyermeked vagy szülőd kitagadása')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('divorce')
-                .setDescription('Divorce your partner')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
+                .setDescription('Válás a partnerdtől')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('family')
-                .setDescription(`See who's in someone's family!`)
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(false)),
+                .setDescription(`Megnézheted, kik vannak valaki családjában!`)
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(false)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('propose')
-                .setDescription('Marry a member')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
+                .setDescription('Egy tag megkérése házasságra')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true)),
         ),
 
     /** 

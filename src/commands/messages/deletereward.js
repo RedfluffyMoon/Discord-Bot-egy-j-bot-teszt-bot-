@@ -16,10 +16,10 @@ module.exports = async (client, interaction, args) => {
         if (data) {
             Schema.findOneAndDelete({ Guild: interaction.guild.id, Messages: messages }).then(() => {
                 client.succNormal({
-                    text: `Message reward removed`,
+                    text: `Üzenet jutalom eltávolítva`,
                     fields: [
                         {
-                            name: "💬┆Messages",
+                            name: "💬┆Üzenetek",
                             value: `${messages}`,
                             inline: true,
                         }
@@ -30,7 +30,7 @@ module.exports = async (client, interaction, args) => {
         }
         else {
             return client.errNormal({
-                error: "No message reward found at this message amount!",
+                error: "Ennél az üzenetszámnál nem található jutalom!",
                 type: 'editreply'
             }, interaction);
         }

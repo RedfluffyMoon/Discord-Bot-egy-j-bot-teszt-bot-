@@ -25,7 +25,7 @@ module.exports = async (client, interaction, args) => {
 
                     if (ticketCategory == undefined) {
                         return client.errNormal({
-                            error: "Do the ticket setup!",
+                            error: "Végezd el a ticket beállítását!",
                             type: type
                         }, interaction)
                     }
@@ -36,35 +36,35 @@ module.exports = async (client, interaction, args) => {
                         ticketData.save();
 
                         return client.simpleEmbed({
-                            desc: `You will now be assisted by <@!${interaction.user.id}>`,
+                            desc: `Mostantól <@!${interaction.user.id}> segít neked`,
                             type: type
                         }, interaction)
 
                     }
                     else {
                         client.errNormal({
-                            error: "This is not a ticket!",
+                            error: "Ez nem egy ticket!",
                             type: type
                         }, interaction)
                     }
                 }
                 else {
                     client.errNormal({
-                        error: "Ticket has already been claimed!",
+                        error: "A ticketet már lefoglalták!",
                         type: 'ephemeral'
                     }, interaction)
                 }
             }
             else {
                 return client.errNormal({
-                    error: "Do the ticket setup!",
+                    error: "Végezd el a ticket beállítását!",
                     type: type
                 }, interaction)
             }
         }
         else {
             return client.errNormal({
-                error: "You are not allowed to claim your own ticket!",
+                error: "Nem foglalhatod le a saját ticketedet!",
                 type: 'ephemeral'
             }, interaction)
         }

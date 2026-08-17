@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 module.exports = async (client, interaction, args) => {
     client.simpleEmbed({
-        desc: `${client.emotes.animated.loading} Calculating ping...`,
+        desc: `${client.emotes.animated.loading} Ping számítása...`,
         type: 'editreply'
     }, interaction).then((resultMessage) => {
         const ping = Math.floor(resultMessage.createdTimestamp - interaction.createdTimestamp);
@@ -16,20 +16,20 @@ module.exports = async (client, interaction, args) => {
 
             client.embed({
                 title: `${client.emotes.normal.pong}・Pong`,
-                desc: `Check out how fast our bot is`,
+                desc: `Nézd meg, milyen gyors a botunk`,
                 fields: [
                     {
-                        name: "🤖┆Bot latency",
+                        name: "🤖┆Bot késleltetés",
                         value: `${ping}ms (${pingSeconds}s)`,
                         inline: true,
                     },
                     {
-                        name: "💻┆API Latency",
+                        name: "💻┆API késleltetés",
                         value: `${client.ws.ping}ms (${apiSeconds}s)`,
                         inline: true,
                     },
                     {
-                        name: "📂┆Database Latency",
+                        name: "📂┆Adatbázis késleltetés",
                         value: `${result.ok}ms (${mongooseSeconds}s)`,
                         inline: true,
                     }

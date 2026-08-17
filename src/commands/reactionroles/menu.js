@@ -10,8 +10,8 @@ module.exports = async (client, interaction, args) => {
     const upper = lower.charAt(0).toUpperCase() + lower.substring(1);
 
     Schema.findOne({ Guild: interaction.guild.id, Category: category }, async (err, data) => {
-        if (!data) return client.errNormal({ 
-            error: `No data found!`,
+        if (!data) return client.errNormal({
+            error: `Nem található adat!`,
             type: 'editreply'
         }, interaction);
 
@@ -25,7 +25,7 @@ module.exports = async (client, interaction, args) => {
 
         const menu = new Discord.StringSelectMenuBuilder()
             .setCustomId('reaction_select')
-            .setPlaceholder('❌┇Nothing selected')
+            .setPlaceholder('❌┇Nincs kiválasztva semmi')
             .setMinValues(1)
 
         var labels = [];
@@ -36,7 +36,7 @@ module.exports = async (client, interaction, args) => {
 
             const generated = {
                 label: `${role.name}`,
-                description: `Add or remove the role ${role.name}`,
+                description: `Add hozzá vagy vedd el a(z) ${role.name} szerepkört`,
                 emoji: data.Roles[value][1].raw,
                 value: data.Roles[value][1].raw,
             }
@@ -50,13 +50,13 @@ module.exports = async (client, interaction, args) => {
             .addComponents(menu)
 
         client.embed({
-            title: `${upper}・Roles`,
-            desc: `_____ \n\nChoose your roles in the menu! \n\n${map}`,
+            title: `${upper}・Szerepkörök`,
+            desc: `_____ \n\nVálaszd ki a szerepköreidet a menüben! \n\n${map}`,
             components: [row]
         }, channel).then(async(msg) => {
             if(!msg){
                 client.errNormal({
-                    error: "I couldn't send the message!\nMake sure I have the correct permissions!",
+                    error: "Nem sikerült elküldeni az üzenetet!\nEllenőrizd, hogy megvannak-e a megfelelő jogosultságaim!",
                     type: 'editreply'
                 }, interaction);
                 return;
@@ -65,8 +65,8 @@ module.exports = async (client, interaction, args) => {
             data.save();
         })
 
-        client.succNormal({ 
-            text: "Reaction panel successfully created!",
+        client.succNormal({
+            text: "A reakció panel sikeresen létrehozva!",
             type: 'ephemeraledit'
         }, interaction);
     })

@@ -7,15 +7,15 @@ module.exports = async (client, interaction, args) => {
 
     Schema.findOne({ User: interaction.user.id }, async (err, data) => {
         if (data) {
-            if (!isHexcolor(color)) return client.errNormal({ error: "You did not specify an hex color! Example: #ff0000", type: 'editreply' }, interaction);
+            if (!isHexcolor(color)) return client.errNormal({ error: "Nem adtál meg érvényes hex színkódot! Példa: #ff0000", type: 'editreply' }, interaction);
 
             data.Color = color;
             data.save();
 
             client.succNormal({
-                text: "Your favorite color is set",
+                text: "Kedvenc színed beállítva",
                 fields: [{
-                    name: "🎨┆Color",
+                    name: "🎨┆Szín",
                     value: `\`\`\`${color}\`\`\``,
                     inline: true,
                 }],
@@ -23,7 +23,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
         else {
-            return client.errNormal({ error: "No profile found! Open a profile with createprofile", type:'editreply' }, interaction);
+            return client.errNormal({ error: "Nem található profil! Nyiss egyet a createprofile paranccsal", type:'editreply' }, interaction);
         }
     })
 }

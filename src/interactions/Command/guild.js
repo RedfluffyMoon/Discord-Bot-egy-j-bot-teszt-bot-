@@ -5,67 +5,67 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('guild')
-        .setDescription('Manage the guild')
+        .setDescription('A szerver kezelése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the guild category commands')
+                .setDescription('Információ a guild kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('channelinfo')
-                .setDescription('Get information about a channel')
-                .addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true))
+                .setDescription('Információ egy csatornáról')
+                .addChannelOption(option => option.setName('channel').setDescription('Válassz egy csatornát').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('members')
-                .setDescription('See how many members there are in this server')
+                .setDescription('Megnézheted, hány tagja van a szervernek')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('oldestmember')
-                .setDescription('Get the oldest account creation date in the guild')
+                .setDescription('A szerver legrégebben regisztrált tagjának lekérése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('roleinfo')
-                .setDescription('Get info about a role')
-                .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true))
+                .setDescription('Információ egy szerepkörről')
+                .addRoleOption(option => option.setName('role').setDescription('Válassz egy szerepkört').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('info')
-                .setDescription('Get all info about the current server')
+                .setDescription('Minden információ a jelenlegi szerverről')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('stealemoji')
-                .setDescription('Steal an emoji')
-                .addStringOption(option => option.setName('emoji').setDescription('Enter an emoji to steal').setRequired(true))
-                .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(false))
+                .setDescription('Egy emoji ellopása')
+                .addStringOption(option => option.setName('emoji').setDescription('Add meg az ellopni kívánt emojit').setRequired(true))
+                .addRoleOption(option => option.setName('role').setDescription('Válassz egy szerepkört').setRequired(false))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('youngestmember')
-                .setDescription('Get the youngest account creation date in the guild')
+                .setDescription('A szerver legfrissebben regisztrált tagjának lekérése')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('userinfo')
-                .setDescription('Get all info about a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                .setDescription('Minden információ egy felhasználóról')
+                .addUserOption(option => option.setName('user').setDescription('Válassz egy felhasználót').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('inviteinfo')
-                .setDescription('Get all info about a invite')
-                .addStringOption(option => option.setName('invite').setDescription('Enter a invite code').setRequired(true))
+                .setDescription('Minden információ egy meghívóról')
+                .addStringOption(option => option.setName('invite').setDescription('Add meg a meghívókódot').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('emojis')
-                .setDescription('See the guild emojis')
+                .setDescription('A szerver emojijainak megtekintése')
         )
     ,
 

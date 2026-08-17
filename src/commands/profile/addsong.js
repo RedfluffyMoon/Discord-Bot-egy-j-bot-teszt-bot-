@@ -9,7 +9,7 @@ module.exports = async (client, interaction, args) => {
 
             if (data && data.Songs) {
                 if (data.Songs.includes(song)) {
-                    return client.errNormal({ error: `That song is already exists in your database!`, type: 'editreply' }, interaction);
+                    return client.errNormal({ error: `Ez a dal már szerepel az adatbázisodban!`, type: 'editreply' }, interaction);
                 }
                 data.Songs.push(song);
                 data.save();
@@ -19,9 +19,9 @@ module.exports = async (client, interaction, args) => {
                 data.save();
             }
             client.succNormal({
-                text: "Added your song",
+                text: "Dal hozzáadva",
                 fields: [{
-                    name: "🎶┆Song",
+                    name: "🎶┆Dal",
                     value: `\`\`\`${song}\`\`\``,
                     inline: true,
                 }],
@@ -29,7 +29,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
         else {
-            return client.errNormal({ error: "No profile found! Open a profile with createprofile", type:'editreply' }, interaction);
+            return client.errNormal({ error: "Nem található profil! Nyiss egyet a createprofile paranccsal", type:'editreply' }, interaction);
         }
     })
 

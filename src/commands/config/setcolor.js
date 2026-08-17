@@ -21,7 +21,7 @@ module.exports = async (client, interaction, args) => {
     }
 
     if (!isHexColor(color)) return client.errNormal({
-        error: "You did not specify an hex color! Example: ff0000",
+        error: "Nem adtál meg érvényes hex színkódot! Példa: ff0000",
         type: 'editreply'
     }, interaction)
 
@@ -39,10 +39,10 @@ module.exports = async (client, interaction, args) => {
     })
 
     client.succNormal({
-        text: `The embed color has been adjusted successfully`,
+        text: `Az embed szín sikeresen módosítva`,
         fields: [
             {
-                name: `🎨┆New color`,
+                name: `🎨┆Új szín`,
                 value: `#${color}`,
                 inline: true
             },

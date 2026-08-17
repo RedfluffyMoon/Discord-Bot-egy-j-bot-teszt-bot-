@@ -15,9 +15,9 @@ module.exports = async (client, interaction, args) => {
         if (data && !data.error) {
             interaction.editreply({ embeds: [data] })
         } else {
-            client.errNormal({ 
-                error: "Could not find that documentation!", 
-                type: 'editreply' 
+            client.errNormal({
+                error: "Nem található az adott dokumentáció!",
+                type: 'editreply'
             }, interaction)
         }
     }).catch((err) => {

@@ -4,7 +4,7 @@ module.exports = async (client, interaction, args) => {
 
     const country = interaction.options.getString('country');
 
-    if (country.length > 50) return client.errNormal({ error: "Your origin cannot be longer than 50 characters", type: 'editreply' }, interaction);
+    if (country.length > 50) return client.errNormal({ error: "A származásod nem lehet hosszabb 50 karakternél", type: 'editreply' }, interaction);
 
     Schema.findOne({ User: interaction.user.id }, async (err, data) => {
         if (data) {
@@ -12,9 +12,9 @@ module.exports = async (client, interaction, args) => {
             data.save();
 
             client.succNormal({
-                text: "Your origin is set",
+                text: "Származásod beállítva",
                 fields: [{
-                    name: "🌍┆Country",
+                    name: "🌍┆Ország",
                     value: `\`\`\`${country}\`\`\``,
                     inline: true,
                 }],
@@ -22,7 +22,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
         else {
-            return client.errNormal({ error: "No profile found! Open a profile with createprofile", type:'editreply' }, interaction);
+            return client.errNormal({ error: "Nem található profil! Nyiss egyet a createprofile paranccsal", type:'editreply' }, interaction);
         }
     })
 }

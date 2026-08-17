@@ -10,7 +10,7 @@ module.exports = async (client, interaction, args) => {
         fact = JSON.parse(body).text;
 
         client.embed({
-            title: `😂・Fact`,
+            title: `😂・Tény`,
             desc: fact,
             type: 'editreply',
         }, interaction);

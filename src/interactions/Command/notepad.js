@@ -5,35 +5,35 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('notepad')
-        .setDescription('Manage your notes')
+        .setDescription('Jegyzeteid kezelése')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the search category commands')
+                .setDescription('Információ a notepad kategória parancsairól')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('add')
-                .setDescription('Add a note to your notepad')
-                .addStringOption(option => option.setName('note').setDescription('Your note').setRequired(true))
+                .setDescription('Jegyzet hozzáadása a jegyzettömbödhöz')
+                .addStringOption(option => option.setName('note').setDescription('A jegyzeted').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('delete')
-                .setDescription('Delete a note from your notepad')
-                .addStringOption(option => option.setName('id').setDescription('Note id').setRequired(true))
+                .setDescription('Jegyzet törlése a jegyzettömbödből')
+                .addStringOption(option => option.setName('id').setDescription('A jegyzet azonosítója').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('edit')
-                .setDescription('Edit a note from your notepad')
-                .addStringOption(option => option.setName('id').setDescription('Note id').setRequired(true))
-                .addStringOption(option => option.setName('note').setDescription('New note').setRequired(true))
+                .setDescription('Jegyzet szerkesztése a jegyzettömbödben')
+                .addStringOption(option => option.setName('id').setDescription('A jegyzet azonosítója').setRequired(true))
+                .addStringOption(option => option.setName('note').setDescription('Az új jegyzet').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('notes')
-                .setDescription('Show all your notes')
+                .setDescription('Az összes jegyzeted megjelenítése')
         )
     ,
 

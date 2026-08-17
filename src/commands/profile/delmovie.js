@@ -10,7 +10,7 @@ module.exports = async (client, interaction, args) => {
 
             if (data && data.Movies) {
                 if (!data.Movies.includes(movie)) {
-                    return client.errNormal({ error: `That movie doesn't exist in the database!`, type: 'editreply' }, interaction);
+                    return client.errNormal({ error: `Ez a film nem szerepel az adatbázisban!`, type: 'editreply' }, interaction);
                 }
 
                 const filtered = data.Movies.filter((target) => target !== movie);
@@ -20,9 +20,9 @@ module.exports = async (client, interaction, args) => {
                 });
             }
             client.succNormal({
-                text: "Removed your movie",
+                text: "Film eltávolítva",
                 fields: [{
-                    name: "🎬┆Movies",
+                    name: "🎬┆Filmek",
                     value: `\`\`\`${movie}\`\`\``,
                     inline: true,
                 }],
@@ -30,7 +30,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
         else {
-            return client.errNormal({ error: "No profile found! Open a profile with createprofile", type:'editreply' }, interaction);
+            return client.errNormal({ error: "Nem található profil! Nyiss egyet a createprofile paranccsal", type:'editreply' }, interaction);
         }
     })
 
