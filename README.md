@@ -19,47 +19,47 @@
     <img src="https://cdn.discordapp.com/attachments/778665159316209748/1055857473749274694/Corwin-1-modified.png" alt="Pbot-plus" width="200" height="200">
   </a>
 
-  <h3 align="center">Discord-Bot</h3>
+  <h3 align="center">Discord Bot</h3>
 
   <p align="center">
-    Discord-bot is an updated version of <a href="https://github.com/DotwoodMedia/Dbot">Dbot</a>, an advanced Discord multipurpose bot containing more than 400 commands.<br> It can do Moderation, Tickets, Radio, Games, Giveaways, Customisation, Economy, Leveling, Invites, Messages, Utilities, Suggestions, Server Stats etc.<br> Unfortunately the owners stopped at the peak and decided to put the source online of which I made an updated version.
+    A Discord Bot a <a href="https://github.com/DotwoodMedia/Dbot">Dbot</a> frissített változata, egy fejlett, sokoldalú Discord bot, ami több mint 400 parancsot tartalmaz.<br> Képes moderálásra, ticketekre, rádióra, játékokra, nyereményjátékokra, testreszabásra, gazdaságra, szintrendszerre, meghívókra, üzenetekre, hasznos eszközökre, javaslatokra, szerver statisztikákra és még sok másra.<br> Sajnos a tulajdonosok a csúcson leálltak és úgy döntöttek, hogy közzéteszik a forráskódot, amiből egy frissített verziót készítettem.
     <br />
     <br />
-    <a href="https://github.com/corwindev/discord-bot/issues">Report Bug</a>
+    <a href="https://github.com/corwindev/discord-bot/issues">Hiba jelentése</a>
     ·
-    <a href="https://github.com/corwindev/discord-bot/issues">Request Feature</a>
+    <a href="https://github.com/corwindev/discord-bot/issues">Funkció kérése</a>
   </p>
 </p>
 
 <!-- NOTICE -->
 
-### <img src="https://cdn.discordapp.com/emojis/1055803759831294013.png" width="20px" height="20px"> 》Notice 
-> You may not claim this as your own! The original source was created by [Dotwood Media](https://github.com/DotwoodMedia) and [Graphix Development](https://github.com/GraphixDevelopment). The source is modified and updated by me(CorwinDev)
+### <img src="https://cdn.discordapp.com/emojis/1055803759831294013.png" width="20px" height="20px"> 》Figyelmeztetés 
+> Nem állíthatod, hogy ez a saját munkád! Az eredeti forráskódot a [Dotwood Media](https://github.com/DotwoodMedia) és a [Graphix Development](https://github.com/GraphixDevelopment) készítette. A forráskódot módosítottam és frissítettem (CorwinDev)
 
-> Discord-Bot is a multipurpose Discord bot base in [Discord.js](https://github.com/Discordjs/discordjs)
-If you like this repository, feel free to leave a star ⭐ to motivate me!
+> A Discord Bot egy sokoldalú Discord bot, [Discord.js](https://github.com/Discordjs/discordjs) alapokon
+Ha tetszik ez a repó, nyugodtan adj egy csillagot ⭐, hogy motiválj!
 
 <!-- ABOUT THE PROJECT -->
 
-## <img src="https://cdn.discordapp.com/emojis/859424401186095114.png" width="20px" height="20px">》Description 
+## <img src="https://cdn.discordapp.com/emojis/859424401186095114.png" width="20px" height="20px">》Leírás 
 [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=corwindev&repo=Discord-bot&theme=tokyonight)](https://github.com/corwindev/Discord-bot)
-## <img src="https://cdn.discordapp.com/emojis/852881450667081728.gif" width="20px" height="20px">》Feature
-- [x] Slash Commands 
-- [x] Upto date with Discord.js v14
+## <img src="https://cdn.discordapp.com/emojis/852881450667081728.gif" width="20px" height="20px">》Funkciók
+- [x] Slash parancsok
+- [x] Naprakész a Discord.js v14-gyel
 - [x] Automod
-- [x] Custom Commands
-- [x] Music Commands
-- [x] Tickets
-- [x] Utility Commands
-- [x] Suggestions 
-- [x] Reaction Roles
-- [x] Family
-- [x] Giveaways 
-- [x] Easy to use
-- [x] Customizable
-- [x] And much more
-- [x] Don't wanna host it yourself? [Use our public bot](https://discord.com/api/oauth2/authorize?client_id=860390761307439114&permissions=8&scope=bot%20applications.commands)
-## <img src="https://cdn.discordapp.com/emojis/1028680849195020308.png" width="25px" height="25px">》Screenshots
+- [x] Egyedi parancsok
+- [x] Zene parancsok
+- [x] Ticketek
+- [x] Hasznos eszköz parancsok
+- [x] Javaslatok
+- [x] Reakció szerepkörök
+- [x] Család rendszer
+- [x] Nyereményjátékok
+- [x] Egyszerűen használható
+- [x] Testreszabható
+- [x] És még sok más
+- [x] Nem szeretnéd magad üzemeltetni? [Használd a publikus botunkat](https://discord.com/api/oauth2/authorize?client_id=860390761307439114&permissions=8&scope=bot%20applications.commands)
+## <img src="https://cdn.discordapp.com/emojis/1028680849195020308.png" width="25px" height="25px">》Képernyőképek
 <br />
 <p align="center">
   <a href="https://github.com/corwindev/discord-bot">
@@ -67,51 +67,49 @@ If you like this repository, feel free to leave a star ⭐ to motivate me!
   </a>
 </p>
 
-## <img src="https://cdn.discordapp.com/emojis/1009754836314628146.gif" width="25px" height="25px">》Requirements
+## <img src="https://cdn.discordapp.com/emojis/1009754836314628146.gif" width="25px" height="25px">》Követelmények
 - NodeJs v17+
-- Java v13 for lavalink server.
-- Discord Token. Get it from [Discord Developers Portal](https://discord.com/developers/applications)
-- Mongo Database URL. Get it from [MongoDB](https://cloud.mongodb.com/v2/635277bf9f5c7b5620db28a4#clusters)
-- Giphy API Token. Get it from [Giphy Developers Portal](https://developers.giphy.com/)
-- OpenAI API Key `for ai chatbot`. Get it from [OpenAi Developers Portal](https://beta.openai.com/account/api-keys)
-- ClientID `for loading slash commands.` [Discord Developers Portal](https://discord.com/developers/applications)
-- Spotify client ID `for Spotify support` [Click here to get](https://developer.spotify.com/dashboard/login)
-- Spotify client Secret `for Spotify support` [Click here to get](https://developer.spotify.com/dashboard/login)
+- Java v13 a lavalink szerverhez.
+- Discord Token. Szerezd be a [Discord Developers Portalon](https://discord.com/developers/applications)
+- Mongo adatbázis URL. Szerezd be a [MongoDB-nél](https://cloud.mongodb.com/v2/635277bf9f5c7b5620db28a4#clusters)
+- Giphy API Token. Szerezd be a [Giphy Developers Portalon](https://developers.giphy.com/)
+- OpenAI API kulcs `az ai chatbothoz`. Szerezd be az [OpenAi Developers Portalon](https://beta.openai.com/account/api-keys)
+- ClientID `a slash parancsok betöltéséhez.` [Discord Developers Portal](https://discord.com/developers/applications)
+- Spotify client ID `a Spotify támogatáshoz` [Kattints ide a beszerzéshez](https://developer.spotify.com/dashboard/login)
+- Spotify client Secret `a Spotify támogatáshoz` [Kattints ide a beszerzéshez](https://developer.spotify.com/dashboard/login)
 
-## <img src="https://cdn.discordapp.com/emojis/814216203466965052.png" width="25px" height="25px">》Installation Guide
+## <img src="https://cdn.discordapp.com/emojis/814216203466965052.png" width="25px" height="25px">》Telepítési útmutató
 
-### <img src="https://cdn.discordapp.com/emojis/1028680849195020308.png" width="15px" height="15px"> Installing via [NPM](https://www.npmjs.com/)
-Clone the repo by running
+### <img src="https://cdn.discordapp.com/emojis/1028680849195020308.png" width="15px" height="15px"> Telepítés [NPM](https://www.npmjs.com/)-mel
+Klónozd a repót az alábbi paranccsal
 ```bash
 git clone https://github.com/Corwindev/Discord-Bot.git
 ```
-### After cloning Fill all requirement in `.env` **(rename `.env.example` to `.env`)**, then run
-
+### Klónozás után töltsd ki az összes szükséges adatot a `.env` fájlban **(nevezd át az `.env.example` fájlt `.env`-re)**, majd futtasd
 ```bash
 npm install
 ```
-To start your bot 
-
+A bot indításához
 ```js
 node src/index.js
 ```
 
-## <img src="https://cdn.discordapp.com/emojis/1036083490292244493.png" width="15px" height="15px">》Support Server
+## <img src="https://cdn.discordapp.com/emojis/1036083490292244493.png" width="15px" height="15px">》Támogatói szerver
 [![DiscordBanner](https://invidget.switchblade.xyz/techpoint-1016942011024158782)](https://discord.gg/techpoint-1016942011024158782)
 
-[Support Server](https://discord.gg/techpoint-1016942011024158782) - Discord-Bot's Support Server Invite
+[Támogatói szerver](https://discord.gg/techpoint-1016942011024158782) - A Discord Bot támogatói szerverének meghívója
 
-# <img src="https://cdn.discordapp.com/emojis/1015745034076819516.png" width="25px" height="25px">》Faq
-> How to get access to Developers Commands? You will have to set them up via MongoDB or run the below command.
+# <img src="https://cdn.discordapp.com/emojis/1015745034076819516.png" width="25px" height="25px">》Gyakori kérdések
+> Hogyan férhetek hozzá a fejlesztői parancsokhoz? Be kell állítanod őket a MongoDB-n keresztül, vagy futtasd az alábbi parancsot.
 
 ```bash
-npm run add-dev YOUR_Discord_ID
+npm run add-dev A_TE_Discord_ID-D
 ```
-# Donate
+# Adományozás
 
- By Donating, You Will Help Me To Maintain This Project 
+ Az adományoddal segítesz a projekt fenntartásában 
 
-<img src="https://cdn.discordapp.com/emojis/809085860632985630.png" width="15px" height="15px"> 》[Sponsor](https://github.com/sponsors/CorwinDev)
+<img src="https://cdn.discordapp.com/emojis/809085860632985630.png" width="15px" height="15px"> 》[Támogatás](https://github.com/sponsors/CorwinDev)
 
 [version-shield]: https://img.shields.io/github/package-json/v/CorwinDev/Discord-Bot?style=for-the-badge
 [version-url]: https://github.com/brblacky/WaveMusic
